@@ -14,7 +14,7 @@ function App() {
 
     <Routes>
 
-      <Route path="/" component={home} />
+      <Route path="/" element={home} />
 
     </Routes>
 
