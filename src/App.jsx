@@ -3,7 +3,8 @@
 import './App.css'
 
 import { Routes, Route } from 'react-router-dom';
-import home from './Pages/Home';
+import Home from './Pages/Home/Home';
+
 
 
 
@@ -14,7 +15,7 @@ function App() {
 
     <Routes>
 
-      <Route path="/" element={home} />
+      <Route path="/" Component={Home} />
 
     </Routes>
 
