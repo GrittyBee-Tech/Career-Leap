@@ -19,7 +19,7 @@ const Navbar = () => {
         <nav >
             <div className="container m-auto md:w-[85%] w-[94%] flex  md:gap-[80px] mt-4 md:border-none  border border-[#00F] rounded md:p-2 p-3">
                 <div className="flex">
-                    <span className="text-[32px]  text-[#00F] font-normal z-1000">
+                    <span className="text-[32px]  text-[#00F] font-normal  font-lobster z-1000">
                         Career Leap
                     </span>
                     <span className="text-[42px]  text-[#00F]">
@@ -29,7 +29,7 @@ const Navbar = () => {
 
 
 
-                <ul className="md:flex  hidden  gap-8 mt-2 text-[24px] text-[#0A0A29]">
+                <ul className="md:flex  hidden  gap-8 mt-2 text-[24px] text-[#0A0A29] font-plus-jakarta-sans">
                     <li>Home</li>
                     <li>Appraisal</li>
                     <li>Upskills</li>
