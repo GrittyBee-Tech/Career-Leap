@@ -2,6 +2,7 @@ import { AiOutlineDingtalk } from "react-icons/ai"
 import { GiHamburgerMenu } from "react-icons/gi"
 import MobileNavbar from "./MobileNavbar"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 
 
@@ -30,7 +31,9 @@ const Navbar = () => {
 
 
                 <ul className="md:flex  hidden  gap-8 mt-2 text-[24px] text-[#0A0A29] font-plus-jakarta-sans">
-                    <li>Home</li>
+                    <li>
+                        <Link to="/">
+                            Home</Link></li>
                     <li>Appraisal</li>
                     <li>Upskills</li>
                     <li>Mentorship</li>
