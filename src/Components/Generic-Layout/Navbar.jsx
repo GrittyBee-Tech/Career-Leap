@@ -30,7 +30,7 @@ const Navbar = () => {
 
 
 
-                <ul className="md:flex  hidden  gap-8 mt-2 text-[24px] text-[#0A0A29] font-plus-jakarta-sans">
+                <ul className="md:flex  hidden  gap-5 mt-2 text-[24px] text-[#0A0A29] font-plus-jakarta-sans">
                     <li>
                         <Link to="/">
                             Home</Link></li>

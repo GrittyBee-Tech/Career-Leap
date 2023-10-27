@@ -5,9 +5,9 @@ import check from "/src/assets/Icons/check.png"
 const Appraisal = () => {
     return (
         <section id="Appraisal" className="bg-[#EAF6FC]  md:h-auto h-[900px]">
-            <div className="container mx-auto w-[85%] mt-11  lg:flex gap-[120px]">
+            <div className="container mx-auto w-[85%] mt-11  lg:flex gap-[140px] ">
                 <div className="">
-                    <img className="w-[600px] pt-11" src={Icon} alt="icon" />
+                    <img className="w-[500px] mt-[90px]" src={Icon} alt="icon" />
 
                 </div>
                 <div className="md:mt-6 mt-3">
