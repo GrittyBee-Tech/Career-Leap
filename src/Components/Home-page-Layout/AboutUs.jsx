@@ -11,7 +11,7 @@ const AboutUs = () => {
                         <p className=" md:w-[570px] mt-[40px]  md:text-[40px]  text-[20px] w-[300px] font-normal  font-georgia text-[#0A0A29]">
                             <span className="font-lobster text-[#00F]">RisePath</span> Supports talent growth, enhances
                             organizational productivity, and contributes to a positive work environment,
-                            making it a valuable tool for any forward-thinking company.
+                            making it a valuable tool for any forward-thinking company..
                         </p>
                     </div>
                     <div>
