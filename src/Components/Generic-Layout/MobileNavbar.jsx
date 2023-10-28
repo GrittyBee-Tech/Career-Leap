@@ -1,5 +1,6 @@
 import { AiOutlineDingtalk } from "react-icons/ai"
 import { RiCloseCircleFill } from "react-icons/ri"
+import { Link } from "react-router-dom"
 
 
 const MobileNavbar = ({ isOpen, setIsOpen, setIsModalOpen }) => {
@@ -13,7 +14,7 @@ const MobileNavbar = ({ isOpen, setIsOpen, setIsModalOpen }) => {
                     <span className="text-[42px]  text-[#FFFF]">
                         <AiOutlineDingtalk />
                     </span>
-                    <button onClick={() => setIsOpen(false)} className="text-[32px] text-[#FFFF]  mt-2">
+                    <button onClick={() => setIsOpen(false)} className=" absolute top-0 text-[32px] text-[#FFFF]  mt-2">
                         <RiCloseCircleFill />
                     </button>
                 </div>

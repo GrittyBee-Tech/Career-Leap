@@ -4,6 +4,7 @@ import Upskills from "../../Components/Home-page-Layout/Upskills";
 import Appraisal from "../../Components/Home-page-Layout/Appraisal";
 import Mentorship from "../../Components/Home-page-Layout/Mentorship";
 import Navbar from "../../Components/Generic-Layout/Navbar";
+import AboutUs from "../../Components/Home-page-Layout/AboutUs";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Upskills />
             <Mentorship />
             <Health />
+            <AboutUs />
 
 
 

@@ -17,25 +17,28 @@ const Navbar = () => {
         <nav>
             <div className="container m-auto md:w-[85%] w-[94%] flex items-center justify-between md:gap-[80px] mt-4 md:border-none  border border-[#00F] rounded md:p-2 p-3">
                 <div className="flex items-center">
-                    <span className="text-[32px]  text-[#00F] font-normal  font-lobster z-1000">
-                        Career Leap
+                    <span className="text-[32px]  text-[#00F] font-normal  font-lobster ">
+                        RisePath
                     </span>
                     <span className="text-[36px]  text-[#00F]">
                         <AiOutlineDingtalk />
                     </span>
                 </div>
 
-                <ul className="md:flex hidden gap-5 mt-2 text-[24px] text-[#0A0A29] font-plus-jakarta-sans">
+                <ul className="md:flex hidden gap-5 mt-2 text-[24px] text-[#0A0A29] font-plus-jakarta-sans font-semibold">
                     <li>
                         <Link to="/">
                             Home</Link></li>
-                    <li>Appraisal</li>
-                    <li>Upskills</li>
+                    <li>
+                        <Link to="/#Appraisal">
+                            Appraisal</Link></li>
+                    <li>
+                        <Link to="/#Mentorship"> Upskills</Link></li>
                     <li>Mentorship</li>
                     <li>Mental Health</li>
                 </ul>
                 <div className=" md:flex gap-4 hidden">
-                    <p className="mt-2 text-[24px] ">Log in</p>
+                    <p className="mt-2 text-[24px] text-[#0A0A29] font-plus-jakarta-sans font-semibold ">Log in</p>
                     <button onClick={() => setIsModalOpen(true)} className="bg-[#00F]  text-[#FFFF]  w-[138px] h-[50px] rounded  text-[24px] font-bold">Sign up</button>
                 </div>
                 <button onClick={toggleMenu} className="md:hidden flex ml-[84px] mt-4 text-[24px] text-[#00F]">
