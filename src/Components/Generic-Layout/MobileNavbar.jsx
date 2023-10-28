@@ -2,7 +2,7 @@ import { AiOutlineDingtalk } from "react-icons/ai"
 import { RiCloseCircleFill } from "react-icons/ri"
 
 
-const MobileNavbar = ({ isOpen, setIsOpen }) => {
+const MobileNavbar = ({ isOpen, setIsOpen, setIsModalOpen }) => {
     return (
         <nav className="md:hidden absolute top-0 bg-[#00F] h-screen">
             <div className="flex flex-col p-4">
@@ -18,10 +18,6 @@ const MobileNavbar = ({ isOpen, setIsOpen }) => {
                     </button>
                 </div>
 
-
-
-
-
                 <ul className="flex  flex-col gap-4 mt-2 text-[24px] text-[#FFFF]">
                     <li>Home</li>
                     <li>Appraisal</li>
@@ -31,17 +27,13 @@ const MobileNavbar = ({ isOpen, setIsOpen }) => {
                 </ul>
                 <div className=" flex  flex-col gap-3 ">
                     <p className="mt-3 text-[24px] text-[#FFFF]">Log in</p>
-                    <button className="bg-[black] w-[150px] p-3 text-[#FFFF] rounded">Sign up</button>
+                    <button onClick={() => setIsModalOpen(true)} className="bg-[black] w-[150px] p-3 text-[#FFFF] rounded" >Sign up</button>
                 </div>
                 <div className="">
 
                 </div>
 
-
             </div>
-
-
-
 
         </nav>
     )

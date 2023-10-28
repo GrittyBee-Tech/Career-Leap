@@ -6,7 +6,11 @@ export default {
       fontFamily: {
         lobster: ["Lobster", "cursive"],
         "plus-jakarta-sans": ["Plus Jakarta Sans", "sans-serif"],
+        "georgia": ['Georgia', 'Times New Roman']
       },
+      colors: {
+        'primary': '#0000FF'
+      }
     },
   },
   plugins: [],
