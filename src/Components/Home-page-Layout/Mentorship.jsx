@@ -3,7 +3,7 @@ import check from "/src/assets/Icons/check.png"
 
 const Mentorship = () => {
     return (
-        <section className="bg-[#EAF6FC]">
+        <section id="Mentorship" className="bg-[#EAF6FC] ">
 
 
             <div className="container mx-auto w-[85%] mt-11  lg:flex gap-[140px]">

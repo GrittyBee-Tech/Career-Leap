@@ -1,12 +1,12 @@
 import employer from '../../assets/Icons/employer.svg'
 import employee from '../../assets/Icons/employee.svg'
-import { GrFormClose } from 'react-icons/gr';
+import { AiFillCloseCircle } from "react-icons/ai"
 import { Link } from 'react-router-dom';
 
 const RegisterModal = ({ setIsModalOpen, isModalOpen }) => {
   return (
     <section className={` md:absolute md:top-[120px] md:w-[70%]   md:rounded  w-full  h-auto fixed md:container mx-auto justify-center items-center bg-[#EAF6FC] registerOptions  md:h-[500px] inset-0 transition duration-500 ease-in-out ${isModalOpen ? 'flex' : 'hidden'}`}>
-      <button onClick={() => setIsModalOpen(false)} className='absolute top-7 right-9'><GrFormClose size={30} stroke='#0000FF' strk fill='#0000FF' /></button>
+      <button onClick={() => setIsModalOpen(false)} className='absolute top-7 right-9'><AiFillCloseCircle className="text-[#0000FF]" size={30} stroke='#0000FF' strk fill='#0000FF' /></button>
       <div className="flex w-10/12 sm:flex-row flex-col gap-8 md:gap-16 justify-center items-center">
         <div className="bg-white w-[22rem] px-6 pt-4 sm:pt-5 sm:pb-11 pb-6 flex flex-col items-center text-center gap-3 sm:gap-5 rounded-3xl regBox border border-[#407bff33]">
           <img src={employee} alt="" />
