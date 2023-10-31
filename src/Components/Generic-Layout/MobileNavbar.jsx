@@ -9,12 +9,12 @@ const MobileNavbar = ({ isOpen, setIsOpen, setIsModalOpen }) => {
             <div className="flex flex-col p-4">
                 <div className="flex">
                     <span className="text-[32px]  text-[#FFFF] font-normal">
-                        Career Leap
+                        Rise Path
                     </span>
                     <span className="text-[42px]  text-[#FFFF]">
                         <AiOutlineDingtalk />
                     </span>
-                    <button onClick={() => setIsOpen(false)} className=" absolute top-0 text-[32px] text-[#FFFF]  mt-2">
+                    <button onClick={() => setIsOpen(false)} className=" absolute top-[18px] left-[298px] text-[32px] text-[#FFFF]  mt-2">
                         <RiCloseCircleFill />
                     </button>
                 </div>
