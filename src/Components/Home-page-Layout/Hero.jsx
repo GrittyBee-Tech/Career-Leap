@@ -15,7 +15,7 @@ const Hero = () => {
                     <button className=" mt-7   w-[198px] h-[60px] bg-[#00F] text-[#FFFF]  font-bold text-[24px] rounded">Get Started</button>
                 </div>
 
-                <div className="md:mt-0 mt-7">
+                <div className="md:mt-0 mt-7 md:flex hidden">
                     <img className="w-[600px]" src={team} alt="team" />
                 </div>
 

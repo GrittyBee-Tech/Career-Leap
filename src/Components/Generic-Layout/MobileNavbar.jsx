@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 const MobileNavbar = ({ isOpen, setIsOpen, setIsModalOpen }) => {
     return (
-        <nav className="md:hidden  top-0 bg-[#00F]  fixed h-screen w-full">
+        <nav className="md:hidden  top-0 bg-[#001f2b]  fixed h-screen w-full">
             <div className="flex flex-col p-4">
                 <div className="flex">
                     <span className="text-[32px]  text-[#FFFF] font-normal">

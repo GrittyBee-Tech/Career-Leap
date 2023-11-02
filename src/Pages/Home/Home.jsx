@@ -5,6 +5,8 @@ import Appraisal from "../../Components/Home-page-Layout/Appraisal";
 import Mentorship from "../../Components/Home-page-Layout/Mentorship";
 import Navbar from "../../Components/Generic-Layout/Navbar";
 import AboutUs from "../../Components/Home-page-Layout/AboutUs";
+import Faq from "../../Components/Home-page-Layout/Faq";
+
 
 
 const Home = () => {
@@ -17,6 +19,7 @@ const Home = () => {
             <Mentorship />
             <Health />
             <AboutUs />
+            <Faq/>
 
 
 
