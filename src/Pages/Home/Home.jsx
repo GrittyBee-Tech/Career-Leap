@@ -6,6 +6,7 @@ import Mentorship from "../../Components/Home-page-Layout/Mentorship";
 import Navbar from "../../Components/Generic-Layout/Navbar";
 import AboutUs from "../../Components/Home-page-Layout/AboutUs";
 import Faq from "../../Components/Home-page-Layout/Faq";
+import Footer from "../../Components/Generic-Layout/Footer";
 
 
 
@@ -19,7 +20,8 @@ const Home = () => {
             <Mentorship />
             <Health />
             <AboutUs />
-            <Faq/>
+            <Faq />
+            <Footer />
 
 
 
