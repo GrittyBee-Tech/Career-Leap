@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link"
 
 const MobileNavbar = ({ setIsOpen, setIsModalOpen }) => {
     return (
-        <nav className="md:hidden  top-0  bg-[#BCE7FD] fixed h-screen w-full">
+        <nav className="md:hidden  top-0  bg-[#BCE7FD] fixed h-screen w-full z-10">
             <div className="flex flex-col p-4">
                 <div className="flex">
                     <span className="text-[32px]  text-[#FFFF] font-normal">
