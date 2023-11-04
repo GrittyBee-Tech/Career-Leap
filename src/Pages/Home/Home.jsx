@@ -4,9 +4,9 @@ import Upskills from "../../Components/Home-page-Layout/Upskills";
 import Appraisal from "../../Components/Home-page-Layout/Appraisal";
 import Mentorship from "../../Components/Home-page-Layout/Mentorship";
 import Navbar from "../../Components/Generic-Layout/Navbar";
-import AboutUs from "../../Components/Home-page-Layout/AboutUs";
-import Faq from "../../Components/Home-page-Layout/Faq";
-import Footer from "../../Components/Generic-Layout/Footer";
+// import AboutUs from "../../Components/Home-page-Layout/AboutUs";
+// import Faq from "../../Components/Home-page-Layout/Faq";
+// import Footer from "../../Components/Generic-Layout/Footer";
 import Totopbtn from "../../Components/Home-page-Layout/Totopbtn";
 
 
@@ -20,9 +20,11 @@ const Home = () => {
             <Upskills />
             <Mentorship />
             <Health />
-            <AboutUs />
-            <Faq />
-            <Footer />
+
+            {/* <AboutUs />
+             <Faq />
+             <Footer />     */}
+
             <Totopbtn />
 
 
