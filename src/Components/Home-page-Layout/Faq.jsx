@@ -1,7 +1,11 @@
 import { Data } from "/src/Components/Home-page-Layout/Data"
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa"
 import faq from "/src/assets/Images/faq.png"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 
 
 
@@ -14,12 +18,14 @@ const Faq = () => {
     newShowContent[index] = !newShowContent[index];
     setShowContent(newShowContent);
   }
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
     <section>
-      <div className="container mx-auto w-[85%] lg:flex  gap-[130px]  lg:pt-[40px] pt-[100px]">
-        <div className="mb-[0px]">
+      <div className="container mx-auto w-[85%] lg:flex  gap-[130px]  lg:pt-[60px] pt-[100px] ">
+        <div className="mb-[0px] lg:mb-[90px]">
           <img className="w-[550px]" src={faq} />
         </div>
 
@@ -38,7 +44,7 @@ const Faq = () => {
 
 
                 </div>
-                {showContent[index] && (<div className="bg-[#407BFF] md:w-[590px]  md:h-[90px] p-3 text-[#ffff] mt-1">
+                {showContent[index] && (<div className="bg-[#407BFF] md:w-[590px]  md:h-[90px] p-3 text-[#ffff] mt-1" data-aos="flip-up">
                   <p>{response}</p>
                 </div>)}
 

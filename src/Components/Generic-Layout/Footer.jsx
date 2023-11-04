@@ -1,9 +1,9 @@
 
-
+import { HashLink } from "react-router-hash-link"
 
 const Footer = () => {
     return (
-        <section className="bg-[#EAF6FC]">
+        <section className="bg-[#BCE7FD] shadow-lg">
             <div className="container mx-auto  w-[85%] lg:flex flex-wrap justify-between pt-4">
                 <div>
                     <h2 className="text-[42px] font-lobster text-[#00F] font-normal">RISE PATH</h2>
@@ -15,10 +15,16 @@ const Footer = () => {
 
                     <div>
                         <ul className="lg:text-[20px]  text-[#0A0A29] font-normal font-plus-jakarta-sans flex flex-col gap-3">
-                            <li>Upskill</li>
-                            <li>Appraisals</li>
-                            <li>Mentorship</li>
-                            <li>Mental health</li>
+                            <li>
+                                <HashLink to="/">
+                                    Home</HashLink></li>
+                            <li>
+                                <HashLink to="/#Appraisal">
+                                    Appraisal</HashLink></li>
+                            <li>
+                                <HashLink to="/#Upskills"> Upskills</HashLink></li>
+                            <li><HashLink to="/#Mentorship">Mentorship</HashLink></li>
+                            <li><HashLink to="/#Health">Mental Health</HashLink></li>
                         </ul>
                     </div>
 
@@ -55,7 +61,7 @@ const Footer = () => {
                 </div>
 
             </div>
-            <div className="container mx-auto w-[85%] lg:flex gap-[110px] mt-11 text-[24px] font-plus-jakarta-sans font-semibold">
+            <div className="container mx-auto w-[85%] lg:flex gap-[110px]  justify-center mt-11 text-[24px] font-plus-jakarta-sans font-semibold">
                 <h2>Rise Path 2023</h2>
                 <p>Terms of Service</p>
                 <p>Privacy</p>

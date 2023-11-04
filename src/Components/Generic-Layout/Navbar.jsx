@@ -47,7 +47,7 @@ const Navbar = () => {
 
 
             </div>
-            {isOpen && <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} setIsModalOpen={setIsModalOpen} />}
+            {isOpen && <MobileNavbar className="fixed" isOpen={isOpen} setIsOpen={setIsOpen} setIsModalOpen={setIsModalOpen} />}
             <RegisterModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
         </nav>
     )
