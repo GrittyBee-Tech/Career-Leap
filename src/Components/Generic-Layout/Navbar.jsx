@@ -25,7 +25,7 @@ const Navbar = () => {
                     </span>
                 </div>
 
-                <ul className="md:flex hidden  md:mb-6 lg:mb-0 lg:gap-8 md:gap-2 mt-1 text-[17px] lg:text-[16px] text-[#0A0A29] font-plus-jakarta-sans font-semibold">
+                <ul className="lg:flex  md:flex hidden md:mb-6 lg:mb-4 lg:gap-8 md:gap-3 mt-1 text-[17px] lg:text-[16px] md:text-[14px] md:mt-5 text-[#0A0A29] font-plus-jakarta-sans font-semibold">
                     <li>
                         <HashLink to="/">
                             Home</HashLink></li>
@@ -37,11 +37,11 @@ const Navbar = () => {
                     <li><HashLink to="/#Mentorship">Mentorship</HashLink></li>
                     <li><HashLink to="/#Health">Mental Health</HashLink></li>
                 </ul>
-                <div className=" md:flex lg:gap-4  md:gap-4 hidden lg:mb-1 mb-2">
+                <div className=" md:flex lg:gap-4 lg:flex md:gap-4 hidden lg:mb-1 md:mt-4 mb-2">
                     <p className="lg:mt-2 lg:mb-0  lg:text-[16px] md:text-[17px] text-[#0A0A29] font-plus-jakarta-sans font-semibold ">Log in</p>
-                    <button onClick={() => setIsModalOpen(true)} className="bg-[#00F]  text-[#FFFF]  lg:mb-0 mb-1  md:w-[90px] lg:w-[138px] lg:h-[50px] md:h-[35px] rounded md:text-[18px] lg:text-[24px] font-bold">Sign up</button>
+                    <button onClick={() => setIsModalOpen(true)} className="bg-[#00F]  text-[#FFFF]  lg:mb-0  md:mb-2 mb-1  md:w-[90px] lg:w-[138px] lg:h-[50px] md:h-[35px] rounded md:text-[18px] lg:p-1 lg:text-[18px] font-bold">Sign up</button>
                 </div>
-                <button onClick={toggleMenu} className="md:hidden flex ml-[84px]  text-[24px] text-[#00F]">
+                <button onClick={toggleMenu} className="md:hidden lg:hidden flex ml-[84px]  text-[24px] text-[#00F] md:pb-2">
                     <GiHamburgerMenu />
                 </button>
 
