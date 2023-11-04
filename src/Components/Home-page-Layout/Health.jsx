@@ -3,7 +3,7 @@ import check from "/src/assets/Icons/check.png"
 
 const Health = () => {
     return (
-        <section id="Health ">
+        <section id="Health">
             <div className="container mx-auto w-[85%] mt-11  lg:flex gap-[140px] mb-[40px]">
                 <div>
                     <h2 className="text-[#00F] text-[40px] md:text-[60px] font-plus-jakarta-sans font-semibold">Mental Health</h2>

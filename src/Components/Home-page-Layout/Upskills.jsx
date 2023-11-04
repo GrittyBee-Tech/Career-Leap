@@ -4,7 +4,7 @@ import check from "/src/assets/Icons/check.png"
 const Upskills = () => {
     return (
 
-        <section>
+        <section id="Upskills">
 
             <div className="container mx-auto w-[85%] mt-1  lg:flex gap-[140px]">
 

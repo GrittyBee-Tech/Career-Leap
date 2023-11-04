@@ -32,7 +32,7 @@ const Appraisal = () => {
                         <img className="w-[45px] h-[45px]" src={check} alt="check" />
                         <p className="w-[446px] h-[60px] text-[#0A0A29] md:text-[24px] font-normal font-plus-jakarta-sans">Identify employees who are ready for promotions or transfers.</p>
                     </div>
-                    <div className="flex gap-3 md:mt-7 mb-11 mt-3">
+                    <div className="flex gap-3 md:mt-7 mb-[80px] mt-3">
                         <img className="w-[45px] h-[45px]" src={check} alt="check" />
                         <p className="w-[446px] h-[60px] text-[#0A0A29] md:text-[24px] font-normal font-plus-jakarta-sans leading-7">Track employee progress over time to identify areas where employees may need additional support or training.</p>
                     </div>

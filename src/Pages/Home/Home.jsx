@@ -7,12 +7,13 @@ import Navbar from "../../Components/Generic-Layout/Navbar";
 import AboutUs from "../../Components/Home-page-Layout/AboutUs";
 import Faq from "../../Components/Home-page-Layout/Faq";
 import Footer from "../../Components/Generic-Layout/Footer";
+import Totopbtn from "../../Components/Home-page-Layout/Totopbtn";
 
 
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Navbar />
             <Hero />
             <Appraisal />
@@ -22,10 +23,12 @@ const Home = () => {
             <AboutUs />
             <Faq />
             <Footer />
+            <Totopbtn />
 
 
 
-        </div>
+
+        </>
     )
 }
 
