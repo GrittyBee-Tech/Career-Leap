@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;1,700&display=swap');
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
 .registerOptions {
     background: url(./assets/Images/amico.svg);
     background-repeat: no-repeat;
