@@ -15,7 +15,7 @@ const AboutUs = () => {
         <section className="bg-[#EAF6FC]  overflow-x-clip">
             <div className="container mx-auto w-[85%] lg:pt-[50px] ">
                 <h2 className="flex justify-center pt-[50px] text-[#00F]  md:text-[30px]  lg:text-[60px] text-[40px] font-lobster  ">Why RisePath</h2>
-                <div className="lg:flex gap-[20px] lg:gap-[140px]  md:gap-[20px] md:flex md:flex-row  flex flex-col">
+                <div className="lg:flex gap-[20px] lg:gap-[140px]  md:gap-[20px] md:flex md:flex-row  flex flex-col-reverse">
                     <div data-aos="fade-right">
                         <p className=" md:w-[370px] mt-[40px] lg:text-[40px]  lg:w-[570px] md:text-[20px]  text-[20px] w-[300px] font-normal mb-[40px]  lg:mb-[90px] font-georgia text-[#0A0A29]">
                             <span className="font-lobster text-[#00F]">RisePath</span> Supports talent growth, enhances
