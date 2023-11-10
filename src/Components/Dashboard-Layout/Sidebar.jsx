@@ -17,11 +17,11 @@ const Sidebar = () => {
         <ul>
             <li className='ml-2 flex mb-7 mt-2 py-2 bg-primary-orange items-center'>
                 <img src={overviewIcon} alt="overview icon" className='ml-2 mr-4' />
-                <Link>Overview</Link>
+                <Link to='/dashboard'>Overview</Link>
             </li>
             <li className='ml-2 flex mb-7'>
                 <img src={learningIcon} alt="learning icon" className='ml-2 mr-4' />
-                <Link>Learning</Link>
+                <Link to='/dashboard/learn'>Learning</Link>
             </li>
             <li className='ml-2 flex mb-7'>
                 <img src={mentorshipIcon} alt="mentorship icon" className='ml-2 mr-4' />

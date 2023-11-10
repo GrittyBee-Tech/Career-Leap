@@ -21,15 +21,9 @@ const Home = () => {
             <Mentorship />
             <Health />
             <AboutUs />
-
             <Faq />
             <Footer />
-
             <Totopbtn />
-
-
-
-
         </>
     )
 }
