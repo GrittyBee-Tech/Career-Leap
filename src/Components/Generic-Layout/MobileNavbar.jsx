@@ -19,7 +19,7 @@ const MobileNavbar = ({ setIsOpen, setIsModalOpen }) => {
                     </button>
                 </div>
 
-                <ul className="flex  flex-col gap-4 mt-[40px] text-[24px] text-[#0A0A29] font-plus-jakarta-sans font-semibold">
+                <ul className="flex  flex-col gap-8 mt-[40px] text-[18px] text-[#0A0A29] font-plus-jakarta-sans font-semibold">
                     <li>
                         <HashLink to="/">
                             Home</HashLink></li>
