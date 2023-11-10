@@ -20,7 +20,7 @@ const Health = () => {
                         <img className="lg:w-[45px] md:w-[25px] md:h-[25px] lg:h-[45px] w-[45px] h-[45px]" src={check} alt="check" />
                         <p className="lg:w-[446px] lg:h-[60px] md:w-[326px] md:h-[30px] w-[446px] h-[60px] text-[#0A0A29]  lg:text-[24px] md:text-[18px] font-normal font-plus-jakarta-sans">Provide therapy to employees helping them manage mental health issues.</p>
                     </div>
-                    <div className="flex gap-3  md:mt-[70px]  mt-5 mb-5" data-aos="fade-right">
+                    <div className="flex gap-3 lg:mt-[30px] md:mt-[70px]  mt-5 mb-5" data-aos="fade-right">
                         <img className="lg:w-[45px] md:w-[25px] md:h-[25px] lg:h-[45px] w-[45px] h-[45px]" src={check} alt="check" />
                         <p className="lg:w-[446px] lg:h-[60px] md:w-[326px] md:h-[30px] w-[446px] h-[60px] text-[#0A0A29]  lg:text-[24px] md:text-[18px] font-normal font-plus-jakarta-sans">Regular exercise, proper nutrition, adequate sleep, and relaxation techniques.</p>
                     </div>

@@ -38,7 +38,7 @@ const Faq = () => {
               <div className="" key={id}>
                 <div className="flex justify-between rounded p-2 bg-gradient-to-r from-sky-500 to-indigo-500 lg:w-[590px] md:w-[360px]  w-[320px] lg:h-[40px]  text-[#ffff]">
                   <div className="">
-                    <p className="lg:text-[18px] md:text-[15px] text-[15px]"> {content}</p>
+                    <p onClick={() => toggleBtn(index)} className="lg:text-[18px] md:text-[15px] text-[15px]"> {content}</p>
                   </div>
                   {showContent[index] ? (<button onClick={() => toggleBtn(index)}><FaMinusCircle /></button>) : <button onClick={() => toggleBtn(index)}><FaPlusCircle /></button>}
 

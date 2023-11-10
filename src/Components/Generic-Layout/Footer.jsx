@@ -4,9 +4,9 @@ import { HashLink } from "react-router-hash-link"
 const Footer = () => {
     return (
         <section className="bg-[#BCE7FD] shadow-lg">
-            <div className="container mx-auto  w-[85%] lg:flex md:flex md:flex-wrap flex flex-row flex-wrap lg:justify-between md:justify-between gap-[50px] pt-4">
+            <div className="container mx-auto  w-[85%] lg:flex md:flex md:flex-wrap flex flex-row flex-wrap lg:justify-between md:gap-[20px] gap-[50px] md:pt-[30px] lg:pt-[40px] pt-4">
                 <div>
-                    <h2 className="text-[22px] lg:text-[42px] md:text-[18px]   font-lobster text-[#00F] font-normal">RISE PATH</h2>
+                    <h2 className="text-[22px] lg:text-[42px] md:text-[14px]   font-lobster text-[#00F] font-normal">RISE PATH</h2>
                 </div>
                 <div className="lg:flex lg:flex-col md:[gap-3] gap-6  ">
                     <div>
@@ -14,7 +14,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <ul className="lg:text-[16px] md:text-[14px]  text-[18px] md:mt-5 text-[#0A0A29] font-normal font-plus-jakarta-sans flex flex-col gap-3">
+                        <ul className="lg:text-[16px] md:text-[14px]  text-[15px] md:mt-5 text-[#0A0A29] font-normal font-plus-jakarta-sans flex flex-col gap-3">
                             <li>
                                 <HashLink to="/">
                                     Home</HashLink></li>
@@ -33,7 +33,7 @@ const Footer = () => {
                 <div className="flex flex-col gap-6">
                     <h2 className="lg:text-[18px] md:text-[14px] md:mt-1  text-[18px] font-plus-jakarta-sans text-[#0A0A29] font-semibold">Our Goal</h2>
 
-                    <ul className=" lg:text-[16px] md:text-[14px]  text-[18px] text-[#0A0A29] font-normal font-plus-jakarta-sans flex flex-col gap-3">
+                    <ul className=" lg:text-[16px] md:text-[14px]  text-[15px] text-[#0A0A29] font-normal font-plus-jakarta-sans flex flex-col gap-3">
                         <li>Improve Employee Wellbeing</li>
                         <li>Increase Employee Knowledge</li>
                         <li>Improve Employee Productivity</li>
@@ -43,7 +43,7 @@ const Footer = () => {
                 <div className="flex flex-col gap-6">
                     <h2 className="lg:text-[18px] md:text-[14px] text-[18px] font-plus-jakarta-sans text-[#0A0A29] font-semibold">Resources</h2>
 
-                    <ul className="lg:text-[16px] md:text-[14px]  text-[18px] text-[#0A0A29] font-normal font-plus-jakarta-sans flex flex-col gap-3">
+                    <ul className="lg:text-[16px] md:text-[14px]  text-[15px] text-[#0A0A29] font-normal font-plus-jakarta-sans flex flex-col gap-3">
                         <li>Content Library</li>
                         <li>Blog</li>
                         <li>Mentorship</li>
@@ -53,7 +53,7 @@ const Footer = () => {
                 <div className="flex flex-col gap-6">
                     <h2 className="lg:text-[18px] md:text-[14px] text-[18px] font-plus-jakarta-sans text-[#0A0A29] font-semibold">Company</h2>
 
-                    <ul className="lg:text-[16px] md:text-[14px] text-[18px]  text-[#0A0A29] font-normal font-plus-jakarta-sans flex flex-col gap-3">
+                    <ul className="lg:text-[16px] md:text-[14px] text-[15px]  text-[#0A0A29] font-normal font-plus-jakarta-sans flex flex-col gap-3">
                         <li>About Us</li>
                         <li>Careers</li>
                         <li>Contact Us</li>
