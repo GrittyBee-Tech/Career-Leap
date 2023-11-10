@@ -9,10 +9,10 @@ import { Link } from "react-router-dom"
 
 
 const Hero = () => {
-
     useEffect(() => {
         AOS.init();
     }, []);
+
     return (
         <section id="Hero">
             <img className="absolute -z-20 lg:w-[420px] md:w-[320px]  w-[150px] top-0 md:top-0 md:flex" src={icon} alt="icon" />
