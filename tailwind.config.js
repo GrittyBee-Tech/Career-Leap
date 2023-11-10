@@ -9,8 +9,16 @@ export default {
         "georgia": ['Georgia', 'Times New Roman']
       },
       colors: {
-        'primary': '#0000FF'
-      }
+        'primary': '#0000FF',
+        'primary-orange': '#FFD700'
+      },
+      screens: {
+        medium: "800px",
+        tablet: "700px",
+        mobile: "500px",
+        small: "400px",
+        xsmall: "340px",
+      },
     },
   },
   plugins: [],
