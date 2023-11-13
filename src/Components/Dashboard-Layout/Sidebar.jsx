@@ -15,7 +15,7 @@ const Sidebar = () => {
     return (
         <nav className={`relative w-3/5 md:w-2/5 lg:w-1/5 min-h-[653px] mobile:w-[40%]  shadow-lg bg-white`}>
             <ul>
-                <li className='ml-2 flex mb-7 mt-2 py-2 bg-primary-orange items-center'>
+                <li className='ml-2 flex mb-7 mt-2 py-2 bg-[blue] items-center'>
                     <img src={overviewIcon} alt="overview icon" className='ml-2 mr-4' />
                     <Link to='/dashboard'>Overview</Link>
                 </li>
