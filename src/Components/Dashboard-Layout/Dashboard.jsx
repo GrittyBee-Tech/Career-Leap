@@ -8,8 +8,8 @@ const Dashboard = () => {
         <>
             <NavBar />
             <div className="flex">
-                <Sidebar />
-                <main className="mt-4 ml-6 bg-[#FAFAFE] w-[1134px]">
+                <Sidebar className="lg:flex md:flex hidden" />
+                <main className="mt-4 ml-6 bg-[#FAFAFE] lg:w-[1134px] md:w-[75%] w-[100%] h:auto">
                     <Outlet />
                 </main>
             </div>
