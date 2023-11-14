@@ -13,7 +13,7 @@ import logoutIcon from "../../assets/Icons/logout-icon.svg";
 const Sidebar = () => {
 
     return (
-        <nav className={`relative w-3/5 md:w-2/5 lg:w-1/5 min-h-[653px] mobile:w-[40%]  shadow-lg bg-white`}>
+        <nav className={`relative w-4/5 md:w-1/5 lg:w-1/5 min-h-[653px]  z-50  shadow-lg bg-white lg:flex md:flex hidden`}>
             <ul>
                 <li className='ml-2 flex mb-7 mt-2 py-2 bg-[blue] items-center'>
                     <img src={overviewIcon} alt="overview icon" className='ml-2 mr-4' />
@@ -25,7 +25,7 @@ const Sidebar = () => {
                 </li>
                 <li className='ml-2 flex mb-7'>
                     <img src={mentorshipIcon} alt="mentorship icon" className='ml-2 mr-4' />
-                    <Link>Mentorship</Link>
+                    <Link to="/dashboard/Mentorship">Mentorship</Link>
                 </li>
                 <li className='ml-2 flex mb-7'>
                     <img src={mentalHealthIcon} alt="mentalHealth icon" className='ml-2 mr-4' />
@@ -37,7 +37,7 @@ const Sidebar = () => {
                 </li>
                 <li className='ml-2 flex mb-7'>
                     <img src={settingsIcon} alt="settings icon" className='ml-2 mr-4' />
-                    <Link>Settings</Link>
+                    <Link to='/dashboard/Settings'>Settings</Link>
                 </li>
                 <li className='ml-2 flex mb-5 absolute bottom-0'>
                     <img src={logoutIcon} alt="logout icon" className='ml-2 mr-4' />
