@@ -16,7 +16,7 @@ const Overview = () => {
   const todaysDate = new Date();
   return (
     <section>
-      <div className="lg:flex lg:gap-[180px] md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
+      <div className="lg:flex  lg:flex-row lg:gap-[180px] md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
         <div className="">
           <div className="flex gap-1 "><h2 className="p-4  mt-2 lg:text-[24px] md:text-[24px] text-[18px] font-plus-jakarta-sans  font-medium">Good Morning, <span>Adekunle!</span></h2>
             <IoIosPartlySunny className="text-[38px] text-[#57C7FF] mt-4" /></div>
@@ -30,7 +30,7 @@ const Overview = () => {
 
       </div>
 
-      <div className="px-7 lg:flex md:flex md:flex-wrap flex flex-wrap gap-3">
+      <div className="px-7 lg:flex md:flex lg:flex-nowrap md:flex-wrap flex flex-wrap gap-3">
         <div className="bg-[white] shadow-lg  rounded w-[100%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
           <div className=" p-3 flex lg:gap-3 gap-[60px]">
             <div >
@@ -166,7 +166,7 @@ const Overview = () => {
 
       </div>
 
-      <div className="lg:px-[25px] lg:mt-4  mt-5 lg:flex lg:flex-row md:flex-row md:flex-wrap lg:gap-5  gap-7 md:flex flex flex-col md:justify-center">
+      <div className="lg:px-[25px] lg:mt-4  mt-5 lg:flex lg:flex-row md:flex-row md:flex-wrap lg:flex-nowrap lg:gap-5  gap-7 md:flex flex flex-col md:justify-center">
         <div className="lg:flex lg:flex-col gap-[42px]">
           <div className="bg-[white] shadow-lg lg:w-[329px] md:w-[100%]  md:px-5  md:mx-auto  w-[290px] px-3 lg:mx-0 mx-auto  lg:pt-0 pt-7 lg:h-[213px] h-[200px] rounded  lg:px-4">
             <p className="flex mx-auto text-[#00C] font-lobster font-medium">Mental Health</p>
