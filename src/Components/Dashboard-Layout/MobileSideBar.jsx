@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+
 import { Link } from 'react-router-dom'
 
 import overviewIcon from "../../assets/Icons/overview-icon.svg";
@@ -9,11 +9,10 @@ import appraisalIcon from "../../assets/Icons/appraisal-icon.svg";
 import settingsIcon from "../../assets/Icons/settings-icon.svg";
 import logoutIcon from "../../assets/Icons/logout-icon.svg";
 
-
-const Sidebar = () => {
-
+const MobileSideBar = ({setToggleNav, toggleNav}) => {
     return (
-        <nav className={`relative  w-4/5 md:w-1/5 lg:w-1/5 min-h-[653px]  z-50 shadow-lg bg-white lg:flex md:flex hidden`}>
+
+        <nav className={`fixed top-[40px]  w-[50%] min-h-[653px]  z-50 shadow-lg bg-white lg:hidden md:hidden flex`} onClick={()=>setToggleNav(false)}>
             <ul>
                 <li className='ml-2 flex mb-7 mt-2 py-2 bg-[blue] items-center'>
                     <img src={overviewIcon} alt="overview icon" className='ml-2 mr-4' />
@@ -48,4 +47,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default MobileSideBar
