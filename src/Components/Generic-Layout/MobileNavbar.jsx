@@ -32,7 +32,7 @@ const MobileNavbar = ({ setIsOpen, setIsModalOpen }) => {
                     <li><HashLink to="/#Health">Mental Health</HashLink></li>
                 </ul>
                 <div className=" flex  flex-col gap-3 ">
-                    <p className="mt-9 text-[24px] text-[#0A0A29] font-plus-jakarta-sans font-semibold">Log in</p>
+                    <p className="mt-9 text-[24px] text-[#0A0A29] font-plus-jakarta-sans font-semibold"><HashLink to='/dashboard'>Log in</HashLink >g</p>
                     <button onClick={() => setIsModalOpen(true)} className="bg-[black] w-[150px] p-3 text-[#FFFF] rounded mt-[18px]" >Sign up</button>
                 </div>
 
