@@ -1,10 +1,10 @@
 
 import { createContext, useContext, useState } from "react";
 import PropTypes from "prop-types";
-const MenuContext = createContext({});
+export const MenuContext = createContext({});
 
 
-const SideBarContext = ({ children }) => {
+export const SideBarContext = ({ children }) => {
     const [activeTab, setActiveTab] = useState("mentorship");
     const [mode, setMode] = useState("light");
     const [toggleNav, setToggleNav] = useState(false);
