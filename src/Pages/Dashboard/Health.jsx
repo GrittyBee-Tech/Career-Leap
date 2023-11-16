@@ -4,6 +4,7 @@ import Squart from "/src/assets/Images/squart.png";
 import Stretch from "/src/assets/Images/stretch.png";
 import PushUp from "/src/assets/Images/push-up.png";
 import Book from "/src/assets/Images/the-power-of-habit-1.jpg";
+import DownloadIcon from "../../Components/Icons/DownloadIcon";
 
 const Health = () => {
 
@@ -99,7 +100,7 @@ const Health = () => {
                             </div>
                             <div>
                                 <Button text={'Download'} styles='text-[white]'>
-                                    <img src="" alt="" />
+                                <DownloadIcon />
                                 </Button>
                             </div>
                         </div>
@@ -117,7 +118,7 @@ const Health = () => {
                             </div>
                             <div>
                                 <Button text={'Download'} styles='text-[white]'>
-                                    <img src="" alt="" />
+                                   <DownloadIcon />
                                 </Button>
                             </div>
                         </div>
