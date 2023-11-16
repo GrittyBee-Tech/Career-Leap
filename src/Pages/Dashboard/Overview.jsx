@@ -58,7 +58,7 @@ const Overview = () => {
 
 
 
-            <p className="px-4 lg:mt-[-20px]  font-lobster text-[20px] mb-5">{advicetab.slip.advice}</p>
+            <p className="px-4 lg:mt-[-20px]  font-lobster text-[20px] mb-5">{advicetab.slip ? <p>{advicetab.slip.advice}</p> : null}</p>
 
           </div>)}
 
@@ -258,7 +258,7 @@ const Overview = () => {
 
         <div className=" lg:gap-[0]">
           <div>
-
+            <img src={graph} alt="graph" />
           </div>
           <div className="relative lg:w-[416px]  lg:mx-0 mx-auto mt-[2px] lg:h-[486px] lg:mb-0 mb-3 h-[270px] w-[330px]  md:h-[350px] md:w-[492px] md:ml-[-21px] md:px-5  md:mx-auto shadow-lg bg-[white] ">
             <p className="flex justify-center pt-2 text-[#00C] font-lobster ">Appraisal Chat</p>
