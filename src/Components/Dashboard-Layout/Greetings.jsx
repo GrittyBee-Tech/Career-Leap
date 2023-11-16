@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FaCloudMoon } from 'react-icons/fa';
 import { IoIosPartlySunny } from 'react-icons/io';
 
 const Greetings = ({ text }) => {
@@ -30,8 +31,11 @@ const Greetings = ({ text }) => {
         <header className="flex justify-between mt-2">
             <div>
                 <h1 className='text-2xl font-medium text-[#000] font-plus-jakarta-sans flex gap-3 items-center'>
-                    Good {hour<12 ? "Morning" : hour <18 ? "Afternoon": "Evening"}, Adekunle!
-                    <IoIosPartlySunny fill='#57C7FF' />
+                    Good {hour<12 ? "Morning" : hour <18 ? " Afternoon": " Evening"}, Adekunle!
+                    {
+                        hour < 12 ? <IoIosPartlySunny fill='#FDB813' />
+                        : <FaCloudMoon fill='#00a8fc' /> 
+                    }
                 </h1>
                 <p className='font-bad-script text-sm mt-2'>{text || "Watch impactful videos from mentors round about the world!"}</p>
             </div>
