@@ -3,7 +3,7 @@ import image from '../../assets/Images/course-img.png';
 
 const CourseCard = () => {
   return (
-    <article className="p-1.5 flex flex-col items-start gap-2.5 rounded-lg border border-[#8F8FB7]">
+    <article className="p-1.5 flex flex-col items-start gap-2.5 rounded-lg border border-[#8F8FB7] bg-white">
         <img src={image} className='rounded-lg w-full' alt="" />
         <div className='body flex flex-col gap-1'>
             <h3 className='font-plus-jakarta-sans'>Google</h3>
