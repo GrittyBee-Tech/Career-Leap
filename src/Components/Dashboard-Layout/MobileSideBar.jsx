@@ -9,7 +9,7 @@ import appraisalIcon from "../../assets/Icons/appraisal-icon.svg";
 import settingsIcon from "../../assets/Icons/settings-icon.svg";
 import logoutIcon from "../../assets/Icons/logout-icon.svg";
 
-const MobileSideBar = ({setToggleNav, toggleNav}) => {
+const MobileSideBar = ({setToggleNav}) => {
     return (
 
         <nav className={`fixed top-[40px]  w-[50%] min-h-[653px]  z-50 shadow-lg bg-white lg:hidden md:hidden flex`} onClick={()=>setToggleNav(false)}>

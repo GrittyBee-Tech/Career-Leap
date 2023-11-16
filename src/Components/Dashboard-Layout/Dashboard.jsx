@@ -5,11 +5,7 @@ import Sidebar from './Sidebar';
 import MobileSideBar from "./MobileSideBar";
 
 import { useState } from "react";
-
-
-
-
-
+ 
 const Dashboard = () => {
     const [toggleNav, setToggleNav] = useState(false)
     return (
@@ -20,7 +16,7 @@ const Dashboard = () => {
             <div className="flex">
                 <Sidebar className="lg:flex md:flex hidden" />
 
-                <main className="mt-4 ml-6 bg-[#FAFAFE] lg:w-[1134px] md:w-[75%] w-[100%] h:auto">
+                <main className="mt-4 ml-6 bg-[#FAFAFE] lg:w-[80%] md:mx-[2rem] w-[100%] h:auto">
                     <Outlet />
                 </main>
             </div>
