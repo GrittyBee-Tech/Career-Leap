@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
 
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
-}
-.registerOptions {
-    background: url(./assets/Images/amico.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40%;
 }
 
 .regBox {
@@ -18,4 +13,38 @@
 
 .font-plus-jakarta-sans {
     font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-bad-script {
+    font-family: 'Bad Script', cursive;
+}
+
+.fancyscroll::-webkit-scrollbar-track,
+.fancyscroll::scrollbar-track {
+    background-color: #C2C2FF;
+    height: 10px;
+    border: 2px solid #0000FF !important;
+}
+
+.fancyscroll::-webkit-scrollbar,
+.fancyscroll::scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.fancyscroll::-webkit-scrollbar-thumb,
+.tools::scrollbar-thumb {
+    background-color: #0000FF !important;
+    border-radius: 16px;
+}
+
+.fancyscroll {
+    scrollbar-width: thin;
+    scrollbar-color: #0000FF !important;
+    scrollbar-base-color: #0000FF !important;
+    scrollbar-3dlight-color: #0000FF !important;
+    scrollbar-darkshadow-color: #0000FF !important;
+    scrollbar-face-color: #0000FF !important;
+    scrollbar-shadow-color: #0000FF !important;
+    scrollbar-track-color: #0000FF !important;
 }

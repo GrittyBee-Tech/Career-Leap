@@ -3,23 +3,20 @@ import { Outlet } from "react-router-dom";
 import NavBar from "./Navbar";
 import Sidebar from './Sidebar';
 import { MenuContextProvider } from "../../ContextApi/SideBarContext";
-
 import MobileSideBar from "./MobileSideBar";
 
 const Dashboard = () => {
-    const { toggleNav, setToggleNav } = MenuContextProvider();
-
+    const { toggleNav } = MenuContextProvider();
 
     return (
         <>
-
             <NavBar />
             {toggleNav && <MobileSideBar />}
 
             <div className="flex">
                 <Sidebar className="lg:flex md:flex hidden" />
 
-                <main className="mt-4  lg:ml-6 md:ml-6 bg-[#FAFAFE] lg:w-[1134px] md:w-[75%]  ml-0 w-[100%] h:auto">
+                <main className="pt-4 px-6 bg-[#FAFAFE] w-4/5 h:auto">
                     <Outlet />
                 </main>
             </div>
