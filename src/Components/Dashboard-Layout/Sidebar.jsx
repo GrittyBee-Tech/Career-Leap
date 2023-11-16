@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+ import { Link } from 'react-router-dom'
 
 import overviewIcon from "../../assets/Icons/overview-icon.svg";
 import learningIcon from "../../assets/Icons/learning-icon.svg";
@@ -29,7 +28,7 @@ const Sidebar = () => {
                 </li>
                 <li className='ml-2 flex mb-7'>
                     <img src={mentalHealthIcon} alt="mentalHealth icon" className='ml-2 mr-4' />
-                    <Link>Mental Health</Link>
+                    <Link to={'/dashboard/health'}>Mental Health</Link>
                 </li>
                 <li className='ml-2 flex mb-7'>
                     <img src={appraisalIcon} alt="appraisal icon" className='ml-2 mr-4' />
