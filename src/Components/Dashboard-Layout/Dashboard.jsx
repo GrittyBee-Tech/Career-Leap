@@ -1,29 +1,30 @@
+/* eslint-disable no-unused-vars */
 import { Outlet } from "react-router-dom";
 import NavBar from "./Navbar";
 import Sidebar from './Sidebar';
+import { MenuContextProvider } from "../../ContextApi/SideBarContext";
 
 import MobileSideBar from "./MobileSideBar";
 
-import { useState } from "react";
-
-
-
-
-
 const Dashboard = () => {
-    const [toggleNav, setToggleNav] = useState(false)
+    const { toggleNav, setToggleNav } = MenuContextProvider();
+
+
     return (
         <>
-            <NavBar setToggleNav={setToggleNav} toggleNav={toggleNav} />
-            {toggleNav && <MobileSideBar setToggleNav={setToggleNav} toggleNav={toggleNav} />}
+
+            <NavBar />
+            {toggleNav && <MobileSideBar />}
 
             <div className="flex">
                 <Sidebar className="lg:flex md:flex hidden" />
 
-                <main className="mt-4 ml-6 bg-[#FAFAFE] lg:w-[1134px] md:w-[75%] w-[100%] h:auto">
+                <main className="mt-4  lg:ml-6 md:ml-6 bg-[#FAFAFE] lg:w-[1134px] md:w-[75%]  ml-0 w-[100%] h:auto">
                     <Outlet />
                 </main>
             </div>
+
+
         </>
     )
 }

@@ -3,12 +3,10 @@ import { FiBell, FiMail, FiSearch } from 'react-icons/fi';
 import { GiHamburgerMenu } from "react-icons/gi"
 
 import avatar from '../../assets/Icons/avatar.svg';
+import { MenuContextProvider } from '../../ContextApi/SideBarContext';
 
-const NavBar = ({ toggleNav, setToggleNav }) => {
-
-
-
-
+const NavBar = () => {
+    const { toggleNav, setToggleNav } = MenuContextProvider();
 
     return (
         <nav className="flex justify-between items-center pl-12 pr-7 py-2 border-b border-b-[#ECECEC] bg-white">

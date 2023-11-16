@@ -10,8 +10,42 @@ import reader from "/src/assets/Images/reader.png"
 import diction from "/src/assets/Images/pana.png"
 import Mentor from "/src/assets/Images/mentor.png"
 import pie from "/src/assets/Images/pie.png"
+import axios from "../../AxiosApi/axios"
+import graph from "/src/assets/Images/graph.png"
+import { useEffect } from "react"
+import { MenuContextProvider } from "../../ContextApi/SideBarContext"
+
 
 const Overview = () => {
+
+  const { advicetab, setAdviceTab, isLoading, setIsLoading } = MenuContextProvider();
+
+  const getAdvice = async () => {
+
+    try {
+      setIsLoading(true);
+      const response = await axios.get("/advice")
+      console.log(response.data);
+
+
+      if (response.status === 200) {
+        setAdviceTab(response.data)
+        setIsLoading(false)
+      }
+    }
+    catch (error) {
+      console.log(error);
+
+    }
+
+
+  };
+
+  useEffect(() => {
+
+    getAdvice();
+  }, [])
+
 
   const todaysDate = new Date();
   return (
@@ -20,7 +54,14 @@ const Overview = () => {
         <div className="">
           <div className="flex gap-1 "><h2 className="p-4  mt-2 lg:text-[24px] md:text-[24px] text-[18px] font-plus-jakarta-sans  font-medium">Good Morning, <span>Adekunle!</span></h2>
             <IoIosPartlySunny className="text-[38px] text-[#57C7FF] mt-4" /></div>
-          <p className="px-4 lg:mt-[-20px]  font-lobster text-[20px] mb-5">Success is not final, failure is not fatal: It is the courage to continue that counts.</p>
+          {isLoading ? (<div><h1>Daily Advice</h1></div>) : (<div>
+
+
+
+            <p className="px-4 lg:mt-[-20px]  font-lobster text-[20px] mb-5">{advicetab.slip.advice}</p>
+
+          </div>)}
+
         </div>
         <div className="lg:px-3 p-6 shadow-lg mt-5 lg:pt-2 bg-[white] lg:w-[233px] w-[330px] md:mt-[-20px] mx-auto lg:mx-0 md:p-4 md:ml-[13px] md:mx:auto md:w-[90%] lg:h-[55px] rounded" >
           <h2 className="text-[14px] font-semibold font-plus-jakarta-sans">Current Time</h2>

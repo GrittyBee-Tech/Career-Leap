@@ -10,8 +10,10 @@ import Health from './Pages/Dashboard/Health';
 import Appraisal from './Pages/Dashboard/Appraisal';
 import Settings from "./Pages/Dashboard/Settings";
 
+
 function App() {
   return (
+
     <Routes>
       <Route path="/" Component={Home} />
       <Route path='/admin/register' Component={RegisterAdmin} />
@@ -25,6 +27,7 @@ function App() {
 
       </Route>
     </Routes>
+
 
 
   )
