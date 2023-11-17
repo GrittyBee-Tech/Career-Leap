@@ -25,12 +25,12 @@ const Health = () => {
                     <h2 className="font-bold text-[24px] mb-3">Time Management habits</h2>
                     <div className="flex items-center">
                         <div className="text-center">
-                            <div className="bg-[#3910c0] m-auto w-[2rem] h-[2rem] justify-center items-center text-[20px] text-center rounded-full text-[#fff]">1</div>
+                            <div className="bg-[#00F] m-auto w-[1.5rem] h-[1.5rem] justify-center items-center text-[16px] text-center rounded-full text-[#fff]">1</div>
                             <p className="text-[18px] my-2 font-bold">Prioritize Tasks</p>
                             <p>Create a to-do list and prioritize tasks based on importance and deadlines. Focus on completing high-priority tasks first.</p>
                         </div>
                         <div className="text-center">
-                            <div className="bg-[#3910c0] m-auto w-[2rem] h-[2rem] justify-center items-center text-[20px] text-center rounded-full text-[#fff]">1</div>
+                            <div className="bg-[#00F] m-auto w-[1.5rem] h-[1.5rem] justify-center items-center text-[16px] text-center rounded-full text-[#fff]">2</div>
                             <p className="text-[18px] my-2 font-bold">Set Realistic Goals</p>
                             <p> Be realistic about what you can accomplish within a given timeframe. Avoid overloading yourself with unrealistic expectations.</p>
                         </div>
@@ -74,12 +74,12 @@ const Health = () => {
                     <div className="border-2 rounded-md p-5">
                         <h2 className="text-center my-3 font-bold">How to handle work stress</h2>
                         <div className="bg-white p-5 text-center">
-                            <div className="bg-[#3910c0] m-auto w-[2rem] h-[2rem] justify-center items-center text-[20px] text-center rounded-full text-[#fff]">1</div>
+                            <div className="bg-[#00F] m-auto w-[1.5rem] h-[1.5rem] justify-center items-center text-[16px] text-center rounded-full text-[#fff]">1</div>
                             <p className="my-2 font-bold">Identify Stressors</p>
                             <p>Recognize Triggers: Identify specific situations, tasks, or people that trigger stress. Awareness is the first step in managing stress.</p>
                         </div>
                         <div className="bg-white p-5 text-center mt-3">
-                            <div className="bg-[#3910c0] m-auto w-[2rem] h-[2rem] justify-center items-center text-[20px] text-center rounded-full text-[#fff]">1</div>
+                            <div className="bg-[#00F] m-auto w-[1.5rem] h-[1.5rem] justify-center items-center text-[16px] text-center rounded-full text-[#fff]">2</div>
                             <p className="my-2 font-bold">Identify Stressors</p>
                             <p>Recognize Triggers: Identify specific situations, tasks, or people that trigger stress. Awareness is the first step in managing stress.</p>
                         </div>

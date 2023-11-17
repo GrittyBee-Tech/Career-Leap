@@ -1,20 +1,35 @@
 import { AiOutlineDingtalk } from "react-icons/ai"
 import { GiHamburgerMenu } from "react-icons/gi"
 import MobileNavbar from "./MobileNavbar"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { HashLink } from "react-router-hash-link"
 import RegisterModal from "./RegisterModal"
 
 const Navbar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+const [changeNav, setChangeNav] = useState(true);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     }
 
+    const changeMenuOnScroll = () => {
+        if (window.scrollY >= 66) {
+            setChangeNav(true)
+          } else {
+            setChangeNav(false)
+          }
+    }
+
+    useEffect(() => {
+        // console.log('Changing', window.scrollY)
+        changeMenuOnScroll() 
+        window.addEventListener("scroll", changeMenuOnScroll);
+        // return () => window.removeEventListener("scroll", changeMenuOnScroll);
+      });
     return (
-        <nav className="bg-[#EAF6FC] shadow z-10">
+        <nav className={`${changeNav  ? "bg-[#eff8ff] shadow" : "bg-[transparent]"}  z-10 fixed top-0 w-full`}>
             <div className="container m-auto md:w-[94%] w-[94%]  lg:w-[85%] flex items-center justify-between lg:gap-[80px] md:gap-[20px]  lg:p-3 md:p-2 p-3">
                 <div className="flex items-center">
                     <span className=" md:text-[25px] text-[35px] md:mb-4 lg:text-[32px] lg:mt-3 text-[#00F] font-normal  font-lobster ">
