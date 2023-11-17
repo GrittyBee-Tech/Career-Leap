@@ -50,20 +50,20 @@ const Overview = () => {
   const todaysDate = new Date();
   return (
     <section>
-      <div className="lg:flex  lg:flex-row lg:gap-[180px] md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
+      <div className="lg:flex  lg:flex-row lg:gap-[337px]   md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
         <div className="">
           <div className="flex gap-1 "><h2 className="p-4  mt-2 lg:text-[24px] md:text-[24px] text-[18px] font-plus-jakarta-sans  font-medium">Good Morning, <span>Adekunle!</span></h2>
             <IoIosPartlySunny className="text-[38px] text-[#57C7FF] mt-4" /></div>
-          {isLoading ? (<div><h1>Daily Advice</h1></div>) : (<div>
+          {isLoading ? (<div className="px-4"><h1>Daily Advice</h1></div>) : (<div>
 
 
 
-            <p className="px-4 lg:mt-[-20px]  font-lobster text-[20px] mb-5">{advicetab.slip ? <p>{advicetab.slip.advice}</p> : null}</p>
+            <p className="px-4 lg:mt-[-20px]  font-lobster text-[20px] mb-5">{advicetab.slip ? advicetab.slip.advice : null}</p>
 
           </div>)}
 
         </div>
-        <div className="lg:px-3 p-6 shadow-lg mt-5 lg:pt-2 bg-[white] lg:w-[233px] w-[330px] md:mt-[-20px] mx-auto lg:mx-0 md:p-4 md:ml-[13px] md:mx:auto md:w-[90%] lg:h-[55px] rounded" >
+        <div className="lg:px-3 p-6 shadow-lg mt-5 lg:mt-5 bg-[white] lg:w-[233px] w-[330px] md:mt-[-20px] mx-auto lg:mx-0 md:p-4 md:ml-[13px] md:mx:auto md:w-[90%] lg:h-[55px] rounded" >
           <h2 className="text-[14px] font-semibold font-plus-jakarta-sans">Current Time</h2>
           <p className="text-[12px] font-plus-jakarta-sans font-medium"> {`${todaysDate.toLocaleTimeString()} - ${todaysDate.toDateString()}`}</p>
 
@@ -216,7 +216,7 @@ const Overview = () => {
               <div>
                 <img src={health} alt="health" />
               </div>
-              <div className=""><p className="font-plus-jakarta-sans  md:text-[14px] text-[14px] font-normal mt-7 lg:w-[100px] md:w-[100px] lg:h-[54px] text-center">Get your work life balance right!</p></div>
+              <div className=""><p className="font-plus-jakarta-sans shadow-lg   rounded  lg:p-1 bg-[white] md:text-[14px] text-[14px] font-normal mt-7 lg:w-[100px] md:w-[200px] lg:h-[74px] text-center">Get your work life balance right!</p></div>
 
 
             </div>
@@ -244,12 +244,12 @@ const Overview = () => {
           <p className=" flex text-[16px] text-[#00C]  font-lobster font-normal">Learning</p>
           <p className="mt-2 font-plus-jakarta-sans text-[14px] font-medium">Upskill with life changing courses</p>
           <div className="mt-2 flex justify-center mx-auto">
-            <img className="lg:w-[200px]" src={learning} alt="learning" />
+            <img className="lg:w-[200px] md:w-[280px]" src={learning} alt="learning" />
           </div>
           <p className="font-plus-jakarta-sans text-[14px] font-medium mt-4">Upskill with E-Books and Articles</p>
-          <div className="lg:flex  flex flex-row gap-3  md:flex md:gap-[50px] md:justify-center  justify-center  lg:justify-between lg:mt-[50px] mt-4 lg:mb-0 mb-8">
-            <div className="bg-[white] shadow-lg rounded"><img className="px-3" src={diction} alt="diction" /></div>
-            <div className="bg-[white] shadow-lg rounded "><img className="px-3" src={reader} alt="reader" /></div>
+          <div className="lg:flex  flex flex-row gap-3  md:flex md:gap-[50px] lg:justify-center  justify-center   lg:mt-[50px] mt-4 lg:mb-0 mb-8">
+            <div className="bg-[white] shadow-lg rounded"><img className="" src={diction} alt="diction" /></div>
+            <div className="bg-[white] shadow-lg rounded "><img className="" src={reader} alt="reader" /></div>
 
           </div>
         </div>
@@ -258,18 +258,20 @@ const Overview = () => {
 
         <div className=" lg:gap-[0]">
           <div>
-            <img src={graph} alt="graph" />
+
           </div>
-          <div className="relative lg:w-[416px]  lg:mx-0 mx-auto mt-[2px] lg:h-[486px] lg:mb-0 mb-3 h-[270px] w-[330px]  md:h-[350px] md:w-[492px] md:ml-[-21px] md:px-5  md:mx-auto shadow-lg bg-[white] ">
-            <p className="flex justify-center pt-2 text-[#00C] font-lobster ">Appraisal Chat</p>
+          <div className="relative lg:w-[416px]  lg:mx-0 mx-auto mt-[2px] lg:h-[486px] lg:mb-0 mb-3 h-[270px] w-[330px]  md:h-[550px] md:w-[492px] md:ml-[-21px] md:px-5  md:mx-auto shadow-lg bg-[white] ">
+            <p className="flex pt-2 text-[#00C] font-lobster ">Appraisal Chat</p>
 
-            < img className="flex  mx-auto  lg:w-[250px] md:w-[250px] w-[150px] justify-center lg:pt-[90px] pt-9" src={pie} />
+            <img className="w-[220px] flex justify-center mx-auto lg:pt-2" src={graph} alt="graph" />
 
-            <p className="absolute lg:top-[90px]   md:top-[95px]  md:left-[30px] top-[50px]  left-4 md:text-[14px] text-[13px] lg:text-[14px] lg:left-[60px] lg:w-[101px] lg:h-[36px] font-plus-jakarta-sans text-center">Skill Improvement </p>
-            <p className=" absolute lg:w-[127px]  w-[89px] text-[12px] lg:text-[14px] md:text-[14px] left-[199px] md:left-[300px] lg:left-[280px] top-[50px] lg:h-[36px] text-center">Courses Completion Rates</p>
-            <p className="absolute lg:w-[127px]  text-[12px] lg:text-[14px] md:text-[14px] left-[5px] md:top-[190px]  md:left-[50px] lg:left-[-20px] lg:top-[275px] top-[130px] lg:h-[36px] text-center" >Productivity</p>
-            <p className="absolute lg:w-[60px]   text-[12px] lg:text-[14px] md:text-[14px] lg:left-[130px] left-[20px]  md:top-[290px] md:left-[80px] lg:top-[370px] top-[210px] lg:h-[36px] text-center"> Quality of Work</p>
-            <p className="absolute lg:w-[120px]  text-[12px]  top-[140px] md:text-[14px] left-[215px] lg:text-[14px] md:left-[370px] md:top-[240px] lg:left-[310px] lg:top-[250px] lg:h-[36px] text-center">Attendance Records</p>
+            < img className="flex  mx-auto  lg:w-[250px] md:w-[250px] w-[150px] justify-center lg:pt-[20px] pt-9" src={pie} />
+
+            <p className="absolute lg:top-[220px]   md:top-[95px]  md:left-[30px] top-[50px]  left-4 md:text-[14px] text-[13px] lg:text-[14px] lg:left-[20px] lg:w-[101px] lg:h-[36px] font-plus-jakarta-sans text-center">Skill Improvement </p>
+            <p className=" absolute lg:w-[127px] lg:top-[230px]  w-[89px] text-[12px] lg:text-[14px] md:text-[14px] left-[199px] md:left-[300px] lg:left-[280px] top-[50px] lg:h-[36px] text-center">Courses Completion Rates</p>
+            <p className="absolute lg:w-[127px]  text-[12px] lg:text-[14px] md:text-[14px] left-[5px] md:top-[190px]  md:left-[50px] lg:left-[-20px] lg:top-[320px] top-[130px] lg:h-[36px] text-center" >Productivity</p>
+            <p className="absolute lg:w-[60px]   text-[12px] lg:text-[14px] md:text-[14px] lg:left-[50px] left-[20px]  md:top-[290px] md:left-[80px] lg:top-[440px] top-[210px] lg:h-[36px] text-center"> Quality of Work</p>
+            <p className="absolute lg:w-[120px]  text-[12px]  top-[140px] md:text-[14px] left-[215px] lg:text-[14px] md:left-[370px] md:top-[240px] lg:left-[310px] lg:top-[350px] lg:h-[36px] text-center">Attendance Records</p>
 
           </div>
 

@@ -15,12 +15,12 @@ const MobileSideBar = () => {
 
     const closeSidebar = () => {
         if (toggleNav) {
-            setToggleNav(false); // Close the sidebar when a link is clicked
+            setToggleNav(true); // Close the sidebar when a link is clicked
         }
     };
     return (
 
-        <nav className={`fixed top-[40px]  w-[50%] min-h-[653px]  z-50 shadow-lg bg-white lg:hidden md:hidden flex`} onClick={() => setToggleNav(toggleNav)}>
+        <nav className={`fixed top-[50px]  w-[50%] min-h-[653px]  z-50 shadow-lg bg-white lg:hidden md:hidden flex`} onClick={() => setToggleNav(!toggleNav)}>
             <ul>
                 <li className='ml-2 flex mb-7 mt-2 py-2 bg-[blue] items-center' onClick={closeSidebar}>
                     <img src={overviewIcon} alt="overview icon" className='ml-2 mr-4' />
