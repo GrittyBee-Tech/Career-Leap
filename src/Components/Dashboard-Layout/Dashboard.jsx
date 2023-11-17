@@ -14,9 +14,8 @@ const Dashboard = () => {
             {toggleNav && <MobileSideBar />}
 
             <div className="flex">
-                <Sidebar className="lg:flex md:flex hidden" />
-
-                <main className="pt-4 px-6 bg-[#FAFAFE] w-4/5 h:auto">
+                <Sidebar />
+                <main className="pt-4 px-6 bg-[#FAFAFE] w-full md:w-[calc(100vw-13rem)] h:auto">
                     <Outlet />
                 </main>
             </div>

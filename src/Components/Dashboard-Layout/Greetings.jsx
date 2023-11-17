@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { FaCloudMoon } from 'react-icons/fa';
 import { IoIosPartlySunny } from 'react-icons/io';
 
-const Greetings = ({ text }) => {
+const Greetings = ({ advice }) => {
     const [dateformat, setDateFormat] = useState([]);
     const [hour, setHour] = useState(0);
     
@@ -37,7 +37,7 @@ const Greetings = ({ text }) => {
                         : <FaCloudMoon fill='#00a8fc' /> 
                     }
                 </h1>
-                <p className='font-bad-script text-sm mt-2'>{text || "Watch impactful videos from mentors round about the world!"}</p>
+                <p className='font-bad-script text-sm mt-2'>{advice || "Watch impactful videos from mentors round about the world!"}</p>
             </div>
             <div className='bg-white p-2 rounded-md'>
                 <p className='text-sm mb-1 font-plus-jakarta-sans'>Current Time</p>

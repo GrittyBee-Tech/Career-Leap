@@ -10,29 +10,31 @@ import Mentorship from './Pages/Dashboard/Mentorship';
 import Health from './Pages/Dashboard/Health';
 import Appraisal from './Pages/Dashboard/Appraisal';
 import Settings from "./Pages/Dashboard/Settings"; 
+import PersistLogin from './Auth/PersistLogin';
+import AlreadyLoggedIn from './Auth/AlreadyLoggedIn';
 
 function App() {
   return (
-
     <Routes>
-      <Route path="/" Component={Home} />
-      <Route path='/admin/register' Component={RegisterAdmin} />
-      <Route path='/dashboard' Component={Dashboard}>
-        <Route index Component={Overview} />
-        <Route path='/dashboard/learn'>
-          <Route path='/dashboard/learn/courses' Component={Courses} />
-          <Route path='/dashboard/learn/ebooks' Component={Ebooks} />
+      <Route element={<PersistLogin />}>
+
+        <Route element={<AlreadyLoggedIn />}>
+          <Route path="/" Component={Home} />
+          <Route path='/admin/register' Component={RegisterAdmin} />
         </Route>
-        <Route path='/dashboard/mentorship' Component={Mentorship} />
-        <Route path='/dashboard/health' Component={Health} />
-        <Route path='/dashboard/appraisal' Component={Appraisal} />
-        <Route path='/dashboard/settings' Component={Settings} />
-        <Route path='/dashboard/health' Component={Health} />
+
+        <Route path='dashboard' Component={Dashboard}>
+          <Route index Component={Overview} />
+            <Route path='learn/courses' Component={Courses} />
+            <Route path='learn/ebooks' Component={Ebooks} />
+          <Route path='mentorship' Component={Mentorship} />
+          <Route path='health' Component={Health} />
+          <Route path='appraisal' Component={Appraisal} />
+          <Route path='settings' Component={Settings} />
+          <Route path='health' Component={Health} />
+        </Route>
       </Route>
     </Routes>
-
-
-
   )
 }
 
