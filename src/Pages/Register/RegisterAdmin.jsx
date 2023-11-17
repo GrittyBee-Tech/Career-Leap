@@ -13,10 +13,11 @@ const Register = () => {
   const baseURL = "https://risepath-dev.onrender.com/auth/register";
   const [showPassword, setshowPassword] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
   const schema = yup.object().shape({
     fullName: yup.string().required('Full name is Required'),
-    email: yup.string().email('Invalid email').required('Email is required'),
+    email: yup.string().email('Invalid email').required('Email is required').matches(emailRegex, { message: 'Looks like this is not a valid email' }),
     password: yup.string().required('Password is required').min(8),
     organization: yup.string().required('Organization name is required')
   });

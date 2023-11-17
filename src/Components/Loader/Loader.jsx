@@ -4,7 +4,7 @@ const Loader = ({ text }) => {
     const loadArr = new Array(12).fill('a');
 
   return (
-    <section className="grid text-center p-5 w-full min-w-full max-w-full h-screen min-h-screen max-h-screen place-content-center place-items-center">
+    <section className="grid text-center p-5 w-full min-w-full max-w-full h-full place-content-center place-items-center">
         <main className="flex flex-col items-center justify-center">
             <div className="mb-5 inline-block relative w-20 h-20 scale-125">
                 {

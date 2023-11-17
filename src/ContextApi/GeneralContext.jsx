@@ -1,20 +1,21 @@
 import {
     createContext,
     useCallback,
+    useContext,
     useEffect,
     useMemo,
     useState
 } from "react";
 import useLocalStore from "../../hooks/useLocalStore";
-import axios from "../AxiosApi/axios";
+import axios from "axios";
 
 export const GeneralContext = createContext({});
 
 export const GeneralProvider = ({ children }) => {
-    const [currentPage, setCurrentPage] = useState("Home");
-    const [accessToken, setAccessToken] = useState(null);
+    const [accessToken, setAccessToken] = useState('');
     const [user, setUser] = useState({});
     const [refreshToken, setRefreshToken] = useLocalStore("AUTH_VALUES", null);
+    const baseURL = "https://risepath-dev.onrender.com";
 
     const logoutFunction = () => {
         setAccessToken(null);
@@ -31,7 +32,7 @@ export const GeneralProvider = ({ children }) => {
 
             const config = {
                 method: "post",
-                url: "https://risepath-dev.onrender.com/auth/token",
+                url: `${baseURL}/auth/token`,
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -39,30 +40,29 @@ export const GeneralProvider = ({ children }) => {
             };
 
             await axios(config).then(res => {
-                setAccessToken(res.data.accessToken);
-                setRefreshToken(res.data.refreshToken);
+                // if (res.status == 200) {
+                setAccessToken(res?.data?.accessToken);
+                setRefreshToken(res?.data?.refreshToken);
+                // }
             }).catch(err => {
                 console.log('Error fetching token', err);
             });
-            console.log('DONNNNEEEE');
         };
-        console.log(accessToken);
         if (!accessToken) request();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [accessToken, refreshToken]);
+    }, [accessToken, refreshToken, setRefreshToken]);
 
     const contextData = useMemo(() => ({
         accessToken,
         setAccessToken,
         refreshToken,
         setRefreshToken,
-        currentPage,
-        setCurrentPage,
         user,
         setUser,
-        logout
+        logout,
+        baseURL
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }), [accessToken, currentPage, user, logout, refreshToken]);
+    }), [accessToken, user, logout, refreshToken, setRefreshToken]);
 
     return (
         <GeneralContext.Provider value={contextData}>
@@ -70,5 +70,7 @@ export const GeneralProvider = ({ children }) => {
         </GeneralContext.Provider>
     )
 }
+
+export const useGeneralStore = () => useContext(GeneralContext);
 
 export default GeneralProvider;

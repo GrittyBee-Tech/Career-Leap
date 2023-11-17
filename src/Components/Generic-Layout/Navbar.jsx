@@ -4,11 +4,13 @@ import MobileNavbar from "./MobileNavbar"
 import { useEffect, useState } from "react"
 import { HashLink } from "react-router-hash-link"
 import RegisterModal from "./RegisterModal"
+import { useGeneralStore } from "../../ContextApi/GeneralContext"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-const [changeNav, setChangeNav] = useState(true);
+    const [changeNav, setChangeNav] = useState(true);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -53,8 +55,16 @@ const [changeNav, setChangeNav] = useState(true);
                     <li><HashLink to="/#Health">Mental Health</HashLink></li>
                 </ul>
                 <div className=" md:flex lg:gap-4 lg:flex md:gap-4 hidden lg:mb-1 md:mt-4 mb-2">
-                    <p className="lg:mt-2 lg:mb-0  lg:text-[16px] md:text-[17px] text-[#0A0A29] font-plus-jakarta-sans font-semibold "><HashLink to='/dashboard'>Log in</HashLink ></p>
-                    <button onClick={() => setIsModalOpen(true)} className="bg-[#00F]  text-[#FFFF]  lg:mb-0  md:mb-2 mb-1  md:w-[90px] lg:w-[138px] lg:h-[50px] md:h-[35px] rounded md:text-[18px] lg:p-1 lg:text-[18px] font-bold">Sign up</button>
+                    {
+                        accessToken ? (
+                            <Link to='/dashboard' className="bg-[#00F] text-[#FFFF] py-2.5 px-10 rounded md:text-[18px] lg:text-[18px] font-bold">Dashboard</Link>
+                        ) : (
+                            <>
+                                <HashLink className="lg:mt-2 lg:mb-0  lg:text-[16px] md:text-[17px] text-[#0A0A29] font-plus-jakarta-sans font-semibold " to='/login'>Log in</HashLink>
+                                <button onClick={() => setIsModalOpen(true)} className="bg-[#00F] text-[#FFFF] py-2.5 px-10 rounded md:text-[18px] font-bold">Sign up</button>
+                            </>
+                        )
+                    }
                 </div>
                 <button onClick={toggleMenu} className="md:hidden lg:hidden flex ml-[84px]  text-[24px] text-[#00F] md:pb-2">
                     <GiHamburgerMenu />
