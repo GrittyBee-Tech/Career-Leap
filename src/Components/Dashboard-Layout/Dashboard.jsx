@@ -16,7 +16,7 @@ const Dashboard = () => {
             <div className="flex">
                 <Sidebar className="lg:flex md:flex hidden" />
 
-                <main className="pt-4 px-6 bg-[#FAFAFE] w-4/5 h:auto">
+                <main className="pt-4 px-6 mt-[4rem] bg-[#FAFAFE] w-[83%] h:auto">
                     <Outlet />
                 </main>
             </div>

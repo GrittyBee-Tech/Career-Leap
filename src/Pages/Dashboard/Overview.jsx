@@ -50,7 +50,7 @@ const Overview = () => {
   const todaysDate = new Date();
   return (
     <section>
-      <div className="lg:flex  lg:flex-row lg:gap-[337px]   md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
+      <div className="lg:flex  lg:flex-row lg:gap-[337px] justify-between  md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
         <div className="">
           <div className="flex gap-1 "><h2 className="p-4  mt-2 lg:text-[24px] md:text-[24px] text-[18px] font-plus-jakarta-sans  font-medium">Good Morning, <span>Adekunle!</span></h2>
             <IoIosPartlySunny className="text-[38px] text-[#57C7FF] mt-4" /></div>
