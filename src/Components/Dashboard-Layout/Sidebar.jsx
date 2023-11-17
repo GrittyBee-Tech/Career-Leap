@@ -6,20 +6,52 @@ import appraisalIcon from "../../assets/Icons/appraisal-icon.svg";
 import settingsIcon from "../../assets/Icons/settings-icon.svg";
 import logoutIcon from "../../assets/Icons/logout-icon.svg";
 import OverviewIcon from '../Icons/OverviewIcon';
-import { useLocation } from 'react-router-dom'; 
+import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import ChevronUpIcon from '../Icons/ChevronUpIcon';
+import ChevronDownIcon from '../Icons/ChevronDownIcon';
+import VideoIcon from '../Icons/VideoIcon';
+import PDFIcon from '../Icons/PDFIcon';
 
 const Sidebar = () => {
-    let location = useLocation(); 
+
+    const [isLearningOpen, setIsLearningOpen] = useState(false);
+    let location = useLocation();
+
+    const toggleLearning = () => {
+        setIsLearningOpen(!isLearningOpen);
+    };
+
     return (
         <nav className={`relative  w-4/5 md:w-1/5 lg:w-[15%] min-h-[653px] md:mt-[5rem] h-screen  z-50 shadow-lg bg-white lg:flex md:flex hidden`}>
             <ul>
                 <li className={`items-center`}>
-                    
-                    <Link to='/dashboard' className={`${location.pathname == '/dashboard' ? 'bg-[blue] font-bold text-[white] pl-3': ''} flex rounded-md ml-2  mb-7 mt-2 py-2 gap-2 `}><OverviewIcon />Overview</Link>
+                    <Link to='/dashboard' className={`${location.pathname == '/dashboard' ? 'bg-[blue] font-bold text-[white] pl-3' : ''} flex rounded-md ml-2  mb-7 mt-2 py-2 gap-2 `}><OverviewIcon />Overview</Link>
                 </li>
-                <li className='ml-2 flex mb-7'>
-                    <img src={learningIcon} alt="learning icon" className='ml-2 mr-4' />
-                    <Link to='/dashboard/learn'>Learning</Link>
+                <li className='ml-2 mb-7'>
+                    <div className='flex items-center' onClick={toggleLearning}>
+                        <img src={learningIcon} alt="learning icon" className='ml-2 mr-4' />
+                        <Link to='/dashboard/learn'>Learning</Link>
+                        <div className='ml-2'>
+                            {isLearningOpen ? <ChevronUpIcon /> :
+                                <ChevronDownIcon />}
+                        </div>
+                    </div>
+                    {isLearningOpen && (
+                        <div className='my-4 ml-4'>
+                            <ul >
+                                <li className='ml-2 items-center gap-2 flex mb-2'>
+                                    <VideoIcon />
+                                    <Link to="/dashboard/Mentorship">Videos</Link>
+                                </li>
+                                <li className='ml-2 items-center gap-2 flex mb-7'>
+                                    <PDFIcon />
+                                    <Link to="/dashboard/Mentorship">PDF</Link>
+                                </li>
+                                {/* Add more learning items as needed */}
+                            </ul>
+                        </div>
+                    )}
                 </li>
                 <li className='ml-2 flex mb-7'>
                     <img src={mentorshipIcon} alt="mentorship icon" className='ml-2 mr-4' />
