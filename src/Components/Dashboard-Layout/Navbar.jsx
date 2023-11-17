@@ -4,15 +4,16 @@ import { GiHamburgerMenu } from "react-icons/gi"
 
 import avatar from '../../assets/Icons/avatar.svg';
 import { MenuContextProvider } from '../../ContextApi/SideBarContext';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const { toggleNav, setToggleNav } = MenuContextProvider();
 
     return (
-        <nav className="flex justify-between items-center lg:pl-12 pr-7 py-2 border-b border-b-[#ECECEC] bg-white">
-            <div className='flex gap-3'>
+        <nav className="flex justify-between fixed w-full items-center lg:pl-5 pr-7 z-[9999] py-2 border-b border-b-[#ECECEC] bg-white">
+            <div className='flex gap-3 '>
                 < GiHamburgerMenu onClick={() => setToggleNav(!toggleNav)} className='lg:hidden md:hidden flex text-[24px mt-2]  text-primary ' />
-                <h2 className="font-lobster text-primary lg:text-3xl md:text-3xl text-[20px] font-bold ">Rise Path</h2>
+                <h2 className="font-lobster text-primary lg:text-3xl md:text-3xl text-[20px] font-bold "><Link to='/'>Rise Path</Link></h2>
             </div>
 
 

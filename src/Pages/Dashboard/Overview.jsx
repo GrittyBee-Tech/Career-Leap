@@ -26,8 +26,7 @@ const Overview = () => {
       setIsLoading(true);
       const response = await axios.get("/advice")
       console.log(response.data);
-
-
+ 
       if (response.status === 200) {
         setAdviceTab(response.data)
         setIsLoading(false)
@@ -37,8 +36,7 @@ const Overview = () => {
       console.log(error);
 
     }
-
-
+ 
   };
 
   useEffect(() => {
@@ -50,7 +48,7 @@ const Overview = () => {
   const todaysDate = new Date();
   return (
     <section>
-      <div className="lg:flex  lg:flex-row lg:gap-[337px]   md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
+      <div className="lg:flex  lg:flex-row lg:gap-[337px] justify-between  md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
         <div className="">
           <div className="flex gap-1 "><h2 className="p-4  mt-2 lg:text-[24px] md:text-[24px] text-[18px] font-plus-jakarta-sans  font-medium">Good Morning, <span>Adekunle!</span></h2>
             <IoIosPartlySunny className="text-[38px] text-[#57C7FF] mt-4" /></div>
@@ -92,13 +90,7 @@ const Overview = () => {
               <p className="absolute top-7 left-6 font-plus-jakarta-sans font-medium text-[12px]">80.2%</p>
             </div>
           </div>
-
-
-
-
         </div>
-
-
         <div className="bg-[white] shadow-lg rounded  w-[100%] lg:w-[262px] md:w-[240px] lg:h-[109px]">
           <div className=" p-3 flex lg:gap-1 gap-[30px]">
             <div>
@@ -119,12 +111,7 @@ const Overview = () => {
 
             </div>
           </div>
-
-
-
         </div>
-
-
         <div className="bg-[white] shadow-lg rounded w-[100%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
           <div className=" p-3 flex lg:gap-[10px] gap-[90px]">
             <div>
@@ -145,12 +132,7 @@ const Overview = () => {
 
             </div>
           </div>
-
-
-
-
         </div>
-
 
         <div className="bg-[white] shadow-lg  rounded w-[100%] lg:w-[242px]  md:w-[240px] lg:h-[109px]">
           <div className=" p-3 flex lg:gap-5 gap-[97px]">
@@ -173,9 +155,6 @@ const Overview = () => {
             </div>
           </div>
 
-
-
-
         </div>
         <div className="bg-[white] shadow-lg  rounded w-[100%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
           <div className=" p-3 flex lg:gap-5 gap-[100px]">
@@ -197,13 +176,7 @@ const Overview = () => {
 
             </div>
           </div>
-
-
-
-
         </div>
-
-
 
       </div>
 
@@ -230,8 +203,6 @@ const Overview = () => {
               <div>
                 <img className="lg:w-[180px]" src={Mentor} alt="Mentor" />
               </div>
-
-
 
             </div>
 
@@ -274,13 +245,8 @@ const Overview = () => {
             <p className="absolute lg:w-[120px]  text-[12px]  top-[140px] md:text-[14px] left-[215px] lg:text-[14px] md:left-[370px] md:top-[240px] lg:left-[310px] lg:top-[350px] lg:h-[36px] text-center">Attendance Records</p>
 
           </div>
-
-
         </div>
-
       </div>
-
-
     </section>
   )
 }
