@@ -28,15 +28,15 @@ const Sidebar = () => {
                 <li className={`items-center`}>
                     <Link to='/dashboard' className={`${location.pathname == '/dashboard' ? 'bg-[blue] font-bold text-[white] pl-3' : ''} flex rounded-md ml-2  mb-7 mt-2 py-2 gap-2 `}><OverviewIcon />Overview</Link>
                 </li>
-                <li className='ml-2 mb-7'>
-                    <div className='flex items-center' onClick={toggleLearning}>
-                        <img src={learningIcon} alt="learning icon" className='ml-2 mr-4' />
-                        <Link to='/dashboard/learn'>Learning</Link>
-                        <div className='ml-2'>
-                            {isLearningOpen ? <ChevronUpIcon /> :
-                                <ChevronDownIcon />}
+                <li className={`items-center  mb-7`}>
+                    <Link to='/dashboard/learn' className={`${location.pathname == '/dashboard/learn' ? 'bg-[blue] font-bold text-[white] px-3' : ''} flex flex-col rounded-md ml-2  mb-0 mt-2 py-2 gap-2 `}>
+                        <div className='flex items-center' onClick={toggleLearning}>
+                            <img src={learningIcon} alt="learning icon" className='ml-2 mr-4' />Learning
+                            <div className='ml-2'>
+                                {isLearningOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                     {isLearningOpen && (
                         <div className='my-4 ml-4'>
                             <ul >
@@ -48,10 +48,9 @@ const Sidebar = () => {
                                     <PDFIcon />
                                     <Link to="/dashboard/Mentorship">PDF</Link>
                                 </li>
-                                {/* Add more learning items as needed */}
                             </ul>
                         </div>
-                    )}
+                    )} 
                 </li>
                 <li className='ml-2 flex mb-7'>
                     <img src={mentorshipIcon} alt="mentorship icon" className='ml-2 mr-4' />
