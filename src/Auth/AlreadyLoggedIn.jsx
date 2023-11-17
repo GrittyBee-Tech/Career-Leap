@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { GeneralContext } from "../ContextApi/GeneralContext"
+import { useGeneralStore } from "../ContextApi/GeneralContext"
 import { Navigate, Outlet } from 'react-router-dom';
 
 const AlreadyLoggedIn = () => {
-    const { accessToken } = useContext(GeneralContext);
+    const { accessToken } = useGeneralStore();
 
     if (accessToken) return <Navigate to='/dashboard' />
 

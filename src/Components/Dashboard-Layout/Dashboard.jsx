@@ -15,7 +15,7 @@ const Dashboard = () => {
 
             <div className="flex">
                 <Sidebar />
-                <main className="pt-4 px-6 bg-[#FAFAFE] w-full md:w-[calc(100vw-13rem)] h:auto">
+                <main className="pt-4 px-6 bg-[#FAFAFE] w-full md:w-[calc(100vw-13rem)] h:auto relative">
                     <Outlet />
                 </main>
             </div>

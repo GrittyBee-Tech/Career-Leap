@@ -14,7 +14,6 @@ const Greetings = ({ text }) => {
             const response = await axios.get("/advice")
             console.log(response.data);
 
-
             if (response.status === 200) {
                 setAdviceTab(response.data)
                 setIsLoading(false)
@@ -22,10 +21,7 @@ const Greetings = ({ text }) => {
         }
         catch (error) {
             console.log(error);
-
         }
-
-
     };
 
 
@@ -58,8 +54,8 @@ const Greetings = ({ text }) => {
     return (
         <header className="flex lg:justify-between md:justify-between  mt-2">
             <div>
-                <h1 className='lg:text-2xl  md:text-[20px] text-[14px] font-medium text-[#000] font-plus-jakarta-sans flex lg:gap-3 md:gap-3 gap-2items-center'>
-                    Good {hour < 12 ? "Morning" : hour < 18 ? " Afternoon" : " Evening"}, Adekunle!
+                <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center'>
+                    Good {hour<12 ? "Morning" : hour <18 ? " Afternoon": " Evening"}, Adekunle!
                     {
                         hour < 12 ? <IoIosPartlySunny fill='#FDB813' />
                             : <FaCloudMoon fill='#00a8fc' />

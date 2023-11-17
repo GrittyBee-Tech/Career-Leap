@@ -14,8 +14,10 @@ import RegisterEmployee from './Pages/Register/RegisterEmployee';
 import SignIn from './Pages/Register/SignIn';
 import PersistLogin from './Auth/PersistLogin';
 // import AlreadyLoggedIn from './Auth/AlreadyLoggedIn';
+import RequireAuth from './Auth/RequireAuth';
 
 function App() {
+
   return (
     <Routes>
       <Route element={<PersistLogin />}>
@@ -27,16 +29,19 @@ function App() {
           <Route path='/signin' Component={SignIn} />
         {/* </Route> */}
 
-        <Route path='dashboard' Component={Dashboard}>
-          <Route index Component={Overview} />
+        <Route element={<RequireAuth />}>
+          <Route path='dashboard' Component={Dashboard}>
+            <Route index Component={Overview} />
             <Route path='learn/courses' Component={Courses} />
             <Route path='learn/ebooks' Component={Ebooks} />
-          <Route path='mentorship' Component={Mentorship} />
-          <Route path='health' Component={Health} />
-          <Route path='appraisal' Component={Appraisal} />
-          <Route path='settings' Component={Settings} />
-          <Route path='health' Component={Health} />
+            <Route path='mentorship' Component={Mentorship} />
+            <Route path='health' Component={Health} />
+            <Route path='appraisal' Component={Appraisal} />
+            <Route path='settings' Component={Settings} />
+            <Route path='health' Component={Health} />
+          </Route>
         </Route>
+
       </Route>
     </Routes>
   )

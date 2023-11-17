@@ -1,20 +1,17 @@
-import { useContext, useEffect, useState } from "react";
-import { GeneralContext } from "../ContextApi/GeneralContext";
+import { useEffect, useState } from "react";
+import { useGeneralStore } from "../ContextApi/GeneralContext";
 import Loader from "../Components/Loader/Loader";
 import { Outlet } from "react-router";
 import { jwtDecode } from "jwt-decode";
 
 const PersistLogin = () => {
     const [isLoading, setisLoading] = useState(true);
-    const { accessToken } = useContext(GeneralContext);
-
-    console.log(accessToken);
+    const { accessToken } = useGeneralStore();
 
     useEffect(() => {
       const verifyToken = async () => {
         try {
-            const user = await jwtDecode(accessToken);
-            console.log(user);
+            jwtDecode(accessToken);
         } catch(err) {
             localStorage.removeItem('AUTH_VALUES');
         } finally {
@@ -29,7 +26,7 @@ const PersistLogin = () => {
     
 
     return isLoading ? (
-        <div>
+        <div className="w-full h-screen">
             <Loader text="Rise Path Loading..." />
         </div>
     ) : (

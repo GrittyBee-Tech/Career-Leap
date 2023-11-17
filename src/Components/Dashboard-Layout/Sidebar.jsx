@@ -26,8 +26,8 @@ const Sidebar = () => {
     };
 
     return (
-        <nav className='relative md:w-52 z-10 md:flex hidden'>
-            <div className='fixed left-0 top-[58px] flex flex-col justify-between bg-white shadow-lg p-2 h-[calc(100vh-58px)] w-52 border-t'>
+        <aside className='relative md:w-52 z-10 md:flex hidden'>
+            <div className='sticky left-0 top-0 flex flex-col justify-between bg-white shadow-lg p-2 h-[calc(100vh-54px)] w-52 border-t'>
                 <ul className='flex flex-col gap-5 w-full'>
                     <NavLink end to='/dashboard' className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
                         <OverviewIcon />
@@ -79,7 +79,7 @@ const Sidebar = () => {
                     <Link>Logout</Link>
                 </button>
             </div>
-        </nav>
+        </aside>
     )
 }
 
