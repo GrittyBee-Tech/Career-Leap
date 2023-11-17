@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-
+import { Link, NavLink } from 'react-router-dom'
 import learningIcon from "../../assets/Icons/learning-icon.svg";
 import mentorshipIcon from "../../assets/Icons/mentorship-icon.svg";
 import mentalHealthIcon from "../../assets/Icons/mental-health-icon.svg";
@@ -13,10 +12,13 @@ import ChevronDownIcon from '../Icons/ChevronDownIcon';
 import VideoIcon from '../Icons/VideoIcon';
 import PDFIcon from '../Icons/PDFIcon';
 import { MenuContextProvider } from '../../ContextApi/SideBarContext';
+import { GeneralContext } from '../../ContextApi/GeneralContext';
+import { useContext } from 'react';
 
 const Sidebar = () => {
 
     const { isLearningOpen, setIsLearningOpen } = MenuContextProvider();
+    const { logout } = useContext(GeneralContext);
     let location = useLocation();
 
     const toggleLearning = () => {
@@ -24,23 +26,26 @@ const Sidebar = () => {
     };
 
     return (
-        <nav className={`relative   md:w-3/5 lg:w-[15%] min-h-[653px]  z-50 transition-all duration-500 shadow-lg bg-white lg:flex md:flex hidden`}>
-            <ul>
-                <li className={`items-center`}>
-                    <Link to='/dashboard' className={`${location.pathname == '/dashboard' ? 'bg-[blue] font-bold text-[white] pl-3' : ''} flex rounded-md ml-2  mb-7 mt-2 py-2 gap-2 `}><OverviewIcon />Overview</Link>
-                </li>
-                <li className={`items-center  mb-7`}>
-                    <Link to='/dashboard/learn' className={`${location.pathname == '/dashboard/learn' ? 'bg-[blue] font-bold text-[white] px-3' : ''} flex flex-col rounded-md ml-2  mb-0 mt-2 py-2 gap-2 `}>
-                        <div className='flex items-center' onClick={toggleLearning}>
-                            <img src={learningIcon} alt="learning icon" className='ml-2 mr-4' />Learning
-                            <div className='ml-2'>
-                                {isLearningOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+        <nav className='relative md:w-52 z-10 md:flex hidden'>
+            <div className='fixed left-0 top-[58px] flex flex-col justify-between bg-white shadow-lg p-2 h-[calc(100vh-58px)] w-52 border-t'>
+                <ul className='flex flex-col gap-5 w-full'>
+                    <NavLink end to='/dashboard' className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
+                        <OverviewIcon />
+                        <p>Overview</p>
+                    </NavLink>
+                    <div className='bg-white items-center flex gap-6 w-full'>
+                        <div className={`rounded-md p-2 ${location.pathname.includes('dashboard/learn') ? 'bg-[blue] text-white' : 'bg-white'} items-center flex flex-col gap-6 w-full`}>
+                            <div className='flex items-center gap-6' onClick={toggleLearning}>
+                                <img src={learningIcon} alt="learning icon" className='' />Learning
+                                <div className='ml-2'>
+                                    {isLearningOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                                </div>
                             </div>
                         </div>
-                    </Link>
+                    </div>
                     {isLearningOpen && (
                         <div className='my-4 ml-4'>
-                            <ul >
+                            <ul>
                                 <li className='ml-2 items-center gap-2 flex mb-2'>
                                     <VideoIcon />
                                     <Link to="/dashboard/Mentorship">Courses</Link>
@@ -52,28 +57,28 @@ const Sidebar = () => {
                             </ul>
                         </div>
                     )}
-                </li>
-                <li className='ml-2 flex mb-7'>
+                </ul>
+                <NavLink  className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
                     <img src={mentorshipIcon} alt="mentorship icon" className='ml-2 mr-4' />
                     <Link to="/dashboard/Mentorship">Mentorship</Link>
-                </li>
-                <li className='ml-2 flex mb-7'>
+                </NavLink>
+                <NavLink className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
                     <img src={mentalHealthIcon} alt="mentalHealth icon" className='ml-2 mr-4' />
                     <Link to={'/dashboard/health'}>Mental Health</Link>
-                </li>
-                <li className='ml-2 flex mb-7'>
+                </NavLink>
+                <NavLink className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
                     <img src={appraisalIcon} alt="appraisal icon" className='ml-2 mr-4' />
                     <Link>Appraisal</Link>
-                </li>
-                <li className='ml-2 flex mb-7'>
+                </NavLink>
+                <NavLink className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
                     <img src={settingsIcon} alt="settings icon" className='ml-2 mr-4' />
                     <Link to='/dashboard/Settings'>Settings</Link>
-                </li>
-                <li className='ml-2 flex mb-5 absolute bottom-0'>
+                </NavLink>
+                <button onClick={logout} className='ml-2 flex mb-5 absolute bottom-0 focus:bg-[blue]'>
                     <img src={logoutIcon} alt="logout icon" className='ml-2 mr-4' />
                     <Link>Logout</Link>
-                </li>
-            </ul>
+                </button>
+            </div>
         </nav>
     )
 }

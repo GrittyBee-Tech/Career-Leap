@@ -12,33 +12,33 @@ import Appraisal from './Pages/Dashboard/Appraisal';
 import Settings from "./Pages/Dashboard/Settings";
 import RegisterEmployee from './Pages/Register/RegisterEmployee';
 import SignIn from './Pages/Register/SignIn';
+import PersistLogin from './Auth/PersistLogin';
+// import AlreadyLoggedIn from './Auth/AlreadyLoggedIn';
 
 function App() {
   return (
-
     <Routes>
-      <Route path="/" Component={Home} />
-      <Route path='/admin/register' Component={RegisterAdmin} />
-      <Route path='/employee/register' Component={RegisterEmployee} />
-      <Route path='/signin' Component={SignIn} />
+      <Route element={<PersistLogin />}>
 
-      <Route path='/dashboard' Component={Dashboard}>
+        {/* <Route element={<AlreadyLoggedIn />}> */}
+          <Route path="/" Component={Home} />
+          <Route path='/admin/register' Component={RegisterAdmin} />
+          <Route path='/employee/register' Component={RegisterEmployee} />
+          <Route path='/signin' Component={SignIn} />
+        {/* </Route> */}
 
-        <Route index Component={Overview} />
-        <Route path='/dashboard/learn'>
-          <Route path='/dashboard/learn/courses' Component={Courses} />
-          <Route path='/dashboard/learn/ebooks' Component={Ebooks} />
+        <Route path='dashboard' Component={Dashboard}>
+          <Route index Component={Overview} />
+            <Route path='learn/courses' Component={Courses} />
+            <Route path='learn/ebooks' Component={Ebooks} />
+          <Route path='mentorship' Component={Mentorship} />
+          <Route path='health' Component={Health} />
+          <Route path='appraisal' Component={Appraisal} />
+          <Route path='settings' Component={Settings} />
+          <Route path='health' Component={Health} />
         </Route>
-        <Route path='/dashboard/mentorship' Component={Mentorship} />
-        <Route path='/dashboard/health' Component={Health} />
-        <Route path='/dashboard/appraisal' Component={Appraisal} />
-        <Route path='/dashboard/settings' Component={Settings} />
-        <Route path='/dashboard/health' Component={Health} />
       </Route>
     </Routes>
-
-
-
   )
 }
 
