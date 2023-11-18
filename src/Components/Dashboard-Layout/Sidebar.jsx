@@ -7,15 +7,15 @@ import settingsIcon from "../../assets/Icons/settings-icon.svg";
 import logoutIcon from "../../assets/Icons/logout-icon.svg";
 import OverviewIcon from '../Icons/OverviewIcon';
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
 import ChevronUpIcon from '../Icons/ChevronUpIcon';
 import ChevronDownIcon from '../Icons/ChevronDownIcon';
 import VideoIcon from '../Icons/VideoIcon';
 import PDFIcon from '../Icons/PDFIcon';
+import { MenuContextProvider } from '../../ContextApi/SideBarContext';
 
 const Sidebar = () => {
 
-    const [isLearningOpen, setIsLearningOpen] = useState(false);
+    const { isLearningOpen, setIsLearningOpen } = MenuContextProvider();
     let location = useLocation();
 
     const toggleLearning = () => {
@@ -42,15 +42,15 @@ const Sidebar = () => {
                             <ul >
                                 <li className='ml-2 items-center gap-2 flex mb-2'>
                                     <VideoIcon />
-                                    <Link to="/dashboard/Mentorship">Videos</Link>
+                                    <Link to="/dashboard/Mentorship">Courses</Link>
                                 </li>
                                 <li className='ml-2 items-center gap-2 flex mb-7'>
                                     <PDFIcon />
-                                    <Link to="/dashboard/Mentorship">PDF</Link>
+                                    <Link to="/dashboard/Mentorship">E-Books</Link>
                                 </li>
                             </ul>
                         </div>
-                    )} 
+                    )}
                 </li>
                 <li className='ml-2 flex mb-7'>
                     <img src={mentorshipIcon} alt="mentorship icon" className='ml-2 mr-4' />
