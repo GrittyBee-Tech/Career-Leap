@@ -1,4 +1,4 @@
-import { IoIosPartlySunny } from "react-icons/io"
+
 import rate from "/src/assets/Icons/rate.png"
 import todo from "/src/assets/Icons/todo.png"
 import check from "/src/assets/Icons/checkbox.png"
@@ -19,7 +19,7 @@ const Overview = () => {
   return (
     <section>
       <Greetings />
-      <div className="px-7 lg:flex md:flex lg:flex-nowrap md:flex-wrap flex flex-wrap gap-3">
+      <div className="px-7 lg:px-0 lg:flex md:flex lg:flex-nowrap md:flex-wrap flex flex-wrap gap-3">
         <div className="bg-[white] shadow-lg  rounded w-[100%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
           <div className=" p-3 flex lg:gap-3 gap-[60px]">
             <div >

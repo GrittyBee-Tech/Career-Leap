@@ -1,9 +1,5 @@
 import { Link } from 'react-router-dom'
-<<<<<<< HEAD
-=======
 
-import overviewIcon from "../../assets/Icons/overview-icon.svg";
->>>>>>> ade7c14 (update)
 import learningIcon from "../../assets/Icons/learning-icon.svg";
 import mentorshipIcon from "../../assets/Icons/mentorship-icon.svg";
 import mentalHealthIcon from "../../assets/Icons/mental-health-icon.svg";
