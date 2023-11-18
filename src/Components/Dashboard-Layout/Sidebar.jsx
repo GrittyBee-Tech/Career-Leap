@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+
 import learningIcon from "../../assets/Icons/learning-icon.svg";
 import mentorshipIcon from "../../assets/Icons/mentorship-icon.svg";
 import mentalHealthIcon from "../../assets/Icons/mental-health-icon.svg";
@@ -23,7 +24,7 @@ const Sidebar = () => {
     };
 
     return (
-        <nav className={`relative  w-4/5 md:w-1/5 lg:w-[15%] min-h-[653px] md:mt-[5rem] h-screen  z-50 shadow-lg bg-white lg:flex md:flex hidden`}>
+        <nav className={`relative   md:w-3/5 lg:w-[15%] min-h-[653px]  z-50 transition-all duration-500 shadow-lg bg-white lg:flex md:flex hidden`}>
             <ul>
                 <li className={`items-center`}>
                     <Link to='/dashboard' className={`${location.pathname == '/dashboard' ? 'bg-[blue] font-bold text-[white] pl-3' : ''} flex rounded-md ml-2  mb-7 mt-2 py-2 gap-2 `}><OverviewIcon />Overview</Link>
