@@ -28,7 +28,7 @@ const Sidebar = () => {
     };
 
     return (
-        <nav className={`relative   md:w-3/5 lg:w-2/5 min-h-[653px]  z-50 transition-all duration-500 shadow-lg bg-white lg:flex md:flex hidden`}>
+        <nav className={`relative   md:w-3/5 lg:w-[15%] min-h-[653px]  z-50 transition-all duration-500 shadow-lg bg-white lg:flex md:flex hidden`}>
             <ul>
                 <li className={`items-center`}>
                     <Link to='/dashboard' className={`${location.pathname == '/dashboard' ? 'bg-[blue] font-bold text-[white] pl-3' : ''} flex rounded-md ml-2  mb-7 mt-2 py-2 gap-2 `}><OverviewIcon />Overview</Link>

@@ -13,7 +13,7 @@ const Dashboard = () => {
             <NavBar />
             {toggleNav && <MobileSideBar />}
 
-            <div className="flex">
+            <div className="flex gap-[70px]">
                 <Sidebar className="lg:flex md:flex hidden" />
 
                 <main className="pt-4 px-6 mt-[4rem] bg-[#FAFAFE] w-[83%] h:auto">
