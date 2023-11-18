@@ -26,7 +26,7 @@ const Overview = () => {
       setIsLoading(true);
       const response = await axios.get("/advice")
       console.log(response.data);
- 
+
       if (response.status === 200) {
         setAdviceTab(response.data)
         setIsLoading(false)
@@ -36,7 +36,7 @@ const Overview = () => {
       console.log(error);
 
     }
- 
+
   };
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const Overview = () => {
   const todaysDate = new Date();
   return (
     <section>
-      <div className="lg:flex  lg:flex-row lg:gap-[337px] justify-between  md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
+      <div className="lg:flex  lg:flex-row lg:gap-[337px]  md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
         <div className="">
           <div className="flex gap-1 "><h2 className="p-4  mt-2 lg:text-[24px] md:text-[24px] text-[18px] font-plus-jakarta-sans  font-medium">Good Morning, <span>Adekunle!</span></h2>
             <IoIosPartlySunny className="text-[38px] text-[#57C7FF] mt-4" /></div>
@@ -180,9 +180,9 @@ const Overview = () => {
 
       </div>
 
-      <div className="lg:px-[25px] lg:mt-4  mt-5 lg:flex lg:flex-row md:flex-row md:flex-wrap lg:flex-nowrap lg:gap-5  gap-7 md:flex flex flex-col md:justify-center">
+      <div className=" lg:mt-4  mt-5 lg:flex lg:flex-row md:flex-row md:flex-wrap lg:flex-nowrap lg:gap-[95px]   gap-7 md:flex flex flex-col md:justify-center">
         <div className="lg:flex lg:flex-col lg:gap-[42px]">
-          <div className="bg-[white] shadow-lg lg:w-[329px] md:w-[492px] md:ml-[-21px] md:px-5  md:mx-auto  w-[330px] px-3 lg:mx-0 mx-auto  lg:pt-0 pt-7 lg:h-[213px] h-[200px] rounded  lg:px-4">
+          <div className="bg-[white] shadow-lg lg:w-[329px] md:w-[492px] md:ml-[-21px] md:px-5  md:mx-auto  w-[330px] px-3 lg:mx-0 mx-auto  lg:pt-0 pt-7 lg:h-[213px] h-[200px] rounded  lg:px-2">
             <p className="flex mx-auto text-[#00C] font-lobster font-medium">Mental Health</p>
 
             <div className="flex lg:gap-5  md:gap-[90px] lg:pt-[20px]">
