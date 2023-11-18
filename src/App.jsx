@@ -12,7 +12,7 @@ import Appraisal from './Pages/Dashboard/Appraisal';
 import Settings from "./Pages/Dashboard/Settings"; 
 import PersistLogin from './Auth/PersistLogin';
 // import AlreadyLoggedIn from './Auth/AlreadyLoggedIn';
-import RequireAuth from './Auth/RequireAuth';
+// import RequireAuth from './Auth/RequireAuth';
 
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
         <Route path="/" Component={Home} />
         <Route path='/admin/register' Component={RegisterAdmin} />
 
-        <Route element={<RequireAuth />}>
+        {/* <Route element={<RequireAuth />}> */}
           <Route path='dashboard' Component={Dashboard}>
             <Route index Component={Overview} />
             <Route path='learn/courses' Component={Courses} />
@@ -33,7 +33,7 @@ function App() {
             <Route path='settings' Component={Settings} />
             <Route path='health' Component={Health} />
           </Route>
-        </Route>
+        {/* </Route> */}
 
       </Route>
     </Routes>

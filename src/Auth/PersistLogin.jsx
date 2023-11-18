@@ -11,7 +11,8 @@ const PersistLogin = () => {
     useEffect(() => {
       const verifyToken = async () => {
         try {
-            jwtDecode(accessToken);
+            const user = await jwtDecode(accessToken);
+            console.log(user);
         } catch(err) {
             localStorage.removeItem('AUTH_VALUES');
         } finally {
@@ -26,7 +27,7 @@ const PersistLogin = () => {
     
 
     return isLoading ? (
-        <div className="w-full h-screen">
+        <div>
             <Loader text="Rise Path Loading..." />
         </div>
     ) : (

@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import RegisterModal from '../../Components/Generic-Layout/RegisterModal';
 import axios from 'axios';
+import { useGeneralStore } from '../../ContextApi/GeneralContext';
 
 const Register = () => {
-  const baseURL = "https://risepath-dev.onrender.com/auth/register";
+  const { baseURL } = useGeneralStore()
   const [showPassword, setshowPassword] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -32,7 +33,7 @@ const Register = () => {
     const sending = { fullName, email, password, companyName, role: 'admin'};
     
     try {
-      const res = await axios.post(baseURL, JSON.stringify(sending), {
+      const res = await axios.post(`${baseURL}/auth/register`, JSON.stringify(sending), {
         headers: {
           "Content-Type": 'application/json'
         }

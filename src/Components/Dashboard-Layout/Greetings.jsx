@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import { FaCloudMoon } from 'react-icons/fa';
 import { IoIosPartlySunny } from 'react-icons/io';
+import { MenuContextProvider } from '../../ContextApi/SideBarContext';
+import axios from 'axios';
 
-const Greetings = ({ advice }) => {
+const Greetings = () => {
     const [dateformat, setDateFormat] = useState([]);
     const [hour, setHour] = useState(0);
+    const { advicetab, setAdviceTab, isLoading, setIsLoading } = MenuContextProvider();
+
     
     function formatDate() {
         const now = new Date();
@@ -27,8 +31,27 @@ const Greetings = ({ advice }) => {
       formatDate();
     }, []);
 
+    const getAdvice = async () => {
+        try {
+            setIsLoading(true);
+            const response = await axios.get("https://api.adviceslip.com/advice");
+    
+            if (response.status === 200) {
+                setAdviceTab(response.data)
+                setIsLoading(false);
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        getAdvice();
+    }, [])
+
     return (
-        <header className="flex justify-between mt-2">
+        <header className="flex md:flex-row flex-col gap-4 items-start md:items-center justify-between mt-2 mb-4">
             <div>
                 <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center'>
                     Good {hour<12 ? "Morning" : hour <18 ? " Afternoon": " Evening"}, Adekunle!
@@ -37,7 +60,9 @@ const Greetings = ({ advice }) => {
                         : <FaCloudMoon fill='#00a8fc' /> 
                     }
                 </h1>
-                <p className='font-bad-script font-semibold text-sm mt-2'>{advice || "Watch impactful videos from mentors round about the world!"}</p>
+                <p className='font-bad-script font-semibold text-sm mt-2'>
+                    {isLoading ? "Watch impactful videos from mentors round about the world!" : advicetab?.slip?.advice}
+                </p>
             </div>
             <div className='bg-white p-2 rounded-md'>
                 <p className='text-sm mb-1 font-plus-jakarta-sans'>Current Time</p>

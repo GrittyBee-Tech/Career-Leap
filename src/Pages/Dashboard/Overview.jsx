@@ -1,186 +1,22 @@
-import { IoIosPartlySunny } from "react-icons/io"
-import rate from "/src/assets/Icons/rate.png"
-import todo from "/src/assets/Icons/todo.png"
-import check from "/src/assets/Icons/checkbox.png"
-import dash from "/src/assets/Icons/right.png"
-import icon from "/src/assets/Icons/sign.png"
 import health from "/src/assets/Images/health.png"
 import learning from "/src/assets/Images/upskills-icon.png"
 import reader from "/src/assets/Images/reader.png"
 import diction from "/src/assets/Images/pana.png"
 import Mentor from "/src/assets/Images/mentor.png"
 import pie from "/src/assets/Images/pie.png"
-import axios from "../../AxiosApi/axios"
 import graph from "/src/assets/Images/graph.png"
-import { useEffect } from "react"
-import { MenuContextProvider } from "../../ContextApi/SideBarContext"
-
+import Greetings from "../../Components/Dashboard-Layout/Greetings"
+import Rating from "../../Components/Dashboard-Layout/Rating"
 
 const Overview = () => {
 
-  const { advicetab, setAdviceTab, isLoading, setIsLoading } = MenuContextProvider();
-
-  const getAdvice = async () => {
-
-    try {
-      setIsLoading(true);
-      const response = await axios.get("/advice")
-      console.log(response.data);
- 
-      if (response.status === 200) {
-        setAdviceTab(response.data)
-        setIsLoading(false)
-      }
-    }
-    catch (error) {
-      console.log(error);
-
-    }
- 
-  };
-
-  useEffect(() => {
-
-    getAdvice();
-  }, [])
-
-
-  const todaysDate = new Date();
   return (
     <section>
-      <div className="lg:flex  lg:flex-row lg:gap-[337px] justify-between  md:flex  md:gap-[30px] flex flex-col p-4 pt-4">
-        <div className="">
-          <div className="flex gap-1 "><h2 className="p-4  mt-2 lg:text-[24px] md:text-[24px] text-[18px] font-plus-jakarta-sans  font-medium">Good Morning, <span>Adekunle!</span></h2>
-            <IoIosPartlySunny className="text-[38px] text-[#57C7FF] mt-4" /></div>
-          {isLoading ? (<div className="px-4"><h1>Daily Advice</h1></div>) : (<div>
+      <Greetings />
 
+      <Rating />
 
-
-            <p className="px-4 lg:mt-[-20px]  font-lobster text-[20px] mb-5">{advicetab.slip ? advicetab.slip.advice : null}</p>
-
-          </div>)}
-
-        </div>
-        <div className="lg:px-3 p-6 shadow-lg mt-5 lg:mt-5 bg-[white] lg:w-[233px] w-[330px] md:mt-[-20px] mx-auto lg:mx-0 md:p-4 md:ml-[13px] md:mx:auto md:w-[90%] lg:h-[55px] rounded" >
-          <h2 className="text-[14px] font-semibold font-plus-jakarta-sans">Current Time</h2>
-          <p className="text-[12px] font-plus-jakarta-sans font-medium"> {`${todaysDate.toLocaleTimeString()} - ${todaysDate.toDateString()}`}</p>
-
-        </div>
-
-      </div>
-
-      <div className="px-7 lg:flex md:flex lg:flex-nowrap md:flex-wrap flex flex-wrap gap-3">
-        <div className="bg-[white] shadow-lg  rounded w-[100%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-3 gap-[60px]">
-            <div >
-              <div>
-                <h2 className="text-[12px]  lg:w-[94px] font-plus-jakarta-sans font-normal ">My Performance</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2"> 202/240</p>
-
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal border-x-blue mt-2">Good Score</p>
-              </div>
-            </div>
-
-            <div className="relative">
-              <img src={rate} alt="rate" />
-              <p className="absolute top-7 left-6 font-plus-jakarta-sans font-medium text-[12px]">80.2%</p>
-            </div>
-          </div>
-        </div>
-        <div className="bg-[white] shadow-lg rounded  w-[100%] lg:w-[262px] md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-1 gap-[30px]">
-            <div>
-              <div>
-                <h2 className="text-[12px]  lg:w-[94px] font-plus-jakarta-sans font-normal ">Task Assigned</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2"> 0</p>
-
-              </div>
-              <div>
-                <p className="text-[12px] lg:w-[164px] font-plus-jakarta-sans font-normal border-x-blue mt-2">100 Average tasks per user </p>
-              </div>
-            </div>
-
-            <div className="">
-              <img className="pt-5" src={todo} alt="rate" />
-
-            </div>
-          </div>
-        </div>
-        <div className="bg-[white] shadow-lg rounded w-[100%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-[10px] gap-[90px]">
-            <div>
-              <div>
-                <h2 className="text-[12px]  lg:w-[124px] font-plus-jakarta-sans font-normal ">Task Completion</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2"> 0%</p>
-
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal border-x-blue mt-2">Good Score</p>
-              </div>
-            </div>
-
-            <div className=" mt-5">
-              <img src={check} alt="rate" />
-
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-[white] shadow-lg  rounded w-[100%] lg:w-[242px]  md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-5 gap-[97px]">
-            <div>
-              <div>
-                <h2 className="text-[12px] lg:w-[94px] font-plus-jakarta-sans font-normal ">Attendance %</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2"> 67%</p>
-
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal border-x-blue mt-2">| Average score</p>
-              </div>
-            </div>
-
-            <div className=" mt-5">
-              <img src={dash} alt="rate" />
-
-            </div>
-          </div>
-
-        </div>
-        <div className="bg-[white] shadow-lg  rounded w-[100%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-5 gap-[100px]">
-            <div>
-              <div>
-                <h2 className="text-[12px] lg:w-[94px] font-plus-jakarta-sans font-normal ">Leave %</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2">0%</p>
-
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal border-x-blue mt-2">| Perfect score</p>
-              </div>
-            </div>
-
-            <div className="relative mt-5">
-              <img src={icon} alt="rate" />
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div className="lg:px-[25px] lg:mt-4  mt-5 lg:flex lg:flex-row md:flex-row md:flex-wrap lg:flex-nowrap lg:gap-5  gap-7 md:flex flex flex-col md:justify-center">
+      <div className="lg:mt-4  mt-5 lg:flex lg:flex-row md:flex-row md:flex-wrap lg:flex-nowrap lg:gap-5  gap-7 md:flex flex flex-col md:justify-center">
         <div className="lg:flex lg:flex-col lg:gap-[42px]">
           <div className="bg-[white] shadow-lg lg:w-[329px] md:w-[492px] md:ml-[-21px] md:px-5  md:mx-auto  w-[330px] px-3 lg:mx-0 mx-auto  lg:pt-0 pt-7 lg:h-[213px] h-[200px] rounded  lg:px-4">
             <p className="flex mx-auto text-[#00C] font-lobster font-medium">Mental Health</p>
