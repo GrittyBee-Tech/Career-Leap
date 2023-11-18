@@ -1,4 +1,5 @@
 import { FiBell, FiMail, FiSearch } from 'react-icons/fi';
+import { AiOutlineDingtalk } from "react-icons/ai"
 
 import { GiHamburgerMenu } from "react-icons/gi"
 
@@ -11,9 +12,10 @@ const NavBar = () => {
 
     return (
         <nav className="flex justify-between fixed w-full items-center lg:pl-5 pr-7 z-[9999] py-2 border-b border-b-[#ECECEC] bg-white">
-            <div className='flex gap-3 '>
+            <div className='flex gap-2 '>
                 < GiHamburgerMenu onClick={() => setToggleNav(!toggleNav)} className='lg:hidden md:hidden flex text-[24px mt-2]  text-primary ' />
                 <h2 className="font-lobster text-primary lg:text-3xl md:text-3xl text-[20px] font-bold "><Link to='/'>Rise Path</Link></h2>
+                <AiOutlineDingtalk className=' text-primary text-[30px] ' />
             </div>
 
 

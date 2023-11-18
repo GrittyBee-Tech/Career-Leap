@@ -36,7 +36,7 @@ const MobileSideBar = () => {
                 </li>
                 <li className='ml-2 flex mb-7' onClick={closeSidebar}>
                     <img src={mentalHealthIcon} alt="mentalHealth icon" className='ml-2 mr-4' />
-                    <Link>Mental Health</Link>
+                    <Link to={'/dashboard/health'}>Mental Health</Link>
                 </li>
                 <li className='ml-2 flex mb-7' onClick={closeSidebar}>
                     <img src={appraisalIcon} alt="appraisal icon" className='ml-2 mr-4' />

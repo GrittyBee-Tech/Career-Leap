@@ -9,7 +9,8 @@ import Ebooks from './Pages/Dashboard/LearningEbooks';
 import Mentorship from './Pages/Dashboard/Mentorship';
 import Health from './Pages/Dashboard/Health';
 import Appraisal from './Pages/Dashboard/Appraisal';
-import Settings from "./Pages/Dashboard/Settings"; 
+import Settings from "./Pages/Dashboard/Settings";
+import RegisterEmployee from './Pages/Register/RegisterEmployee';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
     <Routes>
       <Route path="/" Component={Home} />
       <Route path='/admin/register' Component={RegisterAdmin} />
+      <Route path='/employee/register' Component={RegisterEmployee} />
       <Route path='/dashboard' Component={Dashboard}>
         <Route index Component={Overview} />
         <Route path='/dashboard/learn'>

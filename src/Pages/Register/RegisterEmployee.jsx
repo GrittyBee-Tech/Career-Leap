@@ -1,3 +1,4 @@
+
 import bg from '../../assets/Images/amico.svg';
 import { useForm } from 'react-hook-form';
 import { AiOutlineMail, AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
@@ -8,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import RegisterModal from '../../Components/Generic-Layout/RegisterModal';
 
-const RegisterAdmin = () => {
+const RegisterEmployee = () => {
   const [showPassword, setshowPassword] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -26,7 +27,6 @@ const RegisterAdmin = () => {
   const onsubmit = (data) => {
     console.log(data);
   };
-
   return (
     <section className="w-full md:w-[90%] lg:w-4/5 flex sm:flex-row flex-col bg-white items-center m-auto my-10 gap-10 sm:gap-8 md:gap-12">
       <div className='flex-1 px-9 sm:px-6 md:px-9 pt-6'>
@@ -39,7 +39,7 @@ const RegisterAdmin = () => {
       <div style={{ boxShadow: '5px 10px 20px 0px rgba(0, 0, 0, 0.25)' }} className='w-full sm:flex-1 mb-4 bg-[#EAF6FC] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5'>
         <h2 className="text-3xl text-primary font-lobster text-center">Rise Path</h2>
         <h4 className='font-plus-jakarta-sans text-2xl font-semibold text-center'>Create an Account</h4>
-        <p className="font-georgia text-sm mb-4 text-center">Sign up on Rise path as a company and get access to the services we offer.</p>
+        <p className="font-georgia text-sm mb-4 text-center">Sign up on Rise Path as an Employee and get access to the services we offer.</p>
         <form action="" className='flex flex-col gap-6' onSubmit={handleSubmit(onsubmit)}>
           <div>
             <label className='font-medium text-xl font-plus-jakarta-sans' htmlFor='email'>Email</label>
@@ -110,4 +110,4 @@ const RegisterAdmin = () => {
   )
 }
 
-export default RegisterAdmin
+export default RegisterEmployee

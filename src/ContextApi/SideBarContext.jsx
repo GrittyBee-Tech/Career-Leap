@@ -11,6 +11,7 @@ const SideBarContext = ({ children }) => {
     const [toggleNav, setToggleNav] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [advicetab, setAdviceTab] = useState([]);
+    const [isLearningOpen, setIsLearningOpen] = useState(false)
 
 
     return (
@@ -26,6 +27,8 @@ const SideBarContext = ({ children }) => {
                 setMode,
                 toggleNav,
                 setToggleNav,
+                isLearningOpen,
+                setIsLearningOpen
             }}
         >
             {children}
