@@ -5,7 +5,7 @@ import {
     AiOutlineEyeInvisible,
 } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi"
-import icon from "/src/assets/Images/team.png"
+import icon from "/src/assets/Images/signin.png"
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -49,28 +49,30 @@ const SignIn = () => {
     }, [])
     return (
         <section className="">
-            <div className=" lg:flex lg:flex-row md:flex  md:flex-col flex flex-col container mx-auto w-[85%] lg:gap-[120px]  gap-4 pt-[110px]">
+            <div className=" lg:flex lg:flex-row md:flex lg:pt-[40px] md:flex-col flex flex-col container mx-auto w-[85%] lg:gap-[70px]  gap-4 pt-[30px]">
                 <div className="">
                     <Link to="/">
                         <div className="flex mb-[20px]">
                             <BiArrowBack className="mt-1 text-[20px]" />
                             <p className="mb-[20px] font-medium">Go Back</p>
                         </div></Link>
-                    <p>Transform Your Team!</p>
-                    <p>Drive employee growth, foster innovation, and enhance your company's performance.</p>
+                    <p className="text-[#00F] font-lobster text-[30px]">Transform Your Team!</p>
+                    <p className="text-[#000] font-georgia text-[30px]">Drive employee growth, foster innovation, and enhance your company's performance.</p>
                     <img src={icon} alt="team" />
                 </div>
                 <div className="pt-3">
                     <div
                         style={{ boxShadow: "5px 10px 20px 0px rgba(0, 0, 0, 0.25)" }}
-                        className="  lg:w-[500px] sm:flex-1  bg-[#f3f3f3] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5"
+                        className="  lg:w-[500px] sm:flex-1  bg-[#EAF6FC] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5"
                     >
-                        <h2 className="text-3xl text-[brown] font-lobster text-center">
+                        <h2 className="text-3xl text-[#00F] font-lobster text-center">
                             RisePath
                         </h2>
-                        <h4 className="font-plus-jakarta-sans text-2xl font-semibold text-center">
-                            Hello! Welcome
-                        </h4>
+                        <h3 className="font-plus-jakarta-sans text-2xl font-semibold text-center">
+                            Sign In
+                        </h3>
+                        <p className="flex justify-center text-center font-plus-jakarta-sans">Sign in on RisePath as a company and get access to
+                            the services we offer.</p>
 
                         <form action="" onSubmit={handleFormSubmit} className="flex flex-col gap-6">
 
@@ -127,7 +129,7 @@ const SignIn = () => {
                                 className="font-medium text-xl font-plus-jakarta-sans"
                                 htmlFor="organization"
                             >
-                                Organization Name
+                                Sign in as
                             </label>
                             <div className="relative">
                                 <input
@@ -147,9 +149,9 @@ const SignIn = () => {
 
                                 className="bg-[#3333FF] text-[#F0F0FF] rounded-lg px-5 py-2 text-xl font-semibold"
                             >
-                                Sign in
+                                Log in
                             </button>
-
+                            <p className="flex justify-center">Don't have an account? Sign up</p>
                         </form>
                     </div>
                 </div>
