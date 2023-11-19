@@ -15,9 +15,11 @@ import SignIn from './Pages/Register/SignIn';
 import PersistLogin from './Auth/PersistLogin';
 // import AlreadyLoggedIn from './Auth/AlreadyLoggedIn';
 import RequireAuth from './Auth/RequireAuth';
-
+import CoursesInfo from './Pages/Dashboard/Courses/CoursesInfo';
+import CourseContent from './Pages/Dashboard/Courses/CourseContent';
+ 
 function App() {
-
+  
   return (
     <Routes>
       <Route element={<PersistLogin />}>
@@ -33,6 +35,8 @@ function App() {
           <Route path='dashboard' Component={Dashboard}>
             <Route index Component={Overview} />
             <Route path='learn/courses' Component={Courses} />
+            <Route path='learn/courses/:courseId/home' Component={CoursesInfo} />
+            <Route path='learn/courses/:courseId/lecture/:lectureId' Component={CourseContent} />
             <Route path='learn/ebooks' Component={Ebooks} />
             <Route path='mentorship' Component={Mentorship} />
             <Route path='health' Component={Health} />

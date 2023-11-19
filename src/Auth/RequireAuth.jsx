@@ -72,18 +72,18 @@ const RequireAuth = () => {
     );
   }
 
-  if (!isLoading && !accessToken) {
-    return (
-      <Navigate
-        to="/login"
-        state={{
-          from: location.pathname
-        }}
-        // state={{ from: location }}
-        replace
-      />
-    );
-  }
+  // if (!isLoading && !accessToken) {
+  //   return (
+  //     <Navigate
+  //       to="/login"
+  //       state={{
+  //         from: location.pathname
+  //       }}
+  //       // state={{ from: location }}
+  //       replace
+  //     />
+  //   );
+  // }
 
   return (
     <div style={styles}>

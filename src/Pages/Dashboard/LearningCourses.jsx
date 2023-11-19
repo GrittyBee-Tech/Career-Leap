@@ -24,7 +24,7 @@ const LearningCourses = () => {
             Authorization: `Bearer ${accessToken}`
           }
         });
-        setData(res.data.courses);
+        setData(res?.data?.courses);
       } catch(err) {
         console.log(err);
       } finally {
@@ -104,7 +104,7 @@ const LearningCourses = () => {
         </div>
       </section>
 
-      <section className=" rounded-xl  min-h-[28rem] px-2 border border-[#404064] py-3 my-7">
+      <section className="rounded-xl min-h-[28rem] px-2 border border-[#404064] py-3 my-7">
         <h3 className="text-[#0a0a29] font-semibold text-xl font-plus-jakarta-sans text-center">Courses Available</h3>
         <div className="grid grid-cols-3 gap-x-2.5 gap-y-4 mt-5">
           {
@@ -116,13 +116,10 @@ const LearningCourses = () => {
                 picture={image}
                 time={time}
                 title={title}
+                id={_id}
               />
             ))
           }
-          {/* <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard /> */}
         </div>
       </section>
     </>

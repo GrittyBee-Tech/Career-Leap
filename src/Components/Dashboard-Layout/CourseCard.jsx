@@ -1,8 +1,9 @@
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const CourseCard = ({ title, author, level, time, picture }) => {
+const CourseCard = ({ title, author, level, time, picture, id }) => {
   return (
-    <article className="p-2 flex flex-col items-start gap-2.5 rounded-lg border border-[#8F8FB7] bg-white">
+    <Link to={`/dashboard/learn/courses/${id}/home`} className="p-2 flex flex-col items-start gap-2.5 rounded-lg border border-[#8F8FB7] bg-white">
         <img src={picture} height={192} className='rounded-lg w-full h-48' alt="" />
         <div className='body flex flex-col gap-1'>
             <h3 className='font-plus-jakarta-sans'>{author || "Google"}</h3>
@@ -22,7 +23,7 @@ const CourseCard = ({ title, author, level, time, picture }) => {
                 {time || "1-3 months"}
             </p>
         </div>
-    </article>
+    </Link>
   )
 }
 
