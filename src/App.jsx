@@ -19,7 +19,6 @@ import CoursesInfo from './Pages/Dashboard/Courses/CoursesInfo';
 import CourseContent from './Pages/Dashboard/Courses/CourseContent';
  
 function App() {
-  
   return (
     <Routes>
       <Route element={<PersistLogin />}>

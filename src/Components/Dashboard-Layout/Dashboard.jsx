@@ -19,8 +19,6 @@ const Dashboard = () => {
                     <Outlet />
                 </main>
             </div>
-
-
         </>
     )
 }

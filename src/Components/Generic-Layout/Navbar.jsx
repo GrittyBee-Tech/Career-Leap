@@ -8,9 +8,9 @@ import { useGeneralStore } from "../../ContextApi/GeneralContext"
 import { Link } from "react-router-dom"
 
 const Navbar = () => {
+    const { accessToken } = useGeneralStore();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [changeNav, setChangeNav] = useState(true);
     const [changeNav, setChangeNav] = useState(true);
 
     const toggleMenu = () => {

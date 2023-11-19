@@ -7,6 +7,7 @@ import settingsIcon from "../../assets/Icons/settings-icon.svg";
 import logoutIcon from "../../assets/Icons/logout-icon.svg";
 import OverviewIcon from '../Icons/OverviewIcon';
 import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import ChevronUpIcon from '../Icons/ChevronUpIcon';
 import ChevronDownIcon from '../Icons/ChevronDownIcon';
 import VideoIcon from '../Icons/VideoIcon';
@@ -25,6 +26,10 @@ const Sidebar = () => {
         setIsLearningOpen(!isLearningOpen);
     };
 
+    useEffect(() => {
+        setIsLearningOpen(false);
+    }, [location]);
+
     return (
         <aside className='relative md:w-52 z-10 md:flex hidden'>
             <div className='sticky left-0 top-0 flex flex-col justify-between bg-white shadow-lg p-2 h-[calc(100vh-54px)] w-52 border-t'>
@@ -42,6 +47,7 @@ const Sidebar = () => {
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                     {isLearningOpen && (
                         <div className='my-4 ml-4'>

@@ -6,6 +6,8 @@ import { MenuContextProvider } from "../../ContextApi/SideBarContext"
 
 const Greetings = ({ text }) => {
     const { advicetab, setAdviceTab, isLoading, setIsLoading } = MenuContextProvider();
+    const [dateformat, setDateFormat] = useState([]);
+    const [hour, setHour] = useState(0);
 
     const getAdvice = async () => {
 
@@ -23,10 +25,6 @@ const Greetings = ({ text }) => {
             console.log(error);
         }
     };
-
-
-    const [dateformat, setDateFormat] = useState([]);
-    const [hour, setHour] = useState(0);
 
     function formatDate() {
         const now = new Date();
@@ -48,11 +46,10 @@ const Greetings = ({ text }) => {
     useEffect(() => {
         formatDate();
         getAdvice();
-
     }, []);
 
     return (
-        <header className="flex lg:justify-between md:justify-between  mt-2">
+        <header className="flex md:flex-row flex-col gap-4 items-start md:items-center justify-between mt-2 mb-4">
             <div>
                 <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center'>
                     Good {hour<12 ? "Morning" : hour <18 ? " Afternoon": " Evening"}, Adekunle!
