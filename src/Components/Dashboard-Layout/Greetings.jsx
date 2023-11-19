@@ -56,24 +56,24 @@ const Greetings = ({ text }) => {
     }, []);
 
     return (
-        <header className="flex justify-between mt-2">
+        <header className="flex lg:justify-between md:justify-between  mt-2">
             <div>
-                <h1 className='text-2xl font-medium text-[#000] font-plus-jakarta-sans flex gap-3 items-center'>
+                <h1 className='lg:text-2xl  md:text-[20px] text-[14px] font-medium text-[#000] font-plus-jakarta-sans flex lg:gap-3 md:gap-3 gap-2items-center'>
                     Good {hour < 12 ? "Morning" : hour < 18 ? " Afternoon" : " Evening"}, Adekunle!
                     {
                         hour < 12 ? <IoIosPartlySunny fill='#FDB813' />
                             : <FaCloudMoon fill='#00a8fc' />
                     }
                 </h1>
-                {isLoading ? (<div className="px-4"><h1>Daily Advice</h1></div>) : (<div>
-                    <p className="px-4 lg:mt-[-20px]  font-lobster text-[20px] mb-5">{advicetab.slip ? advicetab.slip.advice : null}</p>
+                {isLoading ? (<div className="lg:mt-2"><h1>Daily Advice</h1></div>) : (<div>
+                    <p className="lg:mt-[15px] w-[200px]  font-lobster lg:text-[20px]  text-[14px] md:text-[18px] md:w-[330px] mb-5">{advicetab.slip ? advicetab.slip.advice : null}</p>
 
                 </div>)}
-                <p className='font-bad-script text-sm mt-2'>{text || "Watch impactful videos from mentors round about the world!"}</p>
+                <p className='font-bad-script text-sm lg:mb-3 mb-3 md:mb-3 mt-2'>{text || "Watch impactful videos from mentors round about the world!"}</p>
             </div>
-            <div className='bg-white p-2 rounded-md'>
+            <div className='bg-white p-2 rounded-md lg:w-[200px] lg:h-[70px] h-[60px] w-[150px] md:h-[50px] lg:ml-0 md:ml-0 ml-[-40px] lg:mt-4'>
                 <p className='text-sm mb-1 font-plus-jakarta-sans'>Current Time</p>
-                <p className='font-plus-jakarta-sans text-xs font-medium flex gap-2'>
+                <p className='font-plus-jakarta-sans text-xs font-medium flex lg:gap-2 md:gap-2 gap-0'>
                     {
                         dateformat.map((dat, i) => {
                             return <span className='' key={i}>{dat}</span>
