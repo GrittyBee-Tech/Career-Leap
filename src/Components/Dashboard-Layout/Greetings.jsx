@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
 import { FaCloudMoon } from 'react-icons/fa';
 import { IoIosPartlySunny } from 'react-icons/io';
-import axios from '../../AxiosApi/axios';
+import axios from 'axios';
 import { MenuContextProvider } from "../../ContextApi/SideBarContext"
 
 const Greetings = ({ text }) => {
     const { advicetab, setAdviceTab, isLoading, setIsLoading } = MenuContextProvider();
+    const [dateformat, setDateFormat] = useState([]);
+    const [hour, setHour] = useState(0);
 
     const getAdvice = async () => {
 
         try {
             setIsLoading(true);
-            const response = await axios.get("/advice")
+            const response = await axios.get("https://api.adviceslip.com/advice")
             console.log(response.data);
-
 
             if (response.status === 200) {
                 setAdviceTab(response.data)
@@ -22,15 +23,8 @@ const Greetings = ({ text }) => {
         }
         catch (error) {
             console.log(error);
-
         }
-
-
     };
-
-
-    const [dateformat, setDateFormat] = useState([]);
-    const [hour, setHour] = useState(0);
 
     function formatDate() {
         const now = new Date();
@@ -52,14 +46,13 @@ const Greetings = ({ text }) => {
     useEffect(() => {
         formatDate();
         getAdvice();
-
     }, []);
 
     return (
-        <header className="flex lg:justify-between md:justify-between  mt-2">
+        <header className="flex md:flex-row flex-col gap-4 items-start md:items-center justify-between mt-2 mb-4">
             <div>
-                <h1 className='lg:text-2xl  md:text-[20px] text-[14px] font-medium text-[#000] font-plus-jakarta-sans flex lg:gap-3 md:gap-3 gap-2items-center'>
-                    Good {hour < 12 ? "Morning" : hour < 18 ? " Afternoon" : " Evening"}, Adekunle!
+                <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center'>
+                    Good {hour<12 ? "Morning" : hour <18 ? " Afternoon": " Evening"}, Adekunle!
                     {
                         hour < 12 ? <IoIosPartlySunny fill='#FDB813' />
                             : <FaCloudMoon fill='#00a8fc' />

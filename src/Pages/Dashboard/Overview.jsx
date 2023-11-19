@@ -1,9 +1,3 @@
-
-import rate from "/src/assets/Icons/rate.png"
-import todo from "/src/assets/Icons/todo.png"
-import check from "/src/assets/Icons/checkbox.png"
-import dash from "/src/assets/Icons/right.png"
-import icon from "/src/assets/Icons/sign.png"
 import health from "/src/assets/Images/health.png"
 import learning from "/src/assets/Images/upskills-icon.png"
 import reader from "/src/assets/Images/reader.png"
@@ -12,125 +6,17 @@ import Mentor from "/src/assets/Images/mentor.png"
 import pie from "/src/assets/Images/pie.png"
 import graph from "/src/assets/Images/graph.png"
 import Greetings from "../../Components/Dashboard-Layout/Greetings"
-
+import Rating from "../../Components/Dashboard-Layout/Rating"
 
 const Overview = () => {
 
   return (
     <section>
       <Greetings />
-      <div className=" md:px-0 lg:px-0 lg:flex md:flex lg:flex-nowrap md:flex-wrap flex flex-wrap gap-3">
-        <div className="bg-[white] shadow-lg  rounded w-[95%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-3 gap-[30px]">
-            <div >
-              <div>
-                <h2 className="text-[12px]  lg:w-[94px] font-plus-jakarta-sans font-normal ">My Performance</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2"> 0/240</p>
 
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal border-x-blue mt-2">No Score</p>
-              </div>
-            </div>
+      <Rating />
 
-            <div className="relative">
-              <img src={rate} alt="rate" />
-              <p className="absolute top-7 left-6 lg:left-5 md:left-4 font-plus-jakarta-sans font-medium text-[12px]">00.0%</p>
-            </div>
-          </div>
-        </div>
-        <div className="bg-[white] shadow-lg rounded  w-[95%] lg:w-[262px] md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-1 gap-[30px]">
-            <div>
-              <div>
-                <h2 className="text-[12px]  lg:w-[94px] font-plus-jakarta-sans font-normal ">Task Assigned</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2"> 0</p>
-
-              </div>
-              <div>
-                <p className="text-[12px] lg:w-[164px] font-plus-jakarta-sans font-normal border-x-blue mt-2">100 Average tasks per user </p>
-              </div>
-            </div>
-
-            <div className="">
-              <img className="pt-5" src={todo} alt="rate" />
-
-            </div>
-          </div>
-        </div>
-        <div className="bg-[white] shadow-lg rounded w-[95%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-[10px] gap-[90px]">
-            <div>
-              <div>
-                <h2 className="text-[12px]  lg:w-[124px] font-plus-jakarta-sans font-normal ">Task Completion</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2"> 0%</p>
-
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal border-x-blue mt-2">No Score</p>
-              </div>
-            </div>
-
-            <div className=" mt-5">
-              <img src={check} alt="rate" />
-
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-[white] shadow-lg  rounded w-[95%] lg:w-[242px]  md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-5 gap-[97px]">
-            <div>
-              <div>
-                <h2 className="text-[12px] lg:w-[94px] font-plus-jakarta-sans font-normal ">Attendance %</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2"> 0%</p>
-
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal border-x-blue mt-2">| Average score</p>
-              </div>
-            </div>
-
-            <div className=" mt-5">
-              <img src={dash} alt="rate" />
-
-            </div>
-          </div>
-
-        </div>
-        <div className="bg-[white] shadow-lg  rounded w-[95%] lg:w-[242px] md:w-[240px] lg:h-[109px]">
-          <div className=" p-3 flex lg:gap-5 gap-[100px]">
-            <div>
-              <div>
-                <h2 className="text-[12px] lg:w-[94px] font-plus-jakarta-sans font-normal ">Leave %</h2>
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal mt-2">0%</p>
-
-              </div>
-              <div>
-                <p className="text-[12px] font-plus-jakarta-sans font-normal border-x-blue mt-2">| No score</p>
-              </div>
-            </div>
-
-            <div className="relative mt-5">
-              <img src={icon} alt="rate" />
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div className=" lg:mt-4  mt-5 lg:flex lg:flex-row md:flex-row md:flex-wrap lg:flex-nowrap lg:gap-[45px]  lg:justify-normal gap-7 md:flex flex flex-col md:justify-center">
+      <div className="lg:mt-4  mt-5 lg:flex lg:flex-row md:flex-row md:flex-wrap lg:flex-nowrap lg:gap-5  gap-7 md:flex flex flex-col md:justify-center">
         <div className="lg:flex lg:flex-col lg:gap-[42px]">
           <div className="bg-[white] shadow-lg lg:w-[329px] md:w-[492px] md:ml-[-35px] md:px-5  md:mx-auto  w-[330px] px-3 lg:mx-0 mx-auto  lg:pt-0 pt-7 lg:h-[213px] h-[200px] rounded  lg:px-2">
             <p className="flex mx-auto text-[#00C] font-lobster font-medium">Mental Health</p>

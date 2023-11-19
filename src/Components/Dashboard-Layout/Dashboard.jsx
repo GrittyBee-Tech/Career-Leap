@@ -13,15 +13,12 @@ const Dashboard = () => {
             <NavBar />
             {toggleNav && <MobileSideBar />}
 
-            <div className="flex lg:gap-[20px] md:gap-[10px] gap-0">
-                <Sidebar className="lg:flex md:flex hidden" />
-
-                <main className="pt-4 px-6 mt-[4rem] bg-[#FAFAFE] lg:w-[83%]  w-[full] h:auto">
+            <div className="flex">
+                <Sidebar />
+                <main className="pt-4 px-6 bg-[#FAFAFE] w-full md:w-[calc(100vw-13rem)] h:auto relative">
                     <Outlet />
                 </main>
             </div>
-
-
         </>
     )
 }
