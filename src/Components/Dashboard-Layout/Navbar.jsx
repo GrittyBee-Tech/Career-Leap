@@ -11,11 +11,11 @@ const NavBar = () => {
     const { toggleNav, setToggleNav } = MenuContextProvider();
 
     return (
-        <nav className="flex justify-between fixed w-full items-center lg:pl-5 pr-7 z-[9999] py-2 border-b border-b-[#ECECEC] bg-white">
-            <div className='flex gap-2 '>
-                < GiHamburgerMenu onClick={() => setToggleNav(!toggleNav)} className='lg:hidden md:hidden flex text-[24px mt-2]  text-primary ' />
+        <nav className="flex px-4 lg:justify-between md:justify-between lg:gap-0 md:gap-1 gap-[70px] justify-normal fixed w-full items-center lg:pl-5  pr-7 z-[9999] py-2 border-b border-b-[#ECECEC] bg-white">
+            <div className='flex lg:gap-2 md:gap-2 gap-2 '>
+                < GiHamburgerMenu onClick={() => setToggleNav(!toggleNav)} className='lg:hidden md:hidden flex text-[24px]   text-primary ' />
                 <h2 className="font-lobster text-primary lg:text-3xl md:text-3xl text-[20px] font-bold "><Link to='/'>Rise Path</Link></h2>
-                <AiOutlineDingtalk className=' text-primary text-[30px] ' />
+                <AiOutlineDingtalk className='lg:flex md:flex hidden text-primary text-[30px] ' />
             </div>
 
 
