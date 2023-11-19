@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaCloudMoon } from 'react-icons/fa';
 import { IoIosPartlySunny } from 'react-icons/io';
-import axios from '../../AxiosApi/axios';
+import axios from 'axios';
 import { MenuContextProvider } from "../../ContextApi/SideBarContext"
 
 const Greetings = ({ text }) => {
@@ -13,7 +13,7 @@ const Greetings = ({ text }) => {
 
         try {
             setIsLoading(true);
-            const response = await axios.get("/advice")
+            const response = await axios.get("https://api.adviceslip.com/advice")
             console.log(response.data);
 
             if (response.status === 200) {
