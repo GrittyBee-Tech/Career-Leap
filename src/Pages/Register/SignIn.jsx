@@ -5,6 +5,7 @@ import {
     AiOutlineEyeInvisible,
 } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi"
+import icon from "/src/assets/Images/team.png"
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -57,7 +58,7 @@ const SignIn = () => {
                         </div></Link>
                     <p>Transform Your Team!</p>
                     <p>Drive employee growth, foster innovation, and enhance your company's performance.</p>
-                    <img src={ } />
+                    <img src={icon} alt="team" />
                 </div>
                 <div className="pt-3">
                     <div
