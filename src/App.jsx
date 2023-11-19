@@ -11,6 +11,7 @@ import Health from './Pages/Dashboard/Health';
 import Appraisal from './Pages/Dashboard/Appraisal';
 import Settings from "./Pages/Dashboard/Settings";
 import RegisterEmployee from './Pages/Register/RegisterEmployee';
+import SignIn from './Pages/Register/SignIn';
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
       <Route path="/" Component={Home} />
       <Route path='/admin/register' Component={RegisterAdmin} />
       <Route path='/employee/register' Component={RegisterEmployee} />
+      <Route path='/signin' Component={SignIn} />
+
       <Route path='/dashboard' Component={Dashboard}>
+
         <Route index Component={Overview} />
         <Route path='/dashboard/learn'>
           <Route path='/dashboard/learn/courses' Component={Courses} />
