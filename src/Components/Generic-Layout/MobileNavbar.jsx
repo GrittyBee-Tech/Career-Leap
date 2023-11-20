@@ -1,6 +1,7 @@
 import { AiOutlineDingtalk } from "react-icons/ai"
 import { RiCloseCircleFill } from "react-icons/ri"
 import { HashLink } from "react-router-hash-link"
+import { Link } from 'react-router-dom';
 
 
 const MobileNavbar = ({ setIsOpen, setIsModalOpen }) => {
@@ -21,15 +22,15 @@ const MobileNavbar = ({ setIsOpen, setIsModalOpen }) => {
 
                 <ul className="flex  flex-col gap-8 mt-[40px] text-[18px] text-[#0A0A29] font-plus-jakarta-sans font-semibold">
                     <li>
-                        <HashLink to="/">
-                            Home</HashLink></li>
+                        <Link to="/">
+                            Home</Link></li>
                     <li>
-                        <HashLink to="/#Appraisal">
-                            Appraisal</HashLink></li>
+                        <Link to="/#Appraisal">
+                            Appraisal</Link></li>
                     <li>
-                        <HashLink to="/#Upskills"> Upskills</HashLink></li>
-                    <li><HashLink to="/#Mentorship">Mentorship</HashLink></li>
-                    <li><HashLink to="/#Health">Mental Health</HashLink></li>
+                        <Link to="/#Upskills"> Upskills</Link></li>
+                    <li><Link to="/#Mentorship">Mentorship</Link></li>
+                    <li><Link to="/#Health">Mental Health</Link></li>
                 </ul>
                 <div className=" flex  flex-col gap-3 ">
                     <p className="mt-9 text-[24px] text-[#0A0A29] font-plus-jakarta-sans font-semibold"><HashLink to='/signin'>Log in</HashLink ></p>

@@ -63,9 +63,9 @@ const Register = () => {
             <img src={bg} alt="" />
         </div>
         <div style={{ boxShadow: '5px 10px 20px 0px rgba(0, 0, 0, 0.25)' }} className='w-full sm:flex-1 mb-4 bg-[#EAF6FC] sm:mb-0 rounded-3xl px-10 sm:px-6 md:px-8 lg:px-12 py-8 flex flex-col gap-5'>
-            <h2 className="text-3xl text-primary font-lobster text-center">Career Leap</h2>
+            <h2 className="text-3xl text-primary font-lobster text-center">Rise</h2>
             <h4 className='font-plus-jakarta-sans text-2xl font-semibold text-center'>Create an Account</h4>
-            <p className="font-georgia text-sm mb-4 text-center">Sign up on Career Leap as a company and get access to the services we offer.</p>
+            <p className="font-georgia text-sm mb-4 text-center">Sign up on RisePath as a company and get access to the services we offer.</p>
             <form action="" className='flex flex-col gap-5' onSubmit={handleSubmit(onsubmit)}>
               <div>
                 <label className='font-medium text-lg font-plus-jakarta-sans' htmlFor='fullName'>Full Name</label>
@@ -144,11 +144,13 @@ const Register = () => {
               {error && <p className='text-red-500 capitalize text-center font-semibold'>{error}</p>}
               <button type='submmit' onClick={handleSubmit(onsubmit)} className='bg-[#3333FF] text-[#F0F0FF] rounded-lg px-5 py-2 text-xl font-semibold'>Register As an Admin</button>
               <p className='text-xl font-plus-jakarta-sans font-semibold text-center'>Have an account?
-                <Link className='text-primary pl-2' to="/login">Log in</Link>
+                <Link className='text-primary pl-2' to="/signin">Log in</Link>
               </p>
             </form>
         </div>
-    </section>
+
+      </section>
+
   )
 }
 
