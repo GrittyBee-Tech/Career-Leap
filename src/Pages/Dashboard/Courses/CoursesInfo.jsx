@@ -5,6 +5,7 @@ import axios from "axios";
 import Greetings from '../../../Components/Dashboard-Layout/Greetings';
 import Check from '../../../assets/Icons/check-fill.svg';
 import Loader from "../../../Components/Loader/Loader";
+import Swal from "sweetalert2";
 
 const CoursesInfo = () => {
   const [contentData, setContentData] = useState({});
@@ -27,12 +28,21 @@ const CoursesInfo = () => {
       });
       console.log(res);
       if (res.data.message == "Added successfully") {
+        Swal.fire({
+          title: 'Enrolled successfully',
+          icon: 'success'
+        });
         setTimeout(() => {
           navigate(`/dashboard/learn/courses/${courseId}/lecture/${lectures[0]._id}`);
-        },2000);
+        },2500);
       }
     } catch(err) {
-      console.log(err?.response);
+        console.log(err?.response);
+        Swal.fire({
+          title: 'Registration error',
+          icon: 'error',
+          text: err.response
+        });
     } finally {
       setAddLoading(false);
     }
@@ -51,7 +61,7 @@ const CoursesInfo = () => {
         setIsParticipant(isAParticipant);
         setContentData(res?.data?.course);
       } catch(err) {
-        console.log(err?.response);
+        console.log(err.response);
       } finally {
         setIsLoading(false);
       }

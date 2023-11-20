@@ -5,6 +5,7 @@ import {
 import axios from "axios";
 import { useGeneralStore } from "../ContextApi/GeneralContext";
 import Loader from "../Components/Loader/Loader";
+import Swal from "sweetalert2";
 
 const RequireAuth = () => {
   const location = useLocation();
@@ -46,7 +47,14 @@ const RequireAuth = () => {
           })
           .catch((error) => {
             console.warn("RETRY ERROR", error);
-            navigate("/signin");
+            Swal.fire({
+              text: 'You need to login',
+              title: 'Error',
+              icon: 'error'
+            });
+            setTimeout(() => {
+              navigate("/signin");
+            }, 2500);
           })
           .finally(() => {
             setIsLoading(false);
