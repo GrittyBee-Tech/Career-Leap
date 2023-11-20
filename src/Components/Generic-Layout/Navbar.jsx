@@ -61,7 +61,7 @@ const Navbar = () => {
                             <Link to='/dashboard' className="bg-[#00F] text-[#FFFF] py-2.5 px-10 rounded md:text-[18px] lg:text-[18px] font-bold">Dashboard</Link>
                         ) : (
                             <>
-                                <HashLink className="lg:mt-2 lg:mb-0  lg:text-[16px] md:text-[17px] text-[#0A0A29] font-plus-jakarta-sans font-semibold " to='/login'>Log in</HashLink>
+                                <HashLink className="lg:mt-2 lg:mb-0  lg:text-[16px] md:text-[17px] text-[#0A0A29] font-plus-jakarta-sans font-semibold " to='/signin'>Log in</HashLink>
                                 <button onClick={() => setIsModalOpen(true)} className="bg-[#00F] text-[#FFFF] py-2.5 px-10 rounded md:text-[18px] font-bold">Sign up</button>
                             </>
                         )
