@@ -9,12 +9,12 @@ import { useState } from 'react';
 import RegisterModal from '../../Components/Generic-Layout/RegisterModal';
 import axios from 'axios';
 import { useGeneralStore } from '../../ContextApi/GeneralContext';
+import Swal from 'sweetalert2';
 
 const Register = () => {
   const navigate = useNavigate();
   const { baseURL, setUser } = useGeneralStore();
   const [showPassword, setshowPassword] = useState(false);
-  const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -40,16 +40,23 @@ const Register = () => {
           "Content-Type": 'application/json'
         }
       });
-      console.log(res.data);
       const { password, ...user } = res.data.user;
       if (res.status == 201) {
         setUser(user);
+        Swal.fire({
+          title: 'Registered successfully',
+          icon: 'success'
+        });
         setTimeout(() => {
           navigate('/dashboard');
-        }, 3000);
+        }, 2500);
       }
     } catch(err) {
-      setError(err.response.data.error);
+      Swal.fire({
+        title: 'Registration error',
+        icon: 'error',
+        text: err.response.data.error
+      });
     }
   };
 
@@ -140,8 +147,7 @@ const Register = () => {
                   <option value="employee">Employee</option>
                 </select>
               </div>
-              
-              {error && <p className='text-red-500 capitalize text-center font-semibold'>{error}</p>}
+
               <button type='submmit' onClick={handleSubmit(onsubmit)} className='bg-[#3333FF] text-[#F0F0FF] rounded-lg px-5 py-2 text-xl font-semibold'>Register As an Admin</button>
               <p className='text-xl font-plus-jakarta-sans font-semibold text-center'>Have an account?
                 <Link className='text-primary pl-2' to="/signin">Log in</Link>
