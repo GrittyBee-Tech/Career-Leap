@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
     AiOutlineMail,
     AiOutlineEye,
@@ -7,46 +7,73 @@ import {
 import { BiArrowBack } from "react-icons/bi"
 import icon from "/src/assets/Images/signin.png"
 import { Link, useNavigate } from "react-router-dom";
-
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useGeneralStore } from "../../ContextApi/GeneralContext";
 
 const SignIn = () => {
-
-    const Navigate = useNavigate()
-    const [userDetails, setUserDetails] = useState({})
+    const { baseURL, setAccessToken } = useGeneralStore();
+    const navigate = useNavigate();
     const [showPassword, setshowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
+    const schema = yup.object().shape({
+        email: yup.string().email('Invalid email').required('Email is required').matches(emailRegex, { message: 'Looks like this is not a valid email' }),
+        password: yup.string().required('Password is required').min(8)
+    });
 
-        // Access user input from the form
-        const formData = new FormData(event.target);
-        const userInput = {
-            email: formData.get('email'),
-            password: formData.get('password'),
-        };
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+    });
+
+    // const handleFormSubmit = (event) => {
+    //     event.preventDefault();
+
+    //     // Access user input from the form
+    //     const formData = new FormData(event.target);
+    //     const userInput = {
+    //         email: formData.get('email'),
+    //         password: formData.get('password'),
+    //     };
 
 
-        // Compare user input with local storage data
-        if (
-            userDetails &&
-            userInput.email === userDetails.email &&
-            userInput.password === userDetails.password
-        ) {
-            // Successful login, navigate to the dashboard or another page
-            Navigate("/")
-        } else {
-            // Display an error message for unsuccessful login
-            setErrorMessage('Invalid email or password');
+    //     // Compare user input with local storage data
+    //     if (
+    //         userDetails &&
+    //         userInput.email === userDetails.email &&
+    //         userInput.password === userDetails.password
+    //     ) {
+    //         // Successful login, navigate to the dashboard or another page
+    //         Navigate("/")
+    //     } else {
+    //         // Display an error message for unsuccessful login
+    //         setErrorMessage('Invalid email or password');
+    //     }
+    // };
+
+    const onsubmit = async (data) => {
+        try {
+            const res = await axios.post(`${baseURL}/auth/login`, JSON.stringify(data), {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            if (res.status == 200) {
+                localStorage.setItem(
+                    "AUTH_VALUES",
+                    JSON.stringify({ accessToken: res.data.accessToken })
+                );
+                setAccessToken(res.data.token);
+                navigate('/dashboard');
+            }
+        } catch (err) {
+            setErrorMessage(err?.response?.data);
         }
     };
 
-
-    useEffect(() => {
-
-        const user = localStorage.getItem("register")
-        setUserDetails(JSON.parse(user))
-    }, [])
     return (
         <section className="">
             <div className=" lg:flex lg:flex-row md:flex lg:pt-[40px] md:flex-col flex flex-col container mx-auto w-[85%] lg:gap-[70px]  gap-4 pt-[30px]">
@@ -74,10 +101,7 @@ const SignIn = () => {
                         <p className="flex justify-center text-center font-plus-jakarta-sans">Sign in on RisePath as a company and get access to
                             the services we offer.</p>
 
-                        <form action="" onSubmit={handleFormSubmit} className="flex flex-col gap-6">
-
-
-
+                        <form action="" onSubmit={handleSubmit(onsubmit)} className="flex flex-col gap-6">
                             <label
                                 className="font-medium text-xl font-plus-jakarta-sans"
                                 htmlFor="email"
@@ -90,11 +114,11 @@ const SignIn = () => {
                                     type="email"
                                     placeholder="example@gmail.com"
                                     className="w-full border bg-transparent  rounded-md outline-none p-2.5 leading-none font-medium text-lg placeholder:text-[#C8C8DC]"
-
+                                    {...register('email')}
                                 />
                                 <AiOutlineMail className="absolute text-lg right-4 top-3.5" />
                             </div>
-                            {/* <p className='text-red-500'>{errors.email?.message}</p> */}
+                            <p className='text-red-500 -mt-5'>{errors.email?.message}</p>
 
                             <div>
                                 <label
@@ -109,7 +133,7 @@ const SignIn = () => {
                                         type={showPassword ? "text" : "password"}
                                         placeholder="***********"
                                         className="w-full border  bg-transparent mt-2 rounded-md outline-none p-2.5 leading-none font-medium text-lg placeholder:text-[#C8C8DC]"
-
+                                        {...register('password')}
                                     />
                                     {showPassword ? (
                                         <AiOutlineEyeInvisible
@@ -123,7 +147,7 @@ const SignIn = () => {
                                         />
                                     )}
                                 </div>
-                                {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+                                <p className='text-red-500'>{errors.password?.message}</p>
                             </div>
                             <label
                                 className="font-medium text-xl font-plus-jakarta-sans"
@@ -137,16 +161,14 @@ const SignIn = () => {
                                     type="organization"
                                     placeholder="organization "
                                     className="w-full border bg-transparent  rounded-md outline-none p-2.5 leading-none font-medium text-lg placeholder:text-[#C8C8DC]"
-
                                 />
                                 <AiOutlineMail className="absolute text-lg right-4 top-3.5" />
                             </div>
 
-
-
+                            {errorMessage && <p className="text-red-500 font-semibold text-center capitalize">{errorMessage}</p>}
                             <button
                                 type="submit"
-
+                                onClick={handleSubmit(onsubmit)}
                                 className="bg-[#3333FF] text-[#F0F0FF] rounded-lg px-5 py-2 text-xl font-semibold"
                             >
                                 Log in

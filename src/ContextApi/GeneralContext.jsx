@@ -12,9 +12,8 @@ import axios from "axios";
 export const GeneralContext = createContext({});
 
 export const GeneralProvider = ({ children }) => {
-    const [accessToken, setAccessToken] = useState('');
     const [user, setUser] = useState({});
-    const [refreshToken, setRefreshToken] = useLocalStore("AUTH_VALUES", null);
+    const [accessToken, setAccessToken] = useLocalStore("AUTH_VALUES", null);
     const baseURL = "https://risepath-dev.onrender.com";
 
     const logoutFunction = () => {
@@ -27,7 +26,7 @@ export const GeneralProvider = ({ children }) => {
     useEffect(() => {
         const request = async () => {
             const data = JSON.stringify({
-                email: "kingsleyizima@gmail.com"
+                email: user.email
             });
 
             const config = {
@@ -40,29 +39,24 @@ export const GeneralProvider = ({ children }) => {
             };
 
             await axios(config).then(res => {
-                // if (res.status == 200) {
                 setAccessToken(res?.data?.accessToken);
-                setRefreshToken(res?.data?.refreshToken);
-                // }
             }).catch(err => {
-                console.log('Error fetching token', err);
+                console.log('Error fetching token', err.response);
             });
         };
         if (!accessToken) request();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [accessToken, refreshToken, setRefreshToken]);
+    }, [accessToken, setAccessToken]);
 
     const contextData = useMemo(() => ({
         accessToken,
         setAccessToken,
-        refreshToken,
-        setRefreshToken,
         user,
         setUser,
         logout,
         baseURL
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }), [accessToken, user, logout, refreshToken, setRefreshToken]);
+    }), [accessToken, user, logout, setAccessToken, setUser]);
 
     return (
         <GeneralContext.Provider value={contextData}>

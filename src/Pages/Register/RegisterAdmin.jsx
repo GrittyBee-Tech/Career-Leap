@@ -4,15 +4,17 @@ import { AiOutlineMail, AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import RegisterModal from '../../Components/Generic-Layout/RegisterModal';
 import axios from 'axios';
 import { useGeneralStore } from '../../ContextApi/GeneralContext';
 
 const Register = () => {
-  const { baseURL } = useGeneralStore()
+  const navigate = useNavigate();
+  const { baseURL, setUser } = useGeneralStore();
   const [showPassword, setshowPassword] = useState(false);
+  const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -28,9 +30,9 @@ const Register = () => {
   });
 
   const onsubmit = async (data) => {
-    const { fullName, email, password, organization: companyName } = data;
+    const { fullName, email, password } = data;
     
-    const sending = { fullName, email, password, companyName, role: 'admin'};
+    const sending = { fullName, email, password, companyName: data.organization, role: 'admin' };
     
     try {
       const res = await axios.post(`${baseURL}/auth/register`, JSON.stringify(sending), {
@@ -38,9 +40,16 @@ const Register = () => {
           "Content-Type": 'application/json'
         }
       });
-      console.log(res);
+      console.log(res.data);
+      const { password, ...user } = res.data.user;
+      if (res.status == 201) {
+        setUser(user);
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 3000);
+      }
     } catch(err) {
-      console.log(err);
+      setError(err.response.data.error);
     }
   };
 
@@ -124,7 +133,6 @@ const Register = () => {
                   name='role'
                   placeholder='Manager'
                   className={`w-full border ${errors.role ? 'border-red-500' : 'border-[#0A0A29]'} bg-transparent mt-2 rounded-md outline-none p-2.5 leading-none font-medium placeholder:text-[#C8C8DC]`}
-                  value='admin'
                   disabled
                   defaultValue='admin'
                 >
@@ -133,6 +141,7 @@ const Register = () => {
                 </select>
               </div>
               
+              {error && <p className='text-red-500 capitalize text-center font-semibold'>{error}</p>}
               <button type='submmit' onClick={handleSubmit(onsubmit)} className='bg-[#3333FF] text-[#F0F0FF] rounded-lg px-5 py-2 text-xl font-semibold'>Register As an Admin</button>
               <p className='text-xl font-plus-jakarta-sans font-semibold text-center'>Have an account?
                 <Link className='text-primary pl-2' to="/login">Log in</Link>

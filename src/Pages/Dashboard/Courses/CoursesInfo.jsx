@@ -17,7 +17,7 @@ const CoursesInfo = () => {
   const navigate = useNavigate();
 
   const enrollInCourse = async () => {
-    if (isParticipant) return navigate(`/dashboard/learn/courses/${courseId}/lecture/${lectures[0]}`);
+    if (isParticipant) return navigate(`/dashboard/learn/courses/${courseId}/lecture/${lectures[0]._id}`);
     try {
       setAddLoading(true);
       const res = await axios.patch(`${baseURL}/course/add-participant/${courseId}`, {}, {
@@ -26,7 +26,11 @@ const CoursesInfo = () => {
         }
       });
       console.log(res);
-      if (res.data.message == "Added successfully") return setTimeout(navigate(`/dashboard/learn/courses/${courseId}/lecture/${lectures[0]}`), 2000);
+      if (res.data.message == "Added successfully") {
+        setTimeout(() => {
+          navigate(`/dashboard/learn/courses/${courseId}/lecture/${lectures[0]._id}`);
+        },2000);
+      }
     } catch(err) {
       console.log(err?.response);
     } finally {
@@ -35,7 +39,6 @@ const CoursesInfo = () => {
   }
 
   useEffect(() => {
-    console.log(user.userId);
     const fetcher = async () => {
       try {
         setIsLoading(true);
@@ -55,6 +58,7 @@ const CoursesInfo = () => {
     }
 
     fetcher();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
