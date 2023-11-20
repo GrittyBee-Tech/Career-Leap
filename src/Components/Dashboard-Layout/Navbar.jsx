@@ -6,9 +6,12 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import avatar from '../../assets/Icons/avatar.svg';
 import { MenuContextProvider } from '../../ContextApi/SideBarContext';
 import { Link } from 'react-router-dom';
+import { useGeneralStore } from '../../ContextApi/GeneralContext';
+import { useEffect } from 'react';
 
 const NavBar = () => {
     const { toggleNav, setToggleNav } = MenuContextProvider();
+    const { user } = useGeneralStore();
 
     return (
         <nav className="flex px-4 lg:justify-between md:justify-between lg:gap-0 md:gap-1 gap-[70px] justify-normal w-full items-center lg:pl-5  pr-7 z-[9999] py-2 border-b border-b-[#ECECEC] bg-white">
@@ -30,7 +33,7 @@ const NavBar = () => {
                 <button className='lg:flex md:flex hidden'>
                     <FiMail className='text-2xl' />
                 </button>
-                <h3 className='text-[#000000]'>Adekunle John</h3>
+                <h3 className='text-[#000000]'>{user.fullName}</h3>
                 <img src={avatar} width={36} height={36} className='rounded-full' alt="" />
             </div>
         </nav>

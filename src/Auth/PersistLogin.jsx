@@ -12,6 +12,7 @@ const PersistLogin = () => {
       const verifyToken = async () => {
         try {
             const userDets = await jwtDecode(accessToken);
+            console.log(userDets);
             setUser(userDets);
         } catch(err) {
             localStorage.removeItem('AUTH_VALUES');

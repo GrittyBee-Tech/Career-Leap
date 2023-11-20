@@ -4,9 +4,12 @@ import NavBar from "./Navbar";
 import Sidebar from './Sidebar';
 import { MenuContextProvider } from "../../ContextApi/SideBarContext";
 import MobileSideBar from "./MobileSideBar";
+import { useGeneralStore } from "../../ContextApi/GeneralContext";
+import { useEffect } from "react";
 
 const Dashboard = () => {
     const { toggleNav } = MenuContextProvider();
+    const { user } = useGeneralStore();
 
     return (
         <>

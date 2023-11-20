@@ -4,7 +4,7 @@ const useLocalStore = (key, defaultValue) => {
   const jsonValue = window.localStorage.getItem(key);
 
   const [value, setValue] = useState(() => {
-    if (jsonValue != null) return JSON.parse(jsonValue).refreshToken;
+    if (jsonValue != null) return JSON.parse(jsonValue).accesToken;
 
     if (typeof defaultValue === "function") {
       return defaultValue();
@@ -17,7 +17,7 @@ const useLocalStore = (key, defaultValue) => {
     if (jsonValue != null) {
       const val = JSON.parse(jsonValue);
       const obj = {
-        ...val, refreshToken: value
+        ...val, accesToken: value
       };
       window.localStorage.setItem(key, JSON.stringify(obj));
     }

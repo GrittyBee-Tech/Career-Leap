@@ -11,7 +11,7 @@ const RequireAuth = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const {
-    accessToken, setAccessToken, setRefreshToken, refreshToken, baseURL
+    accessToken, setAccessToken, baseURL, user
   } = useGeneralStore();
 
   const styles = {
@@ -24,10 +24,10 @@ const RequireAuth = () => {
   };
 
   useEffect(() => {
-    if (!accessToken && refreshToken) {
+    if (!accessToken) {
       const req = async () => {
         const data = JSON.stringify({
-          email: "kingslyeizima@gmail.com"
+          email: user.email
         });
 
         const config = {
@@ -42,13 +42,11 @@ const RequireAuth = () => {
         await axios(config)
           .then((response) => {
             setIsLoading(true);
-            setAccessToken(response.data.data.accessToken);
-            setRefreshToken(response.data.data.refreshToken);
-            console.log("SUCCESSFULLLLL");
+            setAccessToken(response.data.accessToken);
           })
           .catch((error) => {
             console.warn("RETRY ERROR", error);
-            navigate("/login");
+            navigate("/signin");
           })
           .finally(() => {
             setIsLoading(false);
@@ -72,18 +70,18 @@ const RequireAuth = () => {
     );
   }
 
-  // if (!isLoading && !accessToken) {
-  //   return (
-  //     <Navigate
-  //       to="/login"
-  //       state={{
-  //         from: location.pathname
-  //       }}
-  //       // state={{ from: location }}
-  //       replace
-  //     />
-  //   );
-  // }
+  if (!isLoading && !accessToken) {
+    return (
+      <Navigate
+        to="/signin"
+        state={{
+          from: location.pathname
+        }}
+        // state={{ from: location }}
+        replace
+      />
+    );
+  }
 
   return (
     <div style={styles}>

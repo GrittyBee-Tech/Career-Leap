@@ -13,7 +13,7 @@ import Settings from "./Pages/Dashboard/Settings";
 import RegisterEmployee from './Pages/Register/RegisterEmployee';
 import SignIn from './Pages/Register/SignIn';
 import PersistLogin from './Auth/PersistLogin';
-// import AlreadyLoggedIn from './Auth/AlreadyLoggedIn';
+import AlreadyLoggedIn from './Auth/AlreadyLoggedIn';
 import RequireAuth from './Auth/RequireAuth';
 import CoursesInfo from './Pages/Dashboard/Courses/CoursesInfo';
 import CourseContent from './Pages/Dashboard/Courses/CourseContent';
@@ -23,12 +23,12 @@ function App() {
     <Routes>
       <Route element={<PersistLogin />}>
 
-        {/* <Route element={<AlreadyLoggedIn />}> */}
+        <Route element={<AlreadyLoggedIn />}>
           <Route path="/" Component={Home} />
           <Route path='/admin/register' Component={RegisterAdmin} />
           <Route path='/employee/register' Component={RegisterEmployee} />
           <Route path='/signin' Component={SignIn} />
-        {/* </Route> */}
+        </Route>
 
         <Route element={<RequireAuth />}>
           <Route path='dashboard' Component={Dashboard}>

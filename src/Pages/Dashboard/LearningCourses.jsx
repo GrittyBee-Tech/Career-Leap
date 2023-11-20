@@ -54,6 +54,7 @@ const LearningCourses = () => {
                 picture={image}
                 time={time}
                 title={title}
+                id={_id}
               />
             ))
           }

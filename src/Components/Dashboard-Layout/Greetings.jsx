@@ -13,8 +13,7 @@ const Greetings = ({ text }) => {
 
         try {
             setIsLoading(true);
-            const response = await axios.get("https://api.adviceslip.com/advice")
-            console.log(response.data);
+            const response = await axios.get("https://api.adviceslip.com/advice");
 
             if (response.status === 200) {
                 setAdviceTab(response.data)
