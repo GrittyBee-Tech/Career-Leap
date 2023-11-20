@@ -144,7 +144,7 @@ const RegisterEmployee = () => {
           {error && <p className='text-red-500 capitalize text-center font-semibold'>{error}</p>}
           <button type='submmit' onClick={handleSubmit(onsubmit)} className='bg-[#3333FF] text-[#F0F0FF] rounded-lg px-5 py-2 text-xl font-semibold'>Register As a User</button>
           <p className='text-xl font-plus-jakarta-sans font-semibold text-center'>Have an account?
-            <Link className='text-primary pl-2' to="/login">Log in</Link>
+            <Link className='text-primary pl-2' to="/signin">Log in</Link>
           </p>
         </form>
       </div>
