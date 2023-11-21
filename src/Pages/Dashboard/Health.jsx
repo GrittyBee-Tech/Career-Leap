@@ -5,7 +5,7 @@ import Stretch from "/src/assets/Images/stretch.png";
 import PushUp from "/src/assets/Images/push-up.png";
 import Book from "/src/assets/Images/E-books/think-for-yourself-control.jpg";
 import DownloadIcon from "../../Components/Icons/DownloadIcon";
-import {  } from "./BigData";
+import { Ebooks } from "./BigData";
 
 const Health = () => {
 
