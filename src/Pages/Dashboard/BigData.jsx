@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-import mentor from "/src/assets/Images/Tedd.png"
 import icon from "/src/assets/Images/E-books/strategy.jpg"
 import icon2 from "/src/assets/Images/E-books/tolerance-harmony-in-difference-ef1f0a18e452e8f26c9a86ad2b781c66.jpg"
 
@@ -10,59 +9,3 @@ export const Ebooks = [
 ];
 
 
-export const mentorVideos = [
-    {
-        id: 1,
-        title: "The Power of Entrepreneurial Mindset",
-        video: mentor,
-        author: "Bill Roche",
-    },
-    {
-        id: 2,
-        title: "The Power of Entrepreneurial Mindset",
-        video: mentor,
-        author: "Bill Roche",
-    },
-    {
-        id: 3,
-        title: "The Power of Entrepreneurial Mindset",
-        video: mentor,
-        author: "Bill Roche",
-    },
-    {
-        id: 4,
-        title: "The Power of Entrepreneurial Mindset",
-        video: mentor,
-        author: "Bill Roche",
-    },
-    {
-        id: 5,
-        title: "The Power of Entrepreneurial Mindset",
-        video: mentor,
-        author: "Bill Roche",
-    },
-    {
-        id: 6,
-        title: "The Power of Entrepreneurial Mindset",
-        video: mentor,
-        author: "Bill Roche",
-    },
-    {
-        id: 7,
-        title: "The Power of Entrepreneurial Mindset",
-        video: mentor,
-        author: "Bill Roche",
-    },
-    {
-        id: 8,
-        title: "The Power of Entrepreneurial Mindset",
-        video: mentor,
-        author: "Bill Roche",
-    },
-    {
-        id: 9,
-        title: "The Power of Entrepreneurial Mindset",
-        video: mentor,
-        author: "Bill Roche",
-    },
-];
