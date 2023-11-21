@@ -7,7 +7,7 @@ import settingsIcon from "../../assets/Icons/settings-icon.svg";
 import logoutIcon from "../../assets/Icons/logout-icon.svg";
 import OverviewIcon from '../Icons/OverviewIcon';
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ChevronUpIcon from '../Icons/ChevronUpIcon';
 import ChevronDownIcon from '../Icons/ChevronDownIcon';
 import VideoIcon from '../Icons/VideoIcon';
@@ -17,10 +17,10 @@ import { GeneralContext } from '../../ContextApi/GeneralContext';
 import { useContext } from 'react';
 
 const Sidebar = () => {
-
     const { isLearningOpen, setIsLearningOpen } = MenuContextProvider();
     const { logout } = useContext(GeneralContext);
     let location = useLocation();
+    const [full, setFull] = useState(false);
 
     const toggleLearning = () => {
         setIsLearningOpen(!isLearningOpen);
@@ -28,11 +28,20 @@ const Sidebar = () => {
 
     useEffect(() => {
         setIsLearningOpen(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location]);
 
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= (60)) {
+            setFull(true);
+        } else {
+            setFull(false);
+        }
+    });
+
     return (
-        <aside className='sticky top-12 left-0 md:w-52 z-10 md:flex hidden'>
-            <div className='flex flex-col justify-between bg-white shadow-lg p-2 h-[calc(100vh-60px)] w-52 border-t'>
+        <aside className={`sticky top-0 h-50 left-0 md:w-52 z-10 md:flex hidden ${full ? "h-screen" : "h-[calc(100vh-60px)]"}`}>
+            <div className='flex flex-col justify-between bg-white shadow-lg p-2 w-52 border-t'>
                 <ul className='flex flex-col gap-5 w-full'>
                     <NavLink end to='/dashboard' className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
                         <OverviewIcon />

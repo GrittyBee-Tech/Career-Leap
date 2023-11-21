@@ -12,11 +12,11 @@ const Dashboard = () => {
     return (
         <>
             <NavBar />
-            {toggleNav && <MobileSideBar />}
+                <MobileSideBar />
 
-            <div className="flex">
+            <div className="flex relative">
                 <Sidebar />
-                <main className="pt-4 px-6 bg-[#FAFAFE] w-full md:w-[calc(100vw-13rem)] h:auto relative">
+                <main className="pt-4 px-3 md:px-6 bg-[#FAFAFE] w-full md:w-[calc(100vw-13rem)] h:auto relative">
                     <Outlet />
                 </main>
             </div>

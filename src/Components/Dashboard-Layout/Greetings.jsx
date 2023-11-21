@@ -45,16 +45,17 @@ const Greetings = ({ text }) => {
     useEffect(() => {
         formatDate();
         getAdvice();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
-        <header className="flex md:flex-row flex-col gap-4 items-start md:items-center justify-between mt-2 mb-4">
+        <header className="flex md:flex-row flex-col gap-4 items-start flex-wrap md:items-center justify-between mt-2 mb-6 md:mb-4">
             <div>
                 <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center'>
                     Good {hour<12 ? "Morning" : hour <18 ? " Afternoon": " Evening"}, Adekunle!
                     {
                         hour < 12 ? <IoIosPartlySunny fill='#FDB813' />
-                            : <FaCloudMoon fill='#00a8fc' />
+                            : <FaCloudMoon fill='#173c81' />
                     }
                 </h1>
                 {isLoading ? (<div className="lg:mt-2"><h1>Daily Advice</h1></div>) : (<div>
@@ -63,7 +64,7 @@ const Greetings = ({ text }) => {
                 </div>)}
                 <p className='font-bad-script text-sm lg:mb-3 mb-3 md:mb-3 mt-2'>{text || "Watch impactful videos from mentors round about the world!"}</p>
             </div>
-            <div className='bg-white p-2 rounded-md lg:w-[200px] lg:h-[70px] h-[60px] w-[150px] md:h-[50px] lg:ml-0 md:ml-0 ml-[-40px] lg:mt-4'>
+            <div className='bg-white p-2 rounded-md lg:w-[200px] lg:h-[70px] h-[60px] w-[150px] md:h-[50px] md:ml-0 lg:mt-4'>
                 <p className='text-sm mb-1 font-plus-jakarta-sans'>Current Time</p>
                 <p className='font-plus-jakarta-sans text-xs font-medium flex lg:gap-2 md:gap-2 gap-0'>
                     {
