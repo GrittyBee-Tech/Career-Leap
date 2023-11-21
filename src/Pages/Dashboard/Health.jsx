@@ -4,8 +4,8 @@ import Squart from "/src/assets/Images/squart.png";
 import Stretch from "/src/assets/Images/stretch.png";
 import PushUp from "/src/assets/Images/push-up.png";
 import Book from "/src/assets/Images/E-books/think-for-yourself-control.jpg";
-import strategy from "/src/assets/Images/E-books/strategy.jpg"
 import DownloadIcon from "../../Components/Icons/DownloadIcon";
+import {  } from "./BigData";
 
 const Health = () => {
 
@@ -85,81 +85,39 @@ const Health = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className="col-span-2 border-2 p-3 mt-3 rounded-md">
-                    <h2 className="text-center font-bold text-[24px]">Books on Mindset</h2>
+                    <h2 className="text-center font-bold text-[24px]"> Available Books on Mindset</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
-                        <div className="border-2 rounded-md p-3 md:flex gap-3">
-                            <div className="w-full">
-                                <img src={strategy} alt="book cover" className="w-full h-[200px] rounded-md object-fill" />
-                            </div>
-                            <div>
-                                <h2 className="font-bold">The Power of HABIT</h2>
-                                <p className="my-2">Why we do what we do in Life and Business</p>
-                                <div className="mb-4">
-                                    <span className="font-bold">Author:</span> <span> Charles Duhigg</span>
-                                    <p>Duhigg argues in the book that 40% of our daily activities stem from the habits that we form.</p>
+                        {Ebooks.map((ebooks) => {
+                            const { id, Image, title, content, author } = ebooks
+                            return (
+                                <div key={id} className="border-2 rounded-md p-3 h-[200px] gap-3">
+                                    <div>
+                                        <div className="w-full">
+                                            <img src={Image} alt="book cover" className="w-[200px]  mx-auto h-[170px] rounded-md object-fill" />
+                                        </div>
+                                        <div className="mb-2 mt-4">
+                                            <span className="font-bold">Author:</span> <span>{author}</span>
+
+                                        </div>
+                                        <div> </div>
+
+                                        <h2 className="font-bold">{title}</h2>
+                                        <p className="mt-3 font-plus-jakarta-sans">{content}</p>
+
+                                        <p></p>
+
+
+                                        <a className='mt-5' href={Book} download=" "> <DownloadIcon />
+                                            <Button text={'Download'} styles='text-[white]'> </Button></a>
+
+
+                                    </div>
                                 </div>
-                                <div>
-                                    <Button text={'Download'} styles='text-[white]'>
-                                        <DownloadIcon />
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="border-2 rounded-md p-3 md:flex gap-3">
-                            <div className="w-full">
-                                <img src={Book} alt="book cover" className="w-[full] h-[200px] rounded-md object-center" />
-                            </div>
-                            <div>
-                                <h2 className="font-bold">The Power of HABIT</h2>
-                                <p className="my-2">Why we do what we do in Life and Business</p>
-                                <div className="mb-4">
-                                    <span className="font-bold">Author:</span> <span> Charles Duhigg</span>
-                                    <p>Duhigg argues in the book that 40% of our daily activities stem from the habits that we form.</p>
-                                </div>
-                                <div>
-                                    <Button text={'Download'} styles='text-[white]'>
-                                        <DownloadIcon />
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="border-2 rounded-md p-3 md:flex gap-3">
-                            <div className="w-full">
-                                <img src={Book} alt="book cover" className="w-[full] h-[200px] rounded-md object-center" />
-                            </div>
-                            <div>
-                                <h2 className="font-bold">The Power of HABIT</h2>
-                                <p className="my-2">Why we do what we do in Life and Business</p>
-                                <div className="mb-4">
-                                    <span className="font-bold">Author:</span> <span> Charles Duhigg</span>
-                                    <p>Duhigg argues in the book that 40% of our daily activities stem from the habits that we form.</p>
-                                </div>
-                                <div>
-                                    <Button text={'Download'} styles='text-[white]'>
-                                        <DownloadIcon />
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="border-2 rounded-md p-3 md:flex gap-3">
-                            <div className="w-full">
-                                <img src={Book} alt="book cover" className="w-[full] h-[200px] rounded-md object-center" />
-                            </div>
-                            <div>
-                                <h2 className="font-bold">The Power of HABIT</h2>
-                                <p className="my-2">Why we do what we do in Life and Business</p>
-                                <div className="mb-4">
-                                    <span className="font-bold">Author:</span> <span> Charles Duhigg</span>
-                                    <p>Duhigg argues in the book that 40% of our daily activities stem from the habits that we form.</p>
-                                </div>
-                                <div>
-                                    <Button text={'Download'} styles='text-[white]'>
-                                        <DownloadIcon />
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        })}
+
 
                     </div>
                 </div>
