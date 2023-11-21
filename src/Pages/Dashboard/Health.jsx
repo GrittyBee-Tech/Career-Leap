@@ -10,7 +10,7 @@ import DownloadIcon from "../../Components/Icons/DownloadIcon";
 const Health = () => {
 
     return (
-        <div className="p-5">
+        <div className="">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-9">
                 <div className="border-2 rounded-md col-span-1 p-3">
                     <div className="flex justify-center items-center gap-2">
@@ -38,7 +38,7 @@ const Health = () => {
                 </div>
                 <div className="col-span-2 rounded-md border-2 p-3">
                     <h2 className="font-bold text-[24px] text-center mb-3">Exercise</h2>
-                    <div className="md:flex gap-4">
+                    <div className="flex flex-col md:flex-row gap-4">
                         <div className="border-2 bg-white rounded-md">
                             <div className="w-full">
                                 <img src={Squart} alt="Squart" className="w-full" />
