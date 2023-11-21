@@ -90,7 +90,7 @@ const Health = () => {
                     <h2 className="text-center font-bold text-[24px]"> Available Books on Mindset</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                         {Ebooks.map((ebooks) => {
-                            const { id, Image, title, content } = ebooks
+                            const { id, Image, title, content, author } = ebooks
                             return (
                                 <div key={id} className="border-2 rounded-md p-3 h-[200px] gap-3">
                                     <div>
@@ -98,7 +98,7 @@ const Health = () => {
                                             <img src={Image} alt="book cover" className="w-[200px]  mx-auto h-[170px] rounded-md object-fill" />
                                         </div>
                                         <div className="mb-2 mt-4">
-                                            <span className="font-bold">Author:</span> <span> Charles Duhigg</span>
+                                            <span className="font-bold">Author:</span> <span>{author}</span>
 
                                         </div>
                                         <div> </div>

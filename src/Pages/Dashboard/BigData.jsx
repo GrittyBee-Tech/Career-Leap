@@ -5,8 +5,8 @@ import icon2 from "/src/assets/Images/E-books/tolerance-harmony-in-difference-ef
 
 export const Ebooks = [
 
-    { id: 1, title: "How to Succeed in Your Work: a tool kit", Image: icon2, content: "There are many aspects to following a successful career. They are mostly derived from two characteristics of personality: ability and application. A person with much ability has an easier time than another who is less able but the individual with less ability can also succeed through greater application.", },
-    { id: 2, title: "It’s Not You, It’s Your Strategy", Image: icon, content: "We tend to punish ourselves harshly for our “failure,” feeling lots of shame and guilt, and sometimes others – even family and friends – punish us as well.", },
+    { id: 1, title: "Tolerance: a tool kit", author: "Dr. RASHID ALLEEM", Image: icon2, content: "Tolerance demands an active choice of reaching out on the basis of mutual understanding andrespect, especially where disagreement exists. ", },
+    { id: 2, title: "It’s Not You, It’s Your Strategy", author: "Hilliary Rettig", Image: icon, content: "We tend to punish ourselves harshly for our “failure,” feeling lots of shame and guilt, and sometimes others – even family and friends – punish us as well.", },
 ];
 
 
