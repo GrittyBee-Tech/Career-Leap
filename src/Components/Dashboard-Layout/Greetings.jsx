@@ -3,11 +3,14 @@ import { FaCloudMoon } from 'react-icons/fa';
 import { IoIosPartlySunny } from 'react-icons/io';
 import axios from 'axios';
 import { MenuContextProvider } from "../../ContextApi/SideBarContext"
+import { useGeneralStore } from "../../ContextApi/GeneralContext";
+
 
 const Greetings = ({ text }) => {
     const { advicetab, setAdviceTab, isLoading, setIsLoading } = MenuContextProvider();
     const [dateformat, setDateFormat] = useState([]);
     const [hour, setHour] = useState(0);
+    const { user } = useGeneralStore();
 
     const getAdvice = async () => {
 
@@ -51,8 +54,9 @@ const Greetings = ({ text }) => {
     return (
         <header className="flex md:flex-row flex-col gap-4 items-start flex-wrap md:items-center justify-between mt-2 mb-6 md:mb-4">
             <div>
-                <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center'>
-                    Good {hour < 12 ? "Morning" : hour < 18 ? " Afternoon" : " Evening"}
+                <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center capitalize'>
+                    Good {hour < 12 ? "Morning " : hour < 18 ? " Afternoon " : " Evening "}
+                    {user.fullName.split(" ")[0]}
                     {
                         hour < 12 ? <IoIosPartlySunny fill='#FDB813' />
                             : <FaCloudMoon fill='#173c81' />

@@ -47,7 +47,7 @@ const Sidebar = () => {
                         <OverviewIcon />
                         <p>Overview</p>
                     </NavLink>
-                    <div className='bg-white items-center flex gap-6 w-full'>
+                    <div className='bg-white items-center flex gap-6 w-full cursor-pointer'>
                         <div className={`rounded-md p-2 ${location.pathname.includes('dashboard/learn') ? 'bg-[blue] text-white' : 'bg-white'} flex flex-col gap-6 w-full justify-start`}>
                             <div className='flex items-center gap-6' onClick={toggleLearning}>
                                 <img src={learningIcon} alt="learning icon" className='' />Learning
@@ -58,17 +58,15 @@ const Sidebar = () => {
                         </div>
                     </div>
                     {isLearningOpen && (
-                        <div className=' ml-4 -mt-4'>
-                            <ul>
-                                <NavLink to="/dashboard/learn/courses/" className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
-                                    <VideoIcon />
-                                    <p>Courses</p>
-                                </NavLink>
-                                <NavLink to="/dashboard/learn/ebooks" className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
-                                    <PDFIcon />
-                                    <p >E-Books</p>
-                                </NavLink>
-                            </ul>
+                        <div className='ml-4 -mt-3'>
+                            <NavLink to="/dashboard/learn/courses/" className={({ isActive }) => `p-2 mb-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
+                                <VideoIcon />
+                                <p>Courses</p>
+                            </NavLink>
+                            <NavLink to="/dashboard/learn/ebooks" className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>
+                                <PDFIcon />
+                                <p >E-Books</p>
+                            </NavLink>
                         </div>
                     )}
                     <NavLink to="/dashboard/mentorship" className={({ isActive }) => `p-2 rounded ${isActive ? 'bg-[blue] text-white' : 'bg-white'} items-center flex gap-6 w-full`}>

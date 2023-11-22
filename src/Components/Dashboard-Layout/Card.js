@@ -4,6 +4,7 @@ import icon3 from "/src/assets/Images/E-books/better-ways-manage-meetings-walker
 import icon4 from "/src/assets/Images/E-books/cyber-exposure-management-nopsec-obooko-pdf-ebook-0211e567c4e37144700da7c8dd1b0a48.jpg";
 import icon5 from "/src/assets/Images/E-books/think-for-yourself-control.jpg";
 import icon6 from "/src/assets/Images/E-books/staff-fleming.jpg";
+
 export const Card = [
   {
     id: 1,
@@ -33,6 +34,7 @@ export const Card = [
       "Meetings are a normal, everyday part of humanitarian life. Many of us have experienced coming away from a meeting with a sense of  accomplishment and satisfaction.",
   },
   {
+    id: 7,
     title: "Cyber Exposure Management",
     author: "NOPSEC",
     href: "/src/assets/pdf/cyber-exposure-management-obooko.pdf",

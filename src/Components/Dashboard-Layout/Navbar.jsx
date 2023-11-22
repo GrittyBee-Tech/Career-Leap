@@ -7,14 +7,13 @@ import avatar from '../../assets/Icons/avatar.svg';
 import { MenuContextProvider } from '../../ContextApi/SideBarContext';
 import { Link } from 'react-router-dom';
 import { useGeneralStore } from '../../ContextApi/GeneralContext';
-import { useEffect } from 'react';
 
 const NavBar = () => {
     const { toggleNav, setToggleNav } = MenuContextProvider();
     const { user } = useGeneralStore();
 
     return (
-        <nav className="flex px-4 lg:justify-between md:justify-between lg:gap-0 md:gap-1 gap-[70px] justify-normal w-full items-center lg:pl-5  pr-7 z-[9999] py-2 border-b border-b-[#ECECEC] bg-white">
+        <nav className="flex px-4 lg:justify-between md:justify-between lg:gap-0 md:gap-1 gap-0 justify-between w-full items-center lg:pl-5 pr-7 z-[9999] py-2 border-b border-b-[#ECECEC] bg-white">
             <div className='flex lg:gap-2 md:gap-2 gap-2 '>
                 < GiHamburgerMenu onClick={() => setToggleNav(!toggleNav)} className='lg:hidden md:hidden flex text-[24px]   text-primary ' />
                 <h2 className="font-lobster text-primary lg:text-3xl md:text-3xl text-[20px] font-bold "><Link to='/'>Rise Path</Link></h2>

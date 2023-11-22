@@ -1,10 +1,9 @@
 import { AiOutlineDingtalk } from "react-icons/ai"
 import { RiCloseCircleFill } from "react-icons/ri"
 import { HashLink } from "react-router-hash-link"
-import { Link } from 'react-router-dom';
-
 
 const MobileNavbar = ({ setIsOpen, setIsModalOpen }) => {
+
     return (
         <nav className="md:hidden  top-0  bg-[#BCE7FD] fixed h-screen w-full z-10">
             <div className="flex flex-col p-4">
@@ -22,24 +21,28 @@ const MobileNavbar = ({ setIsOpen, setIsModalOpen }) => {
 
                 <ul className="flex  flex-col gap-8 mt-[40px] text-[18px] text-[#0A0A29] font-plus-jakarta-sans font-semibold">
                     <li>
-                        <Link to="/">
-                            Home</Link></li>
+                        <HashLink onClick={() => setIsOpen(false)} to="/">Home</HashLink>
+                    </li>
                     <li>
-                        <Link to="/#Appraisal">
-                            Appraisal</Link></li>
+                        <HashLink onClick={() => setIsOpen(false)} to="/#Appraisal">Appraisal</HashLink>
+                    </li>
                     <li>
-                        <Link to="/#Upskills"> Upskills</Link></li>
-                    <li><Link to="/#Mentorship">Mentorship</Link></li>
-                    <li><Link to="/#Health">Mental Health</Link></li>
+                        <HashLink onClick={() => setIsOpen(false)} to="/#Upskills"> Upskills</HashLink>
+                    </li>
+                    <li>
+                        <HashLink onClick={() => setIsOpen(false)} to="/#Mentorship">Mentorship</HashLink>
+                    </li>
+                    <li>
+                        <HashLink onClick={() => setIsOpen(false)} to="/#Health">Mental Health</HashLink>
+                    </li>
                 </ul>
                 <div className=" flex  flex-col gap-3 ">
-                    <p className="mt-9 text-[24px] text-[#0A0A29] font-plus-jakarta-sans font-semibold"><HashLink to='/signin'>Log in</HashLink ></p>
+                    <p className="mt-9 text-[24px] text-[#0A0A29] font-plus-jakarta-sans font-semibold"><HashLink onClick={() => setIsOpen(false)} to='/signin'>Log in</HashLink ></p>
                     <button onClick={() => setIsModalOpen(true)} className="bg-[black] w-[150px] p-3 text-[#FFFF] rounded mt-[18px]" >Sign up</button>
                 </div>
 
 
             </div>
-
         </nav>
     )
 }

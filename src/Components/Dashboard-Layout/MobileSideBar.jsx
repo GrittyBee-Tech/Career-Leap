@@ -26,7 +26,7 @@ const MobileSideBar = () => {
         setIsLearningOpen(false);
         setToggleNav(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [location]);
+    }, [location.pathname]);
 
     return (
         <nav className={`fixed top-[54px] w-fit h-[calc(100vh-60px)] border-t z-50 shadow-lg shadow-gray-500 bg-white sm:hidden ${toggleNav ? "flex" : "hidden"} flex-col justify-between p-2 pt-0 transition-all duration-500`}>
@@ -35,7 +35,7 @@ const MobileSideBar = () => {
                     <OverviewIcon />
                     <p>Overview</p>
                 </NavLink>
-                <li className='flex gap-4'>
+                <li className='flex gap-4 cursor-pointer'>
                     <div className={`rounded-md p-2 ${location.pathname.includes('dashboard/learn') ? 'bg-[blue] text-white' : 'bg-white'} flex flex-col gap-6 w-full justify-start`}>
                         <div className='flex items-center gap-6' onClick={toggleLearning}>
                             <img src={learningIcon} alt="learning icon" className='' />Learning
