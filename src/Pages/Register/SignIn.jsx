@@ -13,9 +13,10 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useGeneralStore } from "../../ContextApi/GeneralContext";
 import Swal from 'sweetalert2';
+import { jwtDecode } from "jwt-decode";
 
 const SignIn = () => {
-    const { baseURL, setAccessToken } = useGeneralStore();
+    const { baseURL, setAccessToken, setUser } = useGeneralStore();
     const navigate = useNavigate();
     const [showPassword, setshowPassword] = useState(false);
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -42,6 +43,8 @@ const SignIn = () => {
                     icon: 'success'
                 });
                 setAccessToken(res?.data?.token);
+                const userDets = jwtDecode(res?.data?.token);
+                setUser(userDets);
                 localStorage.setItem(
                     "AUTH_VALUES",
                     JSON.stringify({ accessToken: res?.data?.token })

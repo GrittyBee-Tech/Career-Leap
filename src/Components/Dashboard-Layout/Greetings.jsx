@@ -47,7 +47,6 @@ const Greetings = ({ text }) => {
     useEffect(() => {
         formatDate();
         getAdvice();
-        console.log(user);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

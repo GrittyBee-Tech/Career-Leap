@@ -3,11 +3,11 @@ import {
     useCallback,
     useContext,
     useEffect,
-    useMemo,
     useState
 } from "react";
 import useLocalStore from "../../hooks/useLocalStore";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const GeneralContext = createContext({});
 
@@ -17,8 +17,15 @@ export const GeneralProvider = ({ children }) => {
     const baseURL = "https://risepath-dev.onrender.com";
 
     const logoutFunction = () => {
-        setAccessToken(null);
-        window.localStorage.removeItem('AUTH_VALUES');
+        Swal.fire({
+            title: 'Successfuly',
+            icon: 'success',
+            text: 'Logged out successfully'
+        });
+        setTimeout(() => {
+            setAccessToken(null);
+            window.localStorage.removeItem('AUTH_VALUES');
+        }, 2500);
     }
 
     const logout = useCallback(logoutFunction, [logoutFunction]);
@@ -44,19 +51,18 @@ export const GeneralProvider = ({ children }) => {
                 console.log('Error fetching token', err.response);
             });
         };
-        if (!accessToken) request();
+        if (accessToken) request();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accessToken, setAccessToken]);
 
-    const contextData = useMemo(() => ({
+    const contextData = {
         accessToken,
         setAccessToken,
         user,
         setUser,
         logout,
         baseURL
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }), [accessToken, user, logout, setAccessToken, setUser]);
+    };
 
     return (
         <GeneralContext.Provider value={contextData}>
