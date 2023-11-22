@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { FaCloudMoon } from 'react-icons/fa';
 import { IoIosPartlySunny } from 'react-icons/io';
 import axios from 'axios';
-import { MenuContextProvider } from "../../ContextApi/SideBarContext"
-import { useGeneralStore } from "../../ContextApi/GeneralContext";
+import { MenuContextProvider } from "../../ContextApi/SideBarContext";
+import { useGeneralStore } from '../../ContextApi/GeneralContext';
 
 
 const Greetings = ({ text }) => {
@@ -13,7 +13,6 @@ const Greetings = ({ text }) => {
     const { user } = useGeneralStore();
 
     const getAdvice = async () => {
-
         try {
             setIsLoading(true);
             const response = await axios.get("https://api.adviceslip.com/advice");
@@ -48,6 +47,7 @@ const Greetings = ({ text }) => {
     useEffect(() => {
         formatDate();
         getAdvice();
+        console.log(user);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -56,7 +56,7 @@ const Greetings = ({ text }) => {
             <div>
                 <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center capitalize'>
                     Good {hour < 12 ? "Morning " : hour < 18 ? " Afternoon " : " Evening "}
-                    {user?.fullName.split(" ")[0]}
+                    {user && user?.fullName.split(" ")[0]}
                     {
                         hour < 16 ? <IoIosPartlySunny fill='#FDB813' />
                             : <FaCloudMoon fill='#173c81' />

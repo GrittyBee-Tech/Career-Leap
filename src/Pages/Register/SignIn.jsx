@@ -37,19 +37,16 @@ const SignIn = () => {
                 }
             });
             if (res.status == 200 || res.data != "User not found") {
-                localStorage.setItem(
-                    "AUTH_VALUES",
-                    JSON.stringify({ accessToken: res.data.token })
-                );
-                console.log(res.data);
                 Swal.fire({
                     title: 'Logged in successfully',
                     icon: 'success'
                 });
-                setTimeout(() => {
-                    setAccessToken(res.data.token);
-                    navigate('/dashboard');
-                }, 2500);
+                setAccessToken(res?.data?.token);
+                localStorage.setItem(
+                    "AUTH_VALUES",
+                    JSON.stringify({ accessToken: res?.data?.token })
+                );
+                setTimeout(() => navigate('/dashboard'), 2500);
             }
         } catch (err) {
             Swal.fire({
