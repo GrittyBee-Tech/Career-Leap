@@ -32,7 +32,7 @@ const NavBar = () => {
                 <button className='lg:flex md:flex hidden'>
                     <FiMail className='text-2xl' />
                 </button>
-                <h3 className='text-[#000000]'>{user.fullName}</h3>
+                <h3 className='text-[#000000]'>{user?.fullName}</h3>
                 <img src={avatar} width={36} height={36} className='rounded-full' alt="" />
             </div>
         </nav>
