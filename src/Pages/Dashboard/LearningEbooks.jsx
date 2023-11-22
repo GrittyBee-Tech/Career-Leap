@@ -72,12 +72,9 @@ const LearningEbooks = () => {
 
             <section className="mt-7 border rounded-xl border-[#404064] min-h-[28rem] px-2.5 py-3.5">
                 <h3 className="text-[#0a0a29] font-medium font-plus-jakarta-sans text-center">Ebooks Available</h3>
-                <div className="grid grid-cols-3 gap-x-2.5 gap-y-4 mt-5">
-                    <EbookCard />
-                    <EbookCard />
-                    <EbookCard />
-                    <EbookCard />
-                </div>
+                {/* <div className=""> */}
+                <EbookCard />
+                {/* </div> */}
             </section>
         </>
     )

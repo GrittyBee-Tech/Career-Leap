@@ -7,7 +7,7 @@ const Appraisal = () => {
         <Greetings />
 
         {/* <div> */}
-            <img src={bg} alt="coming soon" className='md:ml-36 mx-auto sm:mx-0 w-96 sm:w-[31rem]' />
+            <img src={bg} alt="coming soon" className='mx-auto w-full sm:w-[40rem]' />
         {/* </div> */}
     </>
   )
