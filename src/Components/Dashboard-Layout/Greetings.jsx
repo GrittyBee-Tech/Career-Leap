@@ -52,7 +52,7 @@ const Greetings = ({ text }) => {
         <header className="flex md:flex-row flex-col gap-4 items-start flex-wrap md:items-center justify-between mt-2 mb-6 md:mb-4">
             <div>
                 <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center'>
-                    Good {hour<12 ? "Morning" : hour <18 ? " Afternoon": " Evening"}, Adekunle!
+                    Good {hour < 12 ? "Morning" : hour < 18 ? " Afternoon" : " Evening"}
                     {
                         hour < 12 ? <IoIosPartlySunny fill='#FDB813' />
                             : <FaCloudMoon fill='#173c81' />
