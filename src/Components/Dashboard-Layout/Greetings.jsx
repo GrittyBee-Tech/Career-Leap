@@ -56,9 +56,9 @@ const Greetings = ({ text }) => {
             <div>
                 <h1 className='text-2xl font-semibold text-[#000] font-plus-jakarta-sans flex gap-3 items-center capitalize'>
                     Good {hour < 12 ? "Morning " : hour < 18 ? " Afternoon " : " Evening "}
-                    {user.fullName.split(" ")[0]}
+                    {user?.fullName.split(" ")[0]}
                     {
-                        hour < 12 ? <IoIosPartlySunny fill='#FDB813' />
+                        hour < 16 ? <IoIosPartlySunny fill='#FDB813' />
                             : <FaCloudMoon fill='#173c81' />
                     }
                 </h1>
