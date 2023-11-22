@@ -6,14 +6,12 @@ import { jwtDecode } from "jwt-decode";
 
 const PersistLogin = () => {
     const [isLoading, setisLoading] = useState(true);
-    const { accessToken, setUser } = useGeneralStore();
+    const { accessToken } = useGeneralStore();
 
     useEffect(() => {
       const verifyToken = async () => {
         try {
-            const userDets = await jwtDecode(accessToken);
-            console.log(userDets);
-            setUser(userDets);
+            await jwtDecode(accessToken);
         } catch(err) {
             localStorage.removeItem('AUTH_VALUES');
         } finally {

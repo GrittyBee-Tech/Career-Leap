@@ -17,7 +17,7 @@ const useLocalStore = (key, defaultValue) => {
     if (jsonValue != null) {
       const val = JSON.parse(jsonValue);
       const obj = {
-        ...val, accesToken: value
+        ...val, accessToken: value
       };
       window.localStorage.setItem(key, JSON.stringify(obj));
     }

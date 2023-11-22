@@ -76,7 +76,7 @@ const MobileSideBar = () => {
                     <p>Settings</p>
                 </NavLink>
             </ul>
-            <button className='flex mb-5' onClick={logout}>
+            <button className='flex mb-5' onClick={() => logout() }>
                 <img src={logoutIcon} alt="logout icon" className='ml-2 mr-4' />
                 <p>Logout</p>
             </button>

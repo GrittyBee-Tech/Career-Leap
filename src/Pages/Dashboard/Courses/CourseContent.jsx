@@ -48,7 +48,7 @@ const CourseContent = () => {
   return (
     <>
       <Greetings />
-      <section className='flex flex-col-reverse md:flex-row w-full justify-between rounded-md'>
+      <section className='flex flex-col-reverse md:flex-row gap-4 md:gap-0 w-full justify-between rounded-md'>
         <div className='w-full md:w-8/12'>
           <h2 className="text-2xl font-semibold mb-6 flex gap-2">
             <span>{lectureContent?.address || "X.X"}</span>
@@ -68,10 +68,9 @@ const CourseContent = () => {
         </div>
         <div className='shadow-slate-400 bg-white shadow-lg w-full md:w-4/12 py-2 min-h-[70vh] -mt-8'>
           <h3 className='text-xl font-semibold font-plus-jakarta-sans text-center'>Course Content</h3>
-          <ul className='mt-6 flex flex-col gap-4'>
+          <ul className='mt-6 flex flex-col gap-2.5'>
             {
               lectureArray && lectureArray?.map(({ _id, title, isVideo }) => {
-                // console.log(lec);
                 return (
                   <NavLink key={_id} to={`/dashboard/learn/courses/${courseId}/lecture/${_id}`} className={({ isActive }) => `border-l-primary border-l-4 py-2 ${isActive ? "focus:bg-slate-300": "bg-slate-100"} flex gap-4 pl-2`}>
                     {isVideo ? <MdOndemandVideo size={24} /> : <FaRegFilePdf />}

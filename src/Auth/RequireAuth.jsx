@@ -25,7 +25,7 @@ const RequireAuth = () => {
   };
 
   useEffect(() => {
-    if (!accessToken) {
+    if (accessToken) {
       const req = async () => {
         const data = JSON.stringify({
           email: user.email
