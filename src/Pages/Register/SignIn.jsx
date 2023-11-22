@@ -18,7 +18,6 @@ const SignIn = () => {
     const { baseURL, setAccessToken } = useGeneralStore();
     const navigate = useNavigate();
     const [showPassword, setshowPassword] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     const schema = yup.object().shape({
@@ -30,31 +29,6 @@ const SignIn = () => {
         resolver: yupResolver(schema)
     });
 
-    // const handleFormSubmit = (event) => {
-    //     event.preventDefault();
-
-    //     // Access user input from the form
-    //     const formData = new FormData(event.target);
-    //     const userInput = {
-    //         email: formData.get('email'),
-    //         password: formData.get('password'),
-    //     };
-
-
-    //     // Compare user input with local storage data
-    //     if (
-    //         userDetails &&
-    //         userInput.email === userDetails.email &&
-    //         userInput.password === userDetails.password
-    //     ) {
-    //         // Successful login, navigate to the dashboard or another page
-    //         Navigate("/")
-    //     } else {
-    //         // Display an error message for unsuccessful login
-    //         setErrorMessage('Invalid email or password');
-    //     }
-    // };
-
     const onsubmit = async (data) => {
         try {
             const res = await axios.post(`${baseURL}/auth/login`, JSON.stringify(data), {
@@ -65,8 +39,9 @@ const SignIn = () => {
             if (res.status == 200 || res.data != "User not found") {
                 localStorage.setItem(
                     "AUTH_VALUES",
-                    JSON.stringify({ accessToken: res.data.accessToken })
+                    JSON.stringify({ accessToken: res.data.token })
                 );
+                console.log(res.data);
                 Swal.fire({
                     title: 'Logged in successfully',
                     icon: 'success'
@@ -77,7 +52,6 @@ const SignIn = () => {
                 }, 2500);
             }
         } catch (err) {
-            setErrorMessage(err?.response?.data);
             Swal.fire({
                 title: 'Error',
                 icon: 'error',
@@ -177,7 +151,6 @@ const SignIn = () => {
                                 <AiOutlineMail className="absolute text-lg right-4 top-3.5" />
                             </div>
 
-                            {errorMessage && <p className="text-red-500 font-semibold text-center capitalize">{errorMessage}</p>}
                             <button
                                 type="submit"
                                 onClick={handleSubmit(onsubmit)}
