@@ -12,6 +12,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useGeneralStore } from "../../ContextApi/GeneralContext";
+import Swal from 'sweetalert2';
 
 const SignIn = () => {
     const { baseURL, setAccessToken } = useGeneralStore();
@@ -61,16 +62,27 @@ const SignIn = () => {
                     "Content-Type": "application/json"
                 }
             });
-            if (res.status == 200) {
+            if (res.status == 200 || res.data != "User not found") {
                 localStorage.setItem(
                     "AUTH_VALUES",
                     JSON.stringify({ accessToken: res.data.accessToken })
                 );
-                setAccessToken(res.data.token);
-                navigate('/dashboard');
+                Swal.fire({
+                    title: 'Logged in successfully',
+                    icon: 'success'
+                });
+                setTimeout(() => {
+                    setAccessToken(res.data.token);
+                    navigate('/dashboard');
+                }, 2500);
             }
         } catch (err) {
             setErrorMessage(err?.response?.data);
+            Swal.fire({
+                title: 'Error',
+                icon: 'error',
+                text: err.response.data
+            });
         }
     };
 
