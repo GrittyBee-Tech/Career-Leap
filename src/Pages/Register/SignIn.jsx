@@ -49,7 +49,7 @@ const SignIn = () => {
                     "AUTH_VALUES",
                     JSON.stringify({ accessToken: res?.data?.token })
                 );
-                setTimeout(() => navigate('/dashboard'), 2500);
+                navigate('/dashboard');
             }
         } catch (err) {
             Swal.fire({
