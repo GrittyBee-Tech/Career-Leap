@@ -14,11 +14,13 @@ import axios from "axios";
 import { useGeneralStore } from "../../ContextApi/GeneralContext";
 import Swal from 'sweetalert2';
 import { jwtDecode } from "jwt-decode";
+import Loader from '../../Components/Loader/Loader';
 
 const SignIn = () => {
     const { baseURL, setAccessToken, setUser } = useGeneralStore();
     const navigate = useNavigate();
     const [showPassword, setshowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     const schema = yup.object().shape({
@@ -32,6 +34,7 @@ const SignIn = () => {
 
     const onsubmit = async (data) => {
         try {
+            setIsLoading(true);
             const res = await axios.post(`${baseURL}/auth/login`, JSON.stringify(data), {
                 headers: {
                     "Content-Type": "application/json"
@@ -52,11 +55,14 @@ const SignIn = () => {
                 setTimeout(() => navigate('/dashboard'), 2500);
             }
         } catch (err) {
+            console.log(err);
             Swal.fire({
                 title: 'Error',
                 icon: 'error',
                 text: err.response.data
             });
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -76,8 +82,15 @@ const SignIn = () => {
                 <div className="pt-3">
                     <div
                         style={{ boxShadow: "5px 10px 20px 0px rgba(0, 0, 0, 0.25)" }}
-                        className="  lg:w-[500px] sm:flex-1  bg-[#EAF6FC] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5"
-                    >
+                        className="  lg:w-[500px] sm:flex-1  bg-[#EAF6FC] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5 relative"
+                        >
+                        {
+                            isLoading && (
+                                <div className="w-full absolute inset-0">
+                                    <Loader text='Signing in' />
+                                </div>
+                            )
+                        }
                         <h2 className="text-3xl text-[#00F] font-lobster text-center">
                             RisePath
                         </h2>

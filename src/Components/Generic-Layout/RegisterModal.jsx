@@ -36,10 +36,7 @@ const RegisterModal = ({ setIsModalOpen, isModalOpen }) => {
                 <img src={employer} alt="" />
                 <h3 className='text-[#0000FF] font-bold text-2xl md:text-4xl sm:mb-2 font-plus-jakarta-sans'>HR/CEO</h3>
                 <p className='text-[#0000FF] font-semibold sm:mb-5 font-plus-jakarta-sans'>I am an HR/CEO and would like to create an account for my company.</p>
-                {
-                  hasForwardSlashAfterUrl ? <button className='bg-[#3333FF] rounded-lg px-5 py-2.5 text-white' onClick={() => setIsModalOpen(false)}>Register</button> : 
-                  <Link to="/admin/register" className='bg-[#3333FF] text-white rounded-lg px-5 py-1.5 md:py-2.5'>Register</Link>
-                }
+                <Link to="/admin/register" className='bg-[#3333FF] text-white rounded-lg px-5 py-1.5 md:py-2.5'>Register</Link>
             </div>
         </div>
       </div>

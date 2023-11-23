@@ -11,10 +11,12 @@ import RegisterModal from '../../Components/Generic-Layout/RegisterModal';
 import { useGeneralStore } from '../../ContextApi/GeneralContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Loader from '../../Components/Loader/Loader';
 
 const RegisterEmployee = () => {
   const [showPassword, setshowPassword] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { baseURL, setUser } = useGeneralStore();
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -35,6 +37,7 @@ const RegisterEmployee = () => {
     const sending = { fullName, email, password, companyName: data.organization, role: 'user' };
 
     try {
+      setIsLoading(true);
       const res = await axios.post(`${baseURL}/auth/register`, JSON.stringify(sending), {
         headers: {
           "Content-Type": 'application/json'
@@ -57,6 +60,8 @@ const RegisterEmployee = () => {
         icon: 'error',
         text: err.response.data.error
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -70,6 +75,13 @@ const RegisterEmployee = () => {
         <img src={bg} alt="" />
       </div>
       <div style={{ boxShadow: '5px 10px 20px 0px rgba(0, 0, 0, 0.25)' }} className='w-full sm:flex-1 mb-4 bg-[#EAF6FC] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5'>
+        {
+          isLoading && (
+            <div className="w-full absolute inset-0">
+                <Loader text='Signing in' />
+            </div>
+          )
+        }
         <h2 className="text-3xl text-primary font-lobster text-center">Rise Path</h2>
         <h4 className='font-plus-jakarta-sans text-2xl font-semibold text-center'>Create an Account</h4>
         <p className="font-georgia text-sm mb-4 text-center">Sign up on Rise Path as an Employee and get access to the services we offer.</p>
