@@ -1,4 +1,3 @@
-
 import bg from '../../assets/Images/amico.svg';
 import { useForm } from 'react-hook-form';
 import { AiOutlineMail, AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
@@ -50,9 +49,7 @@ const RegisterEmployee = () => {
           title: 'Registered successfully',
           icon: 'success'
         });
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 2500);
+        navigate('/dashboard');
       }
     } catch(err) {
       Swal.fire({

@@ -50,9 +50,7 @@ const Register = () => {
           title: 'Registered successfully',
           icon: 'success'
         });
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 2500);
+        navigate('/dashboard');
       }
     } catch(err) {
       Swal.fire({
