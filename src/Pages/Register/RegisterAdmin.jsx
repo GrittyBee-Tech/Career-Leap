@@ -10,11 +10,13 @@ import RegisterModal from '../../Components/Generic-Layout/RegisterModal';
 import axios from 'axios';
 import { useGeneralStore } from '../../ContextApi/GeneralContext';
 import Swal from 'sweetalert2';
+import Loader from '../../Components/Loader/Loader';
 
 const Register = () => {
   const navigate = useNavigate();
   const { baseURL, setUser } = useGeneralStore();
   const [showPassword, setshowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -34,6 +36,7 @@ const Register = () => {
     
     const sending = { fullName, email, password, companyName: data.organization, role: 'admin' };
     
+    setIsLoading(true);
     try {
       const res = await axios.post(`${baseURL}/auth/register`, JSON.stringify(sending), {
         headers: {
@@ -47,9 +50,7 @@ const Register = () => {
           title: 'Registered successfully',
           icon: 'success'
         });
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 2500);
+        navigate('/dashboard');
       }
     } catch(err) {
       Swal.fire({
@@ -57,6 +58,8 @@ const Register = () => {
         icon: 'error',
         text: err.response.data.error
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -70,7 +73,14 @@ const Register = () => {
             <img src={bg} alt="" />
         </div>
         <div style={{ boxShadow: '5px 10px 20px 0px rgba(0, 0, 0, 0.25)' }} className='w-full sm:flex-1 mb-4 bg-[#EAF6FC] sm:mb-0 rounded-3xl px-10 sm:px-6 md:px-8 lg:px-12 py-8 flex flex-col gap-5'>
-            <h2 className="text-3xl text-primary font-lobster text-center">Rise</h2>
+            {
+              isLoading && (
+                <div className="w-full absolute inset-0">
+                    <Loader text='Signing in' />
+                </div>
+              )
+            }
+            <h2 className="text-3xl text-primary font-lobster text-center">RisePath</h2>
             <h4 className='font-plus-jakarta-sans text-2xl font-semibold text-center'>Create an Account</h4>
             <p className="font-georgia text-sm mb-4 text-center">Sign up on RisePath as a company and get access to the services we offer.</p>
             <form action="" className='flex flex-col gap-5' onSubmit={handleSubmit(onsubmit)}>
